@@ -15,11 +15,9 @@
 		FC1551341B851F12009F6C01 /* AddNewEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1551331B851F12009F6C01 /* AddNewEntryViewController.swift */; };
 		FC1551361B8542CC009F6C01 /* ContentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1551351B8542CC009F6C01 /* ContentTableViewController.swift */; };
 		FCDB619B1B8668CE001FCA46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCDB619A1B8668CE001FCA46 /* Assets.xcassets */; };
-		FCDB619F1B866C0F001FCA46 /* Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDB619D1B866C0F001FCA46 /* Publisher.swift */; };
-		FCDB61A01B866C0F001FCA46 /* Publishers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDB619E1B866C0F001FCA46 /* Publishers.swift */; };
 		FCDF92921B85493200C12CA3 /* ContentCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDF92911B85493200C12CA3 /* ContentCollectionViewController.swift */; };
 		FCDF92951B854EB600C12CA3 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDF92941B854EB600C12CA3 /* CustomTableViewCell.swift */; };
-		FCDF92981B854EE700C12CA3 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDF92971B854EE700C12CA3 /* CustomCollectionViewCell.swift */; };
+		FCDF92981B854EE700C12CA3 /* PublisherCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDF92971B854EE700C12CA3 /* PublisherCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,11 +43,9 @@
 		FC1551331B851F12009F6C01 /* AddNewEntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNewEntryViewController.swift; sourceTree = "<group>"; };
 		FC1551351B8542CC009F6C01 /* ContentTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentTableViewController.swift; sourceTree = "<group>"; };
 		FCDB619A1B8668CE001FCA46 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		FCDB619D1B866C0F001FCA46 /* Publisher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Publisher.swift; sourceTree = "<group>"; };
-		FCDB619E1B866C0F001FCA46 /* Publishers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Publishers.swift; sourceTree = "<group>"; };
 		FCDF92911B85493200C12CA3 /* ContentCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentCollectionViewController.swift; sourceTree = "<group>"; };
 		FCDF92941B854EB600C12CA3 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
-		FCDF92971B854EE700C12CA3 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
+		FCDF92971B854EE700C12CA3 /* PublisherCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublisherCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,8 +135,6 @@
 		FCDB619C1B866C0F001FCA46 /* Model Classes */ = {
 			isa = PBXGroup;
 			children = (
-				FCDB619D1B866C0F001FCA46 /* Publisher.swift */,
-				FCDB619E1B866C0F001FCA46 /* Publishers.swift */,
 			);
 			path = "Model Classes";
 			sourceTree = "<group>";
@@ -160,7 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				FCDF92941B854EB600C12CA3 /* CustomTableViewCell.swift */,
-				FCDF92971B854EE700C12CA3 /* CustomCollectionViewCell.swift */,
+				FCDF92971B854EE700C12CA3 /* PublisherCollectionViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -265,10 +259,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FCDB619F1B866C0F001FCA46 /* Publisher.swift in Sources */,
 				FCDF92951B854EB600C12CA3 /* CustomTableViewCell.swift in Sources */,
-				FCDF92981B854EE700C12CA3 /* CustomCollectionViewCell.swift in Sources */,
-				FCDB61A01B866C0F001FCA46 /* Publishers.swift in Sources */,
+				FCDF92981B854EE700C12CA3 /* PublisherCollectionViewCell.swift in Sources */,
 				FCDF92921B85493200C12CA3 /* ContentCollectionViewController.swift in Sources */,
 				FC1551321B851E78009F6C01 /* ContainerViewController.swift in Sources */,
 				FC1551121B851E54009F6C01 /* AppDelegate.swift in Sources */,

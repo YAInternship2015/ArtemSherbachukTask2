@@ -45,7 +45,7 @@ class ContentCollectionViewController: UICollectionViewController {
 
   override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCellWithReuseIdentifier("CellCollection", forIndexPath: indexPath) as!
-    CustomCollectionViewCell
+    PublisherCollectionViewCell
 
 
     return cell
