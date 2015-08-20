@@ -14,9 +14,7 @@ class ContainerViewController: UIViewController, UIViewControllerTransitioningDe
 
   var firstViewCtrl: UIViewController?
   var secondViewCtrl: UIViewController?
-  var isFirstViewCtrl: Bool = true
-
-  private var activeViewCtrl: UIViewController? {
+  var activeViewCtrl: UIViewController? {
     //setter react on any change varieble
     didSet {
       //1 delete old VC
@@ -26,6 +24,8 @@ class ContainerViewController: UIViewController, UIViewControllerTransitioningDe
 
     }
   }
+
+  private var isFirstViewCtrl: Bool = true
 
   //MARK: LOADING
 
@@ -41,17 +41,12 @@ class ContainerViewController: UIViewController, UIViewControllerTransitioningDe
   }
 
 
-  override func viewDidAppear(animated: Bool) {
-    super.viewDidAppear(animated)
-  }
-
 
 
   //MARK: TARGET ACTION
 
   @IBAction func layoutButtonDidTouch(sender: UIBarButtonItem) {
     activeViewCtrl = isFirstViewCtrl ? secondViewCtrl : firstViewCtrl
-    animateViewController()
     isFirstViewCtrl = !isFirstViewCtrl
   }
 
@@ -62,7 +57,7 @@ class ContainerViewController: UIViewController, UIViewControllerTransitioningDe
 
 
 
-  //MARK: CONTEINER LOGIC
+  //MARK: CONTAINER LOGIC
 
   private func removeInactiveViewCtrl(inactiveViewCtrl: UIViewController?) {
     if let inactiveVC = inactiveViewCtrl {

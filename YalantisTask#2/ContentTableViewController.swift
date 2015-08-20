@@ -11,6 +11,9 @@ import UIKit
 class ContentTableViewController: UITableViewController {
 
 
+
+  //MARK: LOADING
+
   override func viewDidLoad() {
     super.viewDidLoad()
     tableView.rowHeight = 80
@@ -18,7 +21,7 @@ class ContentTableViewController: UITableViewController {
 
 
 
-  // MARK: - Table view data source
+  // MARK:  DATASOURCE TABLE-VIEW
 
   override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return 10

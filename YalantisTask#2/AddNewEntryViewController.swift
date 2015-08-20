@@ -10,15 +10,19 @@ import UIKit
 
 class AddNewEntryViewController: UIViewController {
 
+  //MARK: OUTLET
 
   @IBOutlet weak var textField: UITextField!
 
 
 
+  //MARK: LOADING
+  
   override func viewDidLoad() {
     super.viewDidLoad()
 
   }
+
 
 
   //MARK: TARGET ACTION

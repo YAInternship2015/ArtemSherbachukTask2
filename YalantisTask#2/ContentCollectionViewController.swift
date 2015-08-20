@@ -11,22 +11,36 @@ import UIKit
 
 class ContentCollectionViewController: UICollectionViewController {
 
+  //MARK: PARAMETERS
+
+  private let leftAndRightPadding: CGFloat = 32.0
+  private let numberOfItemPerRow: CGFloat = 3.0
+  private let heightAdjustment: CGFloat = 30.0
+
+
+
+  //MARK: LOADING VIEW
 
   override func viewDidLoad() {
     super.viewDidLoad()
 
-//    self.collectionView!.registerClass(CustomCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
+    let withOneItemForGrid3x = (CGRectGetWidth(collectionView!.frame) - leftAndRightPadding) / numberOfItemPerRow
+    let layout = collectionViewLayout as! UICollectionViewFlowLayout
+    layout.itemSize = CGSizeMake(withOneItemForGrid3x, withOneItemForGrid3x + heightAdjustment)
 
   }
 
 
 
-  // MARK: UICollectionViewDataSource
+  // MARK:  DATASOURCE CCLLECTION-VIEW
+
+  override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    return 1
+  }
 
   override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 
-    return 10
+    return 20
   }
 
   override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {

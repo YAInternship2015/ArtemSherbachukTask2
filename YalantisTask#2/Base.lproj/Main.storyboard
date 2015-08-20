@@ -108,7 +108,7 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TB7-ea-ckT" id="HXP-kI-80e">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar1" translatesAutoresizingMaskIntoConstraints="NO" id="t4f-Ln-k4y">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MIT Technology Review" translatesAutoresizingMaskIntoConstraints="NO" id="t4f-Ln-k4y">
                                             <rect key="frame" x="8" y="15" width="50" height="50"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="50" id="JWQ-vP-Tcx"/>
@@ -156,31 +156,59 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="uaC-sh-d5W">
-                            <size key="itemSize" width="70" height="70"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="8" minimumInteritemSpacing="8" id="uaC-sh-d5W">
+                            <size key="itemSize" width="200" height="200"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="5" minY="10" maxX="5" maxY="10"/>
+                            <inset key="sectionInset" minX="8" minY="8" maxX="8" maxY="8"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CellCollection" id="alx-XA-VFQ" customClass="CustomCollectionViewCell" customModule="YalantisTask_2" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar2" translatesAutoresizingMaskIntoConstraints="NO" id="ZiD-dw-HCE">
-                                            <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MIT Technology Review" translatesAutoresizingMaskIntoConstraints="NO" id="ZiD-dw-HCE">
+                                            <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                                         </imageView>
+                                        <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oT1-gc-RJ6">
+                                            <rect key="frame" x="0.0" y="160" width="200" height="40"/>
+                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="v1F-xM-CPa">
+                                                <rect key="frame" x="0.0" y="0.0" width="200" height="40"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hy9-Yi-yoi">
+                                                        <rect key="frame" x="8" y="8" width="184" height="24"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="Hy9-Yi-yoi" secondAttribute="trailing" constant="8" id="Q1q-Q0-36y"/>
+                                                    <constraint firstItem="Hy9-Yi-yoi" firstAttribute="top" secondItem="v1F-xM-CPa" secondAttribute="top" constant="8" id="oZp-wC-tU7"/>
+                                                    <constraint firstAttribute="bottom" secondItem="Hy9-Yi-yoi" secondAttribute="bottom" constant="8" id="xFx-BJ-cI1"/>
+                                                    <constraint firstItem="Hy9-Yi-yoi" firstAttribute="leading" secondItem="v1F-xM-CPa" secondAttribute="leading" constant="8" id="zG7-XG-dVN"/>
+                                                </constraints>
+                                            </view>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="40" id="nvH-nb-h2t"/>
+                                            </constraints>
+                                            <blurEffect style="light"/>
+                                        </visualEffectView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="ZiD-dw-HCE" secondAttribute="bottom" id="6Sp-CG-feB"/>
-                                    <constraint firstItem="ZiD-dw-HCE" firstAttribute="top" secondItem="alx-XA-VFQ" secondAttribute="top" id="Jb2-he-BsJ"/>
-                                    <constraint firstAttribute="trailing" secondItem="ZiD-dw-HCE" secondAttribute="trailing" id="nys-Rc-nfx"/>
-                                    <constraint firstItem="ZiD-dw-HCE" firstAttribute="leading" secondItem="alx-XA-VFQ" secondAttribute="leading" id="uTn-Cw-EMe"/>
+                                    <constraint firstAttribute="bottom" secondItem="ZiD-dw-HCE" secondAttribute="bottom" id="a69-OC-TeA"/>
+                                    <constraint firstAttribute="trailing" secondItem="ZiD-dw-HCE" secondAttribute="trailing" id="c9T-bJ-7LZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="oT1-gc-RJ6" secondAttribute="trailing" id="cER-yf-1Hl"/>
+                                    <constraint firstAttribute="bottom" secondItem="oT1-gc-RJ6" secondAttribute="bottom" id="lXS-fa-Z8O"/>
+                                    <constraint firstItem="oT1-gc-RJ6" firstAttribute="leading" secondItem="alx-XA-VFQ" secondAttribute="leading" id="p93-8K-iV9"/>
+                                    <constraint firstItem="ZiD-dw-HCE" firstAttribute="top" secondItem="alx-XA-VFQ" secondAttribute="top" id="tr0-hE-NxS"/>
+                                    <constraint firstItem="ZiD-dw-HCE" firstAttribute="leading" secondItem="alx-XA-VFQ" secondAttribute="leading" id="vgD-l6-qEK"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="userImage" destination="ZiD-dw-HCE" id="5TX-El-fjm"/>
@@ -239,7 +267,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="avatar1" width="80" height="80"/>
-        <image name="avatar2" width="80" height="80"/>
+        <image name="MIT Technology Review" width="1004" height="1296"/>
     </resources>
 </document>
