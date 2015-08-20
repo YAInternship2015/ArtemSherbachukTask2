@@ -1,0 +1,462 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FC1551121B851E54009F6C01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1551111B851E54009F6C01 /* AppDelegate.swift */; };
+		FC1551171B851E54009F6C01 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC1551151B851E54009F6C01 /* Main.storyboard */; };
+		FC1551191B851E54009F6C01 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC1551181B851E54009F6C01 /* Images.xcassets */; };
+		FC15511C1B851E54009F6C01 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC15511A1B851E54009F6C01 /* LaunchScreen.xib */; };
+		FC1551281B851E54009F6C01 /* YalantisTask_2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1551271B851E54009F6C01 /* YalantisTask_2Tests.swift */; };
+		FC1551321B851E78009F6C01 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1551311B851E78009F6C01 /* ContainerViewController.swift */; };
+		FC1551341B851F12009F6C01 /* AddNewEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1551331B851F12009F6C01 /* AddNewEntryViewController.swift */; };
+		FC1551361B8542CC009F6C01 /* ContentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1551351B8542CC009F6C01 /* ContentTableViewController.swift */; };
+		FCDF92921B85493200C12CA3 /* ContentCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDF92911B85493200C12CA3 /* ContentCollectionViewController.swift */; };
+		FCDF92951B854EB600C12CA3 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDF92941B854EB600C12CA3 /* CustomTableViewCell.swift */; };
+		FCDF92981B854EE700C12CA3 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDF92971B854EE700C12CA3 /* CustomCollectionViewCell.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FC1551221B851E54009F6C01 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FC1551041B851E53009F6C01 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FC15510B1B851E53009F6C01;
+			remoteInfo = "YalantisTask#2";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		FC15510C1B851E53009F6C01 /* YalantisTask#2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "YalantisTask#2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC1551101B851E53009F6C01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FC1551111B851E54009F6C01 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FC1551161B851E54009F6C01 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FC1551181B851E54009F6C01 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		FC15511B1B851E54009F6C01 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		FC1551211B851E54009F6C01 /* YalantisTask#2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "YalantisTask#2Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC1551261B851E54009F6C01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FC1551271B851E54009F6C01 /* YalantisTask_2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YalantisTask_2Tests.swift; sourceTree = "<group>"; };
+		FC1551311B851E78009F6C01 /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
+		FC1551331B851F12009F6C01 /* AddNewEntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNewEntryViewController.swift; sourceTree = "<group>"; };
+		FC1551351B8542CC009F6C01 /* ContentTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentTableViewController.swift; sourceTree = "<group>"; };
+		FCDF92911B85493200C12CA3 /* ContentCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentCollectionViewController.swift; sourceTree = "<group>"; };
+		FCDF92941B854EB600C12CA3 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		FCDF92971B854EE700C12CA3 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FC1551091B851E53009F6C01 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FC15511E1B851E54009F6C01 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FC1551031B851E53009F6C01 = {
+			isa = PBXGroup;
+			children = (
+				FC15510E1B851E53009F6C01 /* YalantisTask#2 */,
+				FC1551241B851E54009F6C01 /* YalantisTask#2Tests */,
+				FC15510D1B851E53009F6C01 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FC15510D1B851E53009F6C01 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FC15510C1B851E53009F6C01 /* YalantisTask#2.app */,
+				FC1551211B851E54009F6C01 /* YalantisTask#2Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FC15510E1B851E53009F6C01 /* YalantisTask#2 */ = {
+			isa = PBXGroup;
+			children = (
+				FC1551111B851E54009F6C01 /* AppDelegate.swift */,
+				FCDF92931B854E4F00C12CA3 /* Controllers */,
+				FC1551151B851E54009F6C01 /* Main.storyboard */,
+				FCDF92961B854EC300C12CA3 /* Views */,
+				FC1551181B851E54009F6C01 /* Images.xcassets */,
+				FC15511A1B851E54009F6C01 /* LaunchScreen.xib */,
+				FC15510F1B851E53009F6C01 /* Supporting Files */,
+			);
+			path = "YalantisTask#2";
+			sourceTree = "<group>";
+		};
+		FC15510F1B851E53009F6C01 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FC1551101B851E53009F6C01 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FC1551241B851E54009F6C01 /* YalantisTask#2Tests */ = {
+			isa = PBXGroup;
+			children = (
+				FC1551271B851E54009F6C01 /* YalantisTask_2Tests.swift */,
+				FC1551251B851E54009F6C01 /* Supporting Files */,
+			);
+			path = "YalantisTask#2Tests";
+			sourceTree = "<group>";
+		};
+		FC1551251B851E54009F6C01 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FC1551261B851E54009F6C01 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FCDF92931B854E4F00C12CA3 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FC1551311B851E78009F6C01 /* ContainerViewController.swift */,
+				FC1551331B851F12009F6C01 /* AddNewEntryViewController.swift */,
+				FC1551351B8542CC009F6C01 /* ContentTableViewController.swift */,
+				FCDF92911B85493200C12CA3 /* ContentCollectionViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		FCDF92961B854EC300C12CA3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FCDF92941B854EB600C12CA3 /* CustomTableViewCell.swift */,
+				FCDF92971B854EE700C12CA3 /* CustomCollectionViewCell.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FC15510B1B851E53009F6C01 /* YalantisTask#2 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FC15512B1B851E54009F6C01 /* Build configuration list for PBXNativeTarget "YalantisTask#2" */;
+			buildPhases = (
+				FC1551081B851E53009F6C01 /* Sources */,
+				FC1551091B851E53009F6C01 /* Frameworks */,
+				FC15510A1B851E53009F6C01 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "YalantisTask#2";
+			productName = "YalantisTask#2";
+			productReference = FC15510C1B851E53009F6C01 /* YalantisTask#2.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FC1551201B851E54009F6C01 /* YalantisTask#2Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FC15512E1B851E54009F6C01 /* Build configuration list for PBXNativeTarget "YalantisTask#2Tests" */;
+			buildPhases = (
+				FC15511D1B851E54009F6C01 /* Sources */,
+				FC15511E1B851E54009F6C01 /* Frameworks */,
+				FC15511F1B851E54009F6C01 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FC1551231B851E54009F6C01 /* PBXTargetDependency */,
+			);
+			name = "YalantisTask#2Tests";
+			productName = "YalantisTask#2Tests";
+			productReference = FC1551211B851E54009F6C01 /* YalantisTask#2Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FC1551041B851E53009F6C01 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0640;
+				ORGANIZATIONNAME = "Artem Sherbachuk";
+				TargetAttributes = {
+					FC15510B1B851E53009F6C01 = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					FC1551201B851E54009F6C01 = {
+						CreatedOnToolsVersion = 6.4;
+						TestTargetID = FC15510B1B851E53009F6C01;
+					};
+				};
+			};
+			buildConfigurationList = FC1551071B851E53009F6C01 /* Build configuration list for PBXProject "YalantisTask#2" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FC1551031B851E53009F6C01;
+			productRefGroup = FC15510D1B851E53009F6C01 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FC15510B1B851E53009F6C01 /* YalantisTask#2 */,
+				FC1551201B851E54009F6C01 /* YalantisTask#2Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FC15510A1B851E53009F6C01 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FC1551171B851E54009F6C01 /* Main.storyboard in Resources */,
+				FC15511C1B851E54009F6C01 /* LaunchScreen.xib in Resources */,
+				FC1551191B851E54009F6C01 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FC15511F1B851E54009F6C01 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FC1551081B851E53009F6C01 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FCDF92951B854EB600C12CA3 /* CustomTableViewCell.swift in Sources */,
+				FCDF92981B854EE700C12CA3 /* CustomCollectionViewCell.swift in Sources */,
+				FCDF92921B85493200C12CA3 /* ContentCollectionViewController.swift in Sources */,
+				FC1551321B851E78009F6C01 /* ContainerViewController.swift in Sources */,
+				FC1551121B851E54009F6C01 /* AppDelegate.swift in Sources */,
+				FC1551361B8542CC009F6C01 /* ContentTableViewController.swift in Sources */,
+				FC1551341B851F12009F6C01 /* AddNewEntryViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FC15511D1B851E54009F6C01 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FC1551281B851E54009F6C01 /* YalantisTask_2Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FC1551231B851E54009F6C01 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FC15510B1B851E53009F6C01 /* YalantisTask#2 */;
+			targetProxy = FC1551221B851E54009F6C01 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FC1551151B851E54009F6C01 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FC1551161B851E54009F6C01 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		FC15511A1B851E54009F6C01 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FC15511B1B851E54009F6C01 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FC1551291B851E54009F6C01 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FC15512A1B851E54009F6C01 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FC15512C1B851E54009F6C01 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "YalantisTask#2/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		FC15512D1B851E54009F6C01 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "YalantisTask#2/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		FC15512F1B851E54009F6C01 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "YalantisTask#2Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/YalantisTask#2.app/YalantisTask#2";
+			};
+			name = Debug;
+		};
+		FC1551301B851E54009F6C01 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "YalantisTask#2Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/YalantisTask#2.app/YalantisTask#2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FC1551071B851E53009F6C01 /* Build configuration list for PBXProject "YalantisTask#2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FC1551291B851E54009F6C01 /* Debug */,
+				FC15512A1B851E54009F6C01 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FC15512B1B851E54009F6C01 /* Build configuration list for PBXNativeTarget "YalantisTask#2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FC15512C1B851E54009F6C01 /* Debug */,
+				FC15512D1B851E54009F6C01 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FC15512E1B851E54009F6C01 /* Build configuration list for PBXNativeTarget "YalantisTask#2Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FC15512F1B851E54009F6C01 /* Debug */,
+				FC1551301B851E54009F6C01 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FC1551041B851E53009F6C01 /* Project object */;
+}
