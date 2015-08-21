@@ -10,15 +10,22 @@ import UIKit
 
 class CustomTableViewCell: UITableViewCell {
 
-  @IBOutlet weak var userImage: UIImageView!
-  @IBOutlet weak var userText: UILabel!
+  @IBOutlet weak var publisherImage: UIImageView!
+  @IBOutlet weak var publisherTitle: UILabel!
 
 
   override func awakeFromNib() {
     super.awakeFromNib()
-    userImage.layer.cornerRadius = 3
-    userImage.layer.borderWidth = 1
-    userImage.layer.borderColor = UIColor.blackColor().colorWithAlphaComponent(0.7).CGColor
+    //visual style for userImage
+    publisherImage.layer.cornerRadius = 3
+    publisherImage.layer.borderWidth = 1
+    publisherImage.layer.borderColor = UIColor.grayColor().CGColor
+    
+    //thin line on top of image for nice looking
+    let flatShadowLine = CALayer()
+    flatShadowLine.backgroundColor = UIColor.grayColor().CGColor
+    flatShadowLine.frame = CGRectMake(0, 0, publisherImage.bounds.width, 2)
+    publisherImage.layer.addSublayer(flatShadowLine)
   }
 
 

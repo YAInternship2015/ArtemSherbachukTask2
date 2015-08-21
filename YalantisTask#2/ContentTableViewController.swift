@@ -11,6 +11,7 @@ import UIKit
 class ContentTableViewController: UITableViewController {
 
 
+  let dataSource = PublishersData()
 
   //MARK: LOADING
 
@@ -20,11 +21,24 @@ class ContentTableViewController: UITableViewController {
   }
 
 
+  override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+    cell.alpha = 0
+    cell.transform = CGAffineTransformMakeScale(0.1, 0.1)
+
+    //individual time for animation on each cell
+    var time = Double(indexPath.row) / Double(dataSource.numberOfItems)
+
+    UIView.animateWithDuration(time, animations: { () -> Void in
+        cell.alpha = 1
+        cell.transform = CGAffineTransformMakeScale(1, 1)
+    })
+  }
+
 
   // MARK:  DATASOURCE TABLE-VIEW
 
   override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 10
+    return dataSource.numberOfItems
   }
 
 
@@ -35,6 +49,8 @@ class ContentTableViewController: UITableViewController {
     cell.backgroundColor = indexPath.row % 2 == true ?
       UIColor.whiteColor() : UIColor.lightGrayColor().colorWithAlphaComponent(0.3)
 
+    cell.publisherImage.image = dataSource.imageForCellAtIndex(indexPath.row)
+    cell.publisherTitle.text = dataSource.titleForCellAtIndex(indexPath.row)
 
     return cell
   }

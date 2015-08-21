@@ -10,8 +10,7 @@ import UIKit
 
 class PublisherCollectionViewCell: UICollectionViewCell {
 
-  @IBOutlet weak var userImage: UIImageView!
-  @IBOutlet weak var visualEffectView: UIVisualEffectView!
+  @IBOutlet weak var publisherImage: UIImageView!
   @IBOutlet weak var publisherTitle: UILabel!
 
 
@@ -25,8 +24,8 @@ class PublisherCollectionViewCell: UICollectionViewCell {
 
     //add a little thin line in a top of cell.
     let flatShadowLayer = CALayer()
-    flatShadowLayer.frame = CGRectMake(0, 0, userImage.frame.width, 3)
-    flatShadowLayer.backgroundColor = UIColor.darkGrayColor().CGColor
+    flatShadowLayer.frame = CGRectMake(0, 0, publisherImage.frame.width, 2)
+    flatShadowLayer.backgroundColor = UIColor.grayColor().CGColor
     self.layer.addSublayer(flatShadowLayer)
   }
   
