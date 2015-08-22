@@ -18,14 +18,9 @@ class PublishersData {
   //INITIALIZER
   init() {
     container = PublishersData.getAllPublisherObject()
-    numberOfItems = container.count
-
-
   }
 
   //PRIVATE
-  private var container: [Publisher] //container where I persist all data
-
   private static func getAllPublisherObject() -> [Publisher] {
     let myFavorites = MyFavorites.dataKit()
     let politics = Politics.dataKit()
@@ -43,8 +38,7 @@ class PublishersData {
 
 
   //MARK: PUBLIC
-  let numberOfItems: Int //Size of container
-
+  var container: [Publisher] //container where I persist all data
 
   //get image data
   func imageForCellAtIndex(index:Int) -> UIImage {
@@ -61,9 +55,11 @@ class PublishersData {
   //set new object to container
   func addNewEntryInModel(#title: String) {
 
-    container.insert(Publisher(title: title), atIndex: 0)
+    let newObj = Publisher(title: title)
 
     //TODO: Notifiacion Center
+    NSNotificationCenter.defaultCenter().postNotificationName("AddNewEntry", object: self,
+      userInfo: ["newObj": newObj])
   }
 
 }
@@ -74,7 +70,7 @@ class PublishersData {
 
 
 //Publisher Entry Object. This is object what we see in Cell
-private struct Publisher {
+class Publisher {
 
   let image: UIImage
   let title: String
@@ -87,7 +83,7 @@ private struct Publisher {
   }
 
   //This is initializer for instance of object with some of data by default.
-  init(title: String) {
+  convenience init(title: String) {
     self.init(image: UIImage(named: "TIME")!, title: title, section: "New Added")
   }
 

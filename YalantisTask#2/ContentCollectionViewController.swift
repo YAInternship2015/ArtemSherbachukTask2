@@ -30,6 +30,9 @@ class ContentCollectionViewController: UICollectionViewController {
     layout.itemSize = CGSizeMake(withOneItemForGrid3x, withOneItemForGrid3x + heightAdjustment)
     //end collectionView grid setup
 
+
+    NSNotificationCenter.defaultCenter().addObserver(self,
+      selector: Selector("addNewEntryToList:"), name: "AddNewEntry", object: nil)
   }
 
   override func viewWillAppear(animated: Bool) {
@@ -53,7 +56,7 @@ class ContentCollectionViewController: UICollectionViewController {
 
   override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 
-    return DataSource.numberOfItems
+    return DataSource.container.count
   }
 
   override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -80,13 +83,31 @@ class ContentCollectionViewController: UICollectionViewController {
     cell.transform = CGAffineTransformMakeScale(0.1, 0.1)
 
     //individual time for animation on each cell
-    var time = Double(indexPath.row) / Double(DataSource.numberOfItems)
+    var time = Double(indexPath.row) / Double(DataSource.container.count)
 
     UIView.animateWithDuration(time, animations: { () -> Void in
       cell.alpha = 1
       cell.transform = CGAffineTransformMakeScale(1, 1)
     })
 
+  }
+
+
+
+
+
+
+  //MARK: NOTIFICATION
+
+  func addNewEntryToList(notification: NSNotification) {
+
+    let newRowIndex = DataSource.container.count
+
+    let newObj = notification.userInfo!["newObj"] as! Publisher
+
+    DataSource.container.append(newObj)
+
+    collectionView!.insertItemsAtIndexPaths([NSIndexPath(forItem: newRowIndex, inSection: 0)])
   }
 
 

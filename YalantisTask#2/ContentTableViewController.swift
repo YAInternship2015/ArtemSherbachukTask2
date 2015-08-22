@@ -16,6 +16,10 @@ class ContentTableViewController: UITableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     tableView.rowHeight = 80
+
+    NSNotificationCenter.defaultCenter().addObserver(self,
+      selector: Selector("addNewEntryToList:"), name: "AddNewEntry", object: nil)
+    
   }
 
 
@@ -45,7 +49,7 @@ class ContentTableViewController: UITableViewController {
   // MARK:  DataSource TABLE-VIEW
 
   override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return DataSource.numberOfItems
+    return DataSource.container.count
   }
 
 
@@ -64,7 +68,7 @@ class ContentTableViewController: UITableViewController {
 
 
 
-  
+
 
   //MARK: CELL VISUAL STYLE
 
@@ -90,7 +94,7 @@ class ContentTableViewController: UITableViewController {
     cell.transform = CGAffineTransformMakeScale(0, 0)
 
     //individual time for animation on each cell
-    var time = Double(indexPath.row) / Double(DataSource.numberOfItems)
+    var time = Double(indexPath.row) / Double(DataSource.container.count)
 
     UIView.animateWithDuration(time, animations: { () -> Void in
       cell.alpha = 1
@@ -99,5 +103,21 @@ class ContentTableViewController: UITableViewController {
   }
 
 
+
+
+
+
+  //MARK: NOTIFICATION
+
+  func addNewEntryToList(notification: NSNotification) {
+
+    let newRowIndex = DataSource.container.count
+
+    let newObj = notification.userInfo!["newObj"] as! Publisher
+
+    DataSource.container.append(newObj)
+
+    tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: newRowIndex, inSection: 0)], withRowAnimation: .Left)
+  }
 
 }
