@@ -11,8 +11,6 @@ import UIKit
 class ContentTableViewController: UITableViewController {
 
 
-  let dataSource = PublishersData()
-
   //MARK: LOADING
 
   override func viewDidLoad() {
@@ -21,24 +19,33 @@ class ContentTableViewController: UITableViewController {
   }
 
 
-  override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-    cell.alpha = 0
-    cell.transform = CGAffineTransformMakeScale(0.1, 0.1)
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
 
-    //individual time for animation on each cell
-    var time = Double(indexPath.row) / Double(dataSource.numberOfItems)
-
-    UIView.animateWithDuration(time, animations: { () -> Void in
-        cell.alpha = 1
-        cell.transform = CGAffineTransformMakeScale(1, 1)
+    //animation tableView each time when they appear
+    tableView.alpha = 0
+    tableView.transform = CGAffineTransformMakeScale(1, 0.1)
+    UIView.animateWithDuration(0.5, animations: { () -> Void in
+      self.tableView.alpha = 1
     })
+    UIView.animateWithDuration(0.5, delay: 0.5, usingSpringWithDamping: 0.3, initialSpringVelocity: 0.1,
+      options: nil, animations: { () -> Void in
+        self.tableView.transform = CGAffineTransformMakeScale(1, 1)
+    }, completion: nil)
+    //end animation
+
+    
+    tableView.reloadData()
   }
 
 
-  // MARK:  DATASOURCE TABLE-VIEW
+
+
+
+  // MARK:  DataSource TABLE-VIEW
 
   override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return dataSource.numberOfItems
+    return DataSource.numberOfItems
   }
 
 
@@ -49,21 +56,48 @@ class ContentTableViewController: UITableViewController {
     cell.backgroundColor = indexPath.row % 2 == true ?
       UIColor.whiteColor() : UIColor.lightGrayColor().colorWithAlphaComponent(0.3)
 
-    cell.publisherImage.image = dataSource.imageForCellAtIndex(indexPath.row)
-    cell.publisherTitle.text = dataSource.titleForCellAtIndex(indexPath.row)
+    cell.publisherImage.image = DataSource.imageForCellAtIndex(indexPath.row)
+    cell.publisherTitle.text = DataSource.titleForCellAtIndex(indexPath.row)
 
     return cell
   }
 
 
+
+  
+
+  //MARK: CELL VISUAL STYLE
+
+  //green highlights on cell, when touch
   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     let cell = tableView.cellForRowAtIndexPath(indexPath) as! CustomTableViewCell
 
+    //new basic layer
     let color = CALayer()
     color.frame = cell.bounds
     color.backgroundColor = UIColor(red:0.204, green:0.737, blue:0.6, alpha:0.5).CGColor
 
+    //add colored layer to cell. This way more smooth then cell.contentView.backgroundColor
     cell.selectedBackgroundView.layer.addSublayer(color)
     tableView.deselectRowAtIndexPath(indexPath, animated: true)
   }
+
+
+  //FadeIn animation cell when they appear.
+  override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+
+    cell.alpha = 0
+    cell.transform = CGAffineTransformMakeScale(0, 0)
+
+    //individual time for animation on each cell
+    var time = Double(indexPath.row) / Double(DataSource.numberOfItems)
+
+    UIView.animateWithDuration(time, animations: { () -> Void in
+      cell.alpha = 1
+      cell.transform = CGAffineTransformMakeScale(1, 1)
+    })
+  }
+
+
+
 }

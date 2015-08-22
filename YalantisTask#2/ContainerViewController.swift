@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ContainerViewController: UIViewController, UIViewControllerTransitioningDelegate {
+class ContainerViewController: UIViewController {
 
   @IBOutlet weak var containerView: UIView!
 
@@ -32,6 +32,7 @@ class ContainerViewController: UIViewController, UIViewControllerTransitioningDe
   override func viewDidLoad() {
     super.viewDidLoad()
 
+
     let sb = UIStoryboard(name: "Main", bundle: nil)
 
     firstViewCtrl = sb.instantiateViewControllerWithIdentifier("TableView") as! ContentTableViewController
@@ -39,7 +40,6 @@ class ContainerViewController: UIViewController, UIViewControllerTransitioningDe
     activeViewCtrl = firstViewCtrl
     isFirstViewCtrl = true
   }
-
 
 
 
@@ -72,8 +72,8 @@ class ContainerViewController: UIViewController, UIViewControllerTransitioningDe
   private func updateActiveViewCtrl() {
     if let activeVC = activeViewCtrl {
 
-      let barHeight = navigationController!.navigationBar.frame.height
-      let viewHeight = self.view.bounds.height
+//      let barHeight = navigationController!.navigationBar.frame.height
+//      let viewHeight = self.view.bounds.height
 
       self.addChildViewController(activeVC)
       activeVC.view.frame = self.containerView.frame
@@ -83,11 +83,9 @@ class ContainerViewController: UIViewController, UIViewControllerTransitioningDe
     }
   }
 
+  
 
-  private func animateViewController() {
 
-    
-  }
   
   
 }

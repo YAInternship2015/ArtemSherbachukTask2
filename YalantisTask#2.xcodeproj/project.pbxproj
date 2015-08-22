@@ -14,7 +14,6 @@
 		FC1551321B851E78009F6C01 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1551311B851E78009F6C01 /* ContainerViewController.swift */; };
 		FC1551341B851F12009F6C01 /* AddNewEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1551331B851F12009F6C01 /* AddNewEntryViewController.swift */; };
 		FC1551361B8542CC009F6C01 /* ContentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1551351B8542CC009F6C01 /* ContentTableViewController.swift */; };
-		FC68880E1B869BD800003DFE /* Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC68880D1B869BD800003DFE /* Publisher.swift */; };
 		FC6888101B869EA900003DFE /* PublishersData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC68880F1B869EA900003DFE /* PublishersData.swift */; };
 		FCDB619B1B8668CE001FCA46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCDB619A1B8668CE001FCA46 /* Assets.xcassets */; };
 		FCDF92921B85493200C12CA3 /* ContentCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDF92911B85493200C12CA3 /* ContentCollectionViewController.swift */; };
@@ -44,7 +43,6 @@
 		FC1551311B851E78009F6C01 /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		FC1551331B851F12009F6C01 /* AddNewEntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNewEntryViewController.swift; sourceTree = "<group>"; };
 		FC1551351B8542CC009F6C01 /* ContentTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentTableViewController.swift; sourceTree = "<group>"; };
-		FC68880D1B869BD800003DFE /* Publisher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Publisher.swift; sourceTree = "<group>"; };
 		FC68880F1B869EA900003DFE /* PublishersData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublishersData.swift; sourceTree = "<group>"; };
 		FCDB619A1B8668CE001FCA46 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FCDF92911B85493200C12CA3 /* ContentCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentCollectionViewController.swift; sourceTree = "<group>"; };
@@ -139,7 +137,6 @@
 		FCDB619C1B866C0F001FCA46 /* Model Classes */ = {
 			isa = PBXGroup;
 			children = (
-				FC68880D1B869BD800003DFE /* Publisher.swift */,
 				FC68880F1B869EA900003DFE /* PublishersData.swift */,
 			);
 			path = "Model Classes";
@@ -266,7 +263,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC6888101B869EA900003DFE /* PublishersData.swift in Sources */,
-				FC68880E1B869BD800003DFE /* Publisher.swift in Sources */,
 				FCDF92951B854EB600C12CA3 /* CustomTableViewCell.swift in Sources */,
 				FCDF92981B854EE700C12CA3 /* PublisherCollectionViewCell.swift in Sources */,
 				FCDF92921B85493200C12CA3 /* ContentCollectionViewController.swift in Sources */,

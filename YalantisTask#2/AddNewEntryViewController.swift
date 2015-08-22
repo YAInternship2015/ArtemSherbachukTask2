@@ -8,7 +8,9 @@
 
 import UIKit
 
+
 class AddNewEntryViewController: UIViewController {
+
 
   //MARK: OUTLET
 
@@ -24,16 +26,26 @@ class AddNewEntryViewController: UIViewController {
   }
 
 
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    textField.becomeFirstResponder()
+  }
 
-  //MARK: TARGET ACTION
 
+
+ //MARK: TARGET ACTION
+  
   @IBAction func cancelButtonDidTouch(sender: UIBarButtonItem) {
     dismissViewControllerAnimated(true, completion: nil)
   }
 
   @IBAction func doneButtonDidTouch(sender: UIBarButtonItem) {
+
+    //add from text field message to model
+    DataSource.addNewEntryInModel(title: textField.text)
+
     dismissViewControllerAnimated(true, completion: nil)
   }
-  
+
   
 }

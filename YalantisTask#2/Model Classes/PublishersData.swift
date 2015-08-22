@@ -9,24 +9,28 @@
 import Foundation
 import UIKit
 
-class PublishersData {
+//one golabl object it is model with all func.
+let DataSource = PublishersData()
 
+
+class PublishersData {
 
   //INITIALIZER
   init() {
     container = PublishersData.getAllPublisherObject()
     numberOfItems = container.count
+
+
   }
 
-
   //PRIVATE
-  private let container: [Publisher]
+  private var container: [Publisher] //container where I persist all data
 
   private static func getAllPublisherObject() -> [Publisher] {
-    let myFavorites = MyFavorites.publisher()
-    let politics = Politics.publisher()
-    let travel = Travel.publisher()
-    let tehnology = Tehnology.publisher()
+    let myFavorites = MyFavorites.dataKit()
+    let politics = Politics.dataKit()
+    let travel = Travel.dataKit()
+    let tehnology = Tehnology.dataKit()
 
     var container = [Publisher]()
     container += myFavorites
@@ -39,16 +43,27 @@ class PublishersData {
 
 
   //MARK: PUBLIC
-  let numberOfItems: Int
+  let numberOfItems: Int //Size of container
 
+
+  //get image data
   func imageForCellAtIndex(index:Int) -> UIImage {
     var publisherEntry = container[index]
     return publisherEntry.image
   }
 
+  //get title data
   func titleForCellAtIndex(index: Int) -> String {
     var publisherEntry = container[index]
     return publisherEntry.title
+  }
+
+  //set new object to container
+  func addNewEntryInModel(#title: String) {
+
+    container.insert(Publisher(title: title), atIndex: 0)
+
+    //TODO: Notifiacion Center
   }
 
 }
@@ -58,8 +73,8 @@ class PublishersData {
 
 
 
-//Publisher Entry Object
-private class Publisher {
+//Publisher Entry Object. This is object what we see in Cell
+private struct Publisher {
 
   let image: UIImage
   let title: String
@@ -70,15 +85,23 @@ private class Publisher {
     self.title = title
     self.section = section
   }
-  
+
+  //This is initializer for instance of object with some of data by default.
+  init(title: String) {
+    self.init(image: UIImage(named: "TIME")!, title: title, section: "New Added")
+  }
+
 }
 
 
 
+
 //STRUCTRURE For Sections
+
 private struct MyFavorites {
+  static let section = "My Favorites"
   //array with 5 objects Publisher
-  private static func publisher() -> [Publisher] {
+  static func dataKit() -> [Publisher] {
     var publisher = [Publisher]()
     publisher.append(Publisher(image:  UIImage(named: "TIME")!, title: "TIME", section: "My Favorites"))
     publisher.append(Publisher(image:  UIImage(named: "The New York Times")!, title: "The New York Times",
@@ -92,8 +115,9 @@ private struct MyFavorites {
 }
 
 private struct Politics {
+  static let section = "Politics"
   //array with 6 objects Publisher
-  private static func publisher() -> [Publisher] {
+  static func dataKit() -> [Publisher] {
     var publisher = [Publisher]()
     publisher.append(Publisher(image: UIImage(named: "The Atlantic")!, title: "The Atlantic", section: "Politics"))
     publisher.append(Publisher(image: UIImage(named: "The Hill")!, title: "The Hill", section: "Politics"))
@@ -109,8 +133,9 @@ private struct Politics {
 }
 
 private struct Travel {
+  static let section = "Travel"
   //array with 7 objects Publisher
-  private static func publisher() -> [Publisher] {
+  private static func dataKit() -> [Publisher] {
     var publisher = [Publisher]()
     publisher.append(Publisher(image: UIImage(named: "AFAR")!, title: "AFAR", section: "Travel"))
     publisher.append(Publisher(image:  UIImage(named: "The New York Times")!, title: "The New York Times",
@@ -125,9 +150,11 @@ private struct Travel {
 
 }
 
+
 private struct Tehnology {
+  static let section = "Tehnology"
   //array with 5 objects Publisher
-  private static func publisher() -> [Publisher] {
+  private static func dataKit() -> [Publisher] {
     var publisher = [Publisher]()
     publisher.append(Publisher(image: UIImage(named: "WIRED")!, title: "WIRED", section: "Technology"))
     publisher.append(Publisher(image: UIImage(named: "Recode")!, title: "Re/code", section: "Technology"))
