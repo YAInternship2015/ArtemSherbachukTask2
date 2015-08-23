@@ -53,6 +53,11 @@ class ContentCollectionViewController: UICollectionViewController {
 
 
   // MARK:  DataSource CCLLECTION-VIEW
+  /*
+  .........................
+  .        101010001      .
+  .........................
+  */
 
   override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 
@@ -73,9 +78,32 @@ class ContentCollectionViewController: UICollectionViewController {
 
 
 
-  //MARK: CELL VISUAL SYLE
+  
 
-  //animation cell
+  //MARK: CELL VISUAL SYLE
+  /*
+  .........................
+  .        STYLE          .
+  .........................
+  */
+  //animate cell on tap
+  override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    let cell = collectionView.cellForItemAtIndexPath(indexPath)!
+
+    UIView.animateWithDuration(0.5, animations: { () -> Void in
+
+      cell.transform = CGAffineTransformMakeScale(2, 2)
+
+      UIView.animateWithDuration(0.5, animations: { () -> Void in
+        cell.transform = CGAffineTransformMakeScale(1, 1)
+        cell.alpha = 1
+      })
+
+    })
+
+  }
+
+  //animation cell on scroll
   override func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
 
     //start visual point for cell
@@ -97,17 +125,45 @@ class ContentCollectionViewController: UICollectionViewController {
 
 
 
+
   //MARK: NOTIFICATION
+  /*
+  .........................
+  .     SOS! SOS!...      .
+  .........................
+  */
 
   func addNewEntryToList(notification: NSNotification) {
+    collectionView!.reloadData()
+  }
 
-    let newRowIndex = DataSource.container.count
 
-    let newObj = notification.userInfo!["newObj"] as! Publisher
 
-    DataSource.container.append(newObj)
 
-    collectionView!.insertItemsAtIndexPaths([NSIndexPath(forItem: newRowIndex, inSection: 0)])
+
+
+
+  //MARK: NAVIGATION
+  /*
+  .........................
+  .       FROM -> TO      .
+  .........................
+  */
+
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+
+    if segue.identifier == "EditEntrySegue" {
+
+      let navCtrl = segue.destinationViewController as! UINavigationController
+      let controller = navCtrl.topViewController as! AddNewEntryViewController
+
+
+      if let indexPath = collectionView!.indexPathForCell(sender as! PublisherCollectionViewCell) {
+        controller.editEntry = DataSource.container[indexPath.row]
+      }
+      
+    }
+    
   }
 
 

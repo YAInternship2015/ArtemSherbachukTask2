@@ -18,9 +18,15 @@ class PublishersData {
   //INITIALIZER
   init() {
     container = PublishersData.getAllPublisherObject()
+
+    sections = [String]()
+    sections.append(MyFavorites.section)
+    sections.append(Politics.section)
+    sections.append(Travel.section)
+    sections.append(Tehnology.section)
   }
 
-  //PRIVATE
+  //PRIVATE API
   private static func getAllPublisherObject() -> [Publisher] {
     let myFavorites = MyFavorites.dataKit()
     let politics = Politics.dataKit()
@@ -36,9 +42,19 @@ class PublishersData {
     return container
   }
 
+  //Notification in func -> becouse we use it in 2 func. When add new obj and edit exist obj
+  private func postNotification(#userInfo: [String: Publisher]?) {
+    NSNotificationCenter.defaultCenter().postNotificationName("AddNewEntry", object: self,
+      userInfo: userInfo)
+  }
 
-  //MARK: PUBLIC
+
+
+
+
+  //MARK: PUBLIC API
   var container: [Publisher] //container where I persist all data
+  var sections: [String]
 
   //get image data
   func imageForCellAtIndex(index:Int) -> UIImage {
@@ -56,10 +72,16 @@ class PublishersData {
   func addNewEntryInModel(#title: String) {
 
     let newObj = Publisher(title: title)
+    DataSource.container.append(newObj)
 
-    //TODO: Notifiacion Center
-    NSNotificationCenter.defaultCenter().postNotificationName("AddNewEntry", object: self,
-      userInfo: ["newObj": newObj])
+    postNotification(userInfo: nil)
+    //send to ContentTableViewController and ContentCollectionViewController in ViewDidLoad
+  }
+
+  //edit exist object in container.
+  func editExistEntryInModel(#object:Publisher, changeTitle:String) {
+    object.title = changeTitle
+    postNotification(userInfo: nil)
   }
 
 }
@@ -73,7 +95,7 @@ class PublishersData {
 class Publisher {
 
   let image: UIImage
-  let title: String
+  var title: String
   let section: String
 
   init(image: UIImage, title: String, section: String) {

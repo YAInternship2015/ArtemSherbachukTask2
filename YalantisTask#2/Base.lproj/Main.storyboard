@@ -7,28 +7,27 @@
         <!--Add New Entry-->
         <scene sceneID="Jka-xf-09c">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7Ei-z4-bmF" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="nlG-6W-0RE" customClass="AddNewEntryViewController" customModule="YalantisTask_2" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="z3k-Sd-fdv"/>
                         <viewControllerLayoutGuide type="bottom" id="JES-lj-3MS"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="MaV-LM-23D">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="280"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f53-wF-PyW">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="280"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="G0q-xq-qrZ">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="280"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 </view>
                                 <blurEffect style="dark"/>
                             </visualEffectView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q8x-cU-blX">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add New Entry" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q8x-cU-blX">
                                 <rect key="frame" x="16" y="116" width="288" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -54,11 +53,13 @@
                         </barButtonItem>
                     </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="320" height="480"/>
+                    <size key="freeformSize" width="320" height="280"/>
                     <connections>
+                        <outlet property="doneButton" destination="jqb-WC-cxN" id="94s-Lt-ic0"/>
                         <outlet property="textField" destination="Q8x-cU-blX" id="lcV-n7-Agk"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Ei-z4-bmF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1916" y="272"/>
         </scene>
@@ -163,6 +164,7 @@
                                 <connections>
                                     <outlet property="publisherImage" destination="t4f-Ln-k4y" id="ghN-yP-RrQ"/>
                                     <outlet property="publisherTitle" destination="vMD-f9-SaL" id="XkA-mn-CmT"/>
+                                    <segue destination="fSi-ej-rfJ" kind="presentation" identifier="EditEntrySegue" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="G5a-sW-oXh"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -236,6 +238,7 @@
                                 <connections>
                                     <outlet property="publisherImage" destination="ZiD-dw-HCE" id="hwB-UI-H8w"/>
                                     <outlet property="publisherTitle" destination="Hy9-Yi-yoi" id="oW0-Eh-iCO"/>
+                                    <segue destination="fSi-ej-rfJ" kind="presentation" identifier="EditEntrySegue" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="kpG-el-lnO"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -253,9 +256,10 @@
         <!--Navigation Controller-->
         <scene sceneID="Akd-c2-K7M">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dqN-sb-Pcf" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fSi-ej-rfJ" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="280"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="5Ow-ds-5OG">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -270,6 +274,7 @@
                         <segue destination="nlG-6W-0RE" kind="relationship" relationship="rootViewController" id="bt2-TT-LhJ"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dqN-sb-Pcf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1511" y="272"/>
         </scene>
@@ -277,4 +282,7 @@
     <resources>
         <image name="MIT Technology Review" width="1004" height="1296"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="kpG-el-lnO"/>
+    </inferredMetricsTieBreakers>
 </document>

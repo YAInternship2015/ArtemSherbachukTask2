@@ -11,15 +11,18 @@ import UIKit
 class ContentTableViewController: UITableViewController {
 
 
+
+
   //MARK: LOADING
 
   override func viewDidLoad() {
     super.viewDidLoad()
+
     tableView.rowHeight = 80
 
     NSNotificationCenter.defaultCenter().addObserver(self,
       selector: Selector("addNewEntryToList:"), name: "AddNewEntry", object: nil)
-    
+
   }
 
 
@@ -28,17 +31,18 @@ class ContentTableViewController: UITableViewController {
 
     //animation tableView each time when they appear
     tableView.alpha = 0
-    tableView.transform = CGAffineTransformMakeScale(1, 0.1)
+    tableView.transform = CGAffineTransformMakeScale(0.1, 0.1)
     UIView.animateWithDuration(0.5, animations: { () -> Void in
       self.tableView.alpha = 1
+      self.tableView.transform = CGAffineTransformMakeScale(1, 0.1)
     })
     UIView.animateWithDuration(0.5, delay: 0.5, usingSpringWithDamping: 0.3, initialSpringVelocity: 0.1,
       options: nil, animations: { () -> Void in
         self.tableView.transform = CGAffineTransformMakeScale(1, 1)
-    }, completion: nil)
+      }, completion: nil)
     //end animation
 
-    
+
     tableView.reloadData()
   }
 
@@ -46,7 +50,14 @@ class ContentTableViewController: UITableViewController {
 
 
 
+
+
   // MARK:  DataSource TABLE-VIEW
+  /*
+  .........................
+  .        101010001      .
+  .........................
+  */
 
   override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return DataSource.container.count
@@ -67,13 +78,31 @@ class ContentTableViewController: UITableViewController {
   }
 
 
+  //delete entry from list
+  override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+
+    DataSource.container.removeAtIndex(indexPath.row)
+
+    tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+  }
+
+
+
+
+
 
 
 
   //MARK: CELL VISUAL STYLE
+  /*
+  .........................
+  .        STYLE          .
+  .........................
+  */
 
   //green highlights on cell, when touch
   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+
     let cell = tableView.cellForRowAtIndexPath(indexPath) as! CustomTableViewCell
 
     //new basic layer
@@ -84,10 +113,11 @@ class ContentTableViewController: UITableViewController {
     //add colored layer to cell. This way more smooth then cell.contentView.backgroundColor
     cell.selectedBackgroundView.layer.addSublayer(color)
     tableView.deselectRowAtIndexPath(indexPath, animated: true)
+
   }
 
 
-  //FadeIn animation cell when they appear.
+  //FadeIn animation cell
   override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
 
     cell.alpha = 0
@@ -107,17 +137,46 @@ class ContentTableViewController: UITableViewController {
 
 
 
+
   //MARK: NOTIFICATION
+  /*
+  .........................
+  .     SOS! SOS!...      .
+  .........................
+  */
 
   func addNewEntryToList(notification: NSNotification) {
-
-    let newRowIndex = DataSource.container.count
-
-    let newObj = notification.userInfo!["newObj"] as! Publisher
-
-    DataSource.container.append(newObj)
-
-    tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: newRowIndex, inSection: 0)], withRowAnimation: .Left)
+    
+    tableView.reloadData()
+    
   }
 
+
+
+
+
+
+  //MARK: NAVIGATION
+  /*
+  .........................
+  .       FROM -> TO      .
+  .........................
+  */
+
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+
+    if segue.identifier == "EditEntrySegue" {
+
+      let navCtrl = segue.destinationViewController as! UINavigationController
+      let controller = navCtrl.topViewController as! AddNewEntryViewController
+
+
+      if let indexPath = tableView.indexPathForCell(sender as! CustomTableViewCell) {
+        controller.editEntry = DataSource.container[indexPath.row]
+      }
+
+    }
+
+  }
+  
 }
