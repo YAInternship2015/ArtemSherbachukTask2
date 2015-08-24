@@ -33,6 +33,8 @@ class ContentCollectionViewController: UICollectionViewController {
 
     NSNotificationCenter.defaultCenter().addObserver(self,
       selector: Selector("addNewEntryToList:"), name: "AddNewEntry", object: nil)
+
+    collectionView!.delaysContentTouches = true
   }
 
   override func viewWillAppear(animated: Bool) {
@@ -71,6 +73,7 @@ class ContentCollectionViewController: UICollectionViewController {
     cell.publisherImage.image = DataSource.imageForCellAtIndex(indexPath.row)
     cell.publisherTitle.text = DataSource.titleForCellAtIndex(indexPath.row)
 
+
     return cell
   }
 
@@ -88,6 +91,7 @@ class ContentCollectionViewController: UICollectionViewController {
   */
   //animate cell on tap
   override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+
     let cell = collectionView.cellForItemAtIndexPath(indexPath)!
 
     UIView.animateWithDuration(0.5, animations: { () -> Void in
@@ -100,6 +104,8 @@ class ContentCollectionViewController: UICollectionViewController {
       })
 
     })
+
+    performSegueWithIdentifier("EditEntrySegue", sender: cell)
 
   }
 
@@ -154,9 +160,7 @@ class ContentCollectionViewController: UICollectionViewController {
 
     if segue.identifier == "EditEntrySegue" {
 
-      let navCtrl = segue.destinationViewController as! UINavigationController
-      let controller = navCtrl.topViewController as! AddNewEntryViewController
-
+      let controller = segue.destinationViewController as! AddNewEntryViewController
 
       if let indexPath = collectionView!.indexPathForCell(sender as! PublisherCollectionViewCell) {
         controller.editEntry = DataSource.container[indexPath.row]

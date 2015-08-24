@@ -23,6 +23,7 @@ class ContentTableViewController: UITableViewController {
     NSNotificationCenter.defaultCenter().addObserver(self,
       selector: Selector("addNewEntryToList:"), name: "AddNewEntry", object: nil)
 
+    tableView.delaysContentTouches = true
   }
 
 
@@ -105,15 +106,10 @@ class ContentTableViewController: UITableViewController {
 
     let cell = tableView.cellForRowAtIndexPath(indexPath) as! CustomTableViewCell
 
-    //new basic layer
-    let color = CALayer()
-    color.frame = cell.bounds
-    color.backgroundColor = UIColor(red:0.204, green:0.737, blue:0.6, alpha:0.5).CGColor
-
-    //add colored layer to cell. This way more smooth then cell.contentView.backgroundColor
-    cell.selectedBackgroundView.layer.addSublayer(color)
+    cell.contentView.backgroundColor = UIColor(red:0.204, green:0.737, blue:0.6, alpha:0.5)
     tableView.deselectRowAtIndexPath(indexPath, animated: true)
 
+    performSegueWithIdentifier("EditEntrySegue", sender: cell)
   }
 
 
@@ -167,9 +163,7 @@ class ContentTableViewController: UITableViewController {
 
     if segue.identifier == "EditEntrySegue" {
 
-      let navCtrl = segue.destinationViewController as! UINavigationController
-      let controller = navCtrl.topViewController as! AddNewEntryViewController
-
+      let controller = segue.destinationViewController as! AddNewEntryViewController
 
       if let indexPath = tableView.indexPathForCell(sender as! CustomTableViewCell) {
         controller.editEntry = DataSource.container[indexPath.row]
