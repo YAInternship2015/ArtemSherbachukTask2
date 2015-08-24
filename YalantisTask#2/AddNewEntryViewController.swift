@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol AddNewEntryViewControllerDelegate: class {
+  func cancelAddNewEntryViewControllerWithAnimationCell(#controller: AddNewEntryViewController,
+    cellIndexPath: NSIndexPath?)
+}
 
 class AddNewEntryViewController: UIViewController, UITextFieldDelegate {
 
@@ -18,7 +22,8 @@ class AddNewEntryViewController: UIViewController, UITextFieldDelegate {
   @IBOutlet weak var textField: UITextField!
 
   var editEntry: Publisher? //object from selected cell
-
+  weak var delegate: AddNewEntryViewControllerDelegate?
+  var indexPathForCellAnimation: NSIndexPath? //path for animate cell that execute edit screen when it dismiss
 
 
   //MARK: LOADING
@@ -56,8 +61,10 @@ class AddNewEntryViewController: UIViewController, UITextFieldDelegate {
   //MARK: TARGET ACTION
 
   @IBAction func cancelButtonDidTouch(sender: UIBarButtonItem) {
-    dismissViewControllerAnimated(true, completion: nil)
+    delegate?.cancelAddNewEntryViewControllerWithAnimationCell(controller: self,
+      cellIndexPath: indexPathForCellAnimation)
   }
+
 
   @IBAction func doneButtonDidTouch(sender: UIBarButtonItem) {
 

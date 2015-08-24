@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ContainerViewController: UIViewController {
+class ContainerViewController: UIViewController, AddNewEntryViewControllerDelegate {
 
 
   @IBOutlet weak var navigationBar: UINavigationBar!
@@ -97,6 +97,37 @@ class ContainerViewController: UIViewController {
   }
 
   
+
+
+
+
+  //MARK: NAVIGATION
+
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if segue.identifier == "AddNewEntrySegue" {
+      let controller = segue.destinationViewController as! AddNewEntryViewController
+      controller.delegate = self
+    }
+  }
+
+
+
+
+
+
+  //MARK: AddNewEntryViewControllerDelegate
+  //it is just example delegate pattern/ так как в задании упоминалось о делегате
+  func cancelAddNewEntryViewControllerWithAnimationCell(#controller: AddNewEntryViewController,
+    cellIndexPath: NSIndexPath?) {
+
+      controller.dismissViewControllerAnimated(true, completion: nil)
+      
+  }
+
+
+
+
+
 
 
   

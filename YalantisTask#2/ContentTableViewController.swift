@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ContentTableViewController: UITableViewController {
+class ContentTableViewController: UITableViewController, AddNewEntryViewControllerDelegate {
 
 
 
@@ -109,6 +109,11 @@ class ContentTableViewController: UITableViewController {
     cell.contentView.backgroundColor = UIColor(red:0.204, green:0.737, blue:0.6, alpha:0.5)
     tableView.deselectRowAtIndexPath(indexPath, animated: true)
 
+    UIView.animateWithDuration(0.4, delay: 0, usingSpringWithDamping: 0.3, initialSpringVelocity: 0.6,
+      options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
+        cell.transform = CGAffineTransformMakeScale(0.4, 0.4)
+      }, completion: nil)
+
     performSegueWithIdentifier("EditEntrySegue", sender: cell)
   }
 
@@ -167,10 +172,36 @@ class ContentTableViewController: UITableViewController {
 
       if let indexPath = tableView.indexPathForCell(sender as! CustomTableViewCell) {
         controller.editEntry = DataSource.container[indexPath.row]
+        controller.delegate = self
+        controller.indexPathForCellAnimation = indexPath
       }
 
     }
 
   }
+
+
+
+
+
+
+  //MARK: AddNewEntryViewControllerDelegate
+  //it is just example delegate pattern/ так как в задании упоминалось о делегате
+  func cancelAddNewEntryViewControllerWithAnimationCell(#controller: AddNewEntryViewController,
+    cellIndexPath: NSIndexPath?) {
+
+      let cell = tableView.cellForRowAtIndexPath(cellIndexPath!)!
+
+      controller.dismissViewControllerAnimated(true, completion: { () -> Void in
+
+        UIView.animateWithDuration(0.4, delay: 0, usingSpringWithDamping: 0.3, initialSpringVelocity: 0.6,
+          options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
+            cell.transform = CGAffineTransformMakeScale(1, 1)
+          }, completion: nil)
+        
+      })
+      
+  }
+
   
 }

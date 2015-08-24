@@ -9,7 +9,7 @@
 import UIKit
 
 
-class ContentCollectionViewController: UICollectionViewController {
+class ContentCollectionViewController: UICollectionViewController, AddNewEntryViewControllerDelegate {
 
 
 
@@ -94,16 +94,10 @@ class ContentCollectionViewController: UICollectionViewController {
 
     let cell = collectionView.cellForItemAtIndexPath(indexPath)!
 
-    UIView.animateWithDuration(0.5, animations: { () -> Void in
-
-      cell.transform = CGAffineTransformMakeScale(2, 2)
-
-      UIView.animateWithDuration(0.5, animations: { () -> Void in
-        cell.transform = CGAffineTransformMakeScale(1, 1)
-        cell.alpha = 1
-      })
-
-    })
+    UIView.animateWithDuration(0.4, delay: 0, usingSpringWithDamping: 0.3, initialSpringVelocity: 0.6,
+    options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
+        cell.transform = CGAffineTransformMakeScale(1.2, 1.2)
+    }, completion: nil)
 
     performSegueWithIdentifier("EditEntrySegue", sender: cell)
 
@@ -164,10 +158,36 @@ class ContentCollectionViewController: UICollectionViewController {
 
       if let indexPath = collectionView!.indexPathForCell(sender as! PublisherCollectionViewCell) {
         controller.editEntry = DataSource.container[indexPath.row]
+        controller.delegate = self
+        controller.indexPathForCellAnimation = indexPath
       }
       
     }
     
+  }
+
+
+
+
+
+
+
+  //MARK: AddNewEntryViewControllerDelegate
+  //it is just example delegate pattern/ так как в задании упоминалось о делегате
+  func cancelAddNewEntryViewControllerWithAnimationCell(#controller: AddNewEntryViewController,
+    cellIndexPath: NSIndexPath?) {
+
+    let cell = collectionView!.cellForItemAtIndexPath(cellIndexPath!)!
+
+    controller.dismissViewControllerAnimated(true, completion: { () -> Void in
+
+      UIView.animateWithDuration(0.4, delay: 0, usingSpringWithDamping: 0.3, initialSpringVelocity: 0.6,
+        options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
+          cell.transform = CGAffineTransformMakeScale(1, 1)
+      }, completion: nil)
+
+    })
+
   }
 
 
