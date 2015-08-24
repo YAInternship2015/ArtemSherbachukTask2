@@ -61,11 +61,11 @@ class AddNewEntryViewController: UIViewController, UITextFieldDelegate {
 
   @IBAction func doneButtonDidTouch(sender: UIBarButtonItem) {
 
-    //if we edit object. Write new title to it
+    //if we edit object.
     if let entry = editEntry {
       DataSource.editExistEntryInModel(object:entry, changeTitle:textField.text)
     } else {
-      //if we add new object. Go add that text to model.
+      //if we add new object.
       DataSource.addNewEntryInModel(title: textField.text)
     }
 

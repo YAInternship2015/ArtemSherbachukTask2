@@ -23,8 +23,13 @@ class PublishersData {
   }
 
 
-  //PRIVATE API
 
+  //PRIVATE API
+  /*
+  ...................
+  .     PRIVATE     .
+  ...................
+  */
   //Construct file path
   private func dataFilePath() -> String {
 
@@ -37,12 +42,13 @@ class PublishersData {
     return documentDirectory().stringByAppendingPathComponent("dataBase.plist")
   }
 
+
   //loading data
   private func loadDataFromPlist() {
 
     let path = dataFilePath()
 
-    //if file dataBase is exist
+    //if file dataBase file is exist
     if NSFileManager.defaultManager().fileExistsAtPath(path) {
       //if that file not empty
       if let data = NSData(contentsOfFile: path) {
@@ -72,16 +78,53 @@ class PublishersData {
   }
 
 
+  //getter random image path
+  private var randomImagePathForNewObj: String {
+    var path = ""
+    switch arc4random_uniform(7) {
+    case 1:
+      path = "TIME"
+      return path
+    case 2:
+      path = "The New York Times"
+      return path
+    case 3:
+      path = "TED"
+      return path
+    case 4:
+      path = "MIT Technology Review"
+      return path
+    case 5:
+      path = "The Atlantic"
+      return path
+    case 6:
+      path =  "Daily Intelligencer"
+      return path
+    case 7:
+      path = "Quartz"
+      return path
+    default:
+      path = "Recode"
+      return path
+    }
+  }
+
+
 
 
 
 
   //MARK: PUBLIC API
-
+  /*
+  ...................
+  .      PUBLIC     .
+  ...................
+  */
   //singletone pattern in one line in swift :) http://krakendev.io/blog/the-right-way-to-write-a-singleton
   static let sharedInstance = PublishersData()
 
   var container: [Publisher] //container where I persist all data
+
 
   //get image data
   func imageForCellAtIndex(index:Int) -> UIImage {
@@ -89,23 +132,32 @@ class PublishersData {
     return publisherEntry.image
   }
 
+
   //get title data
   func titleForCellAtIndex(index: Int) -> String {
     var publisherEntry = container[index]
     return publisherEntry.title
   }
 
+
   //set new object to container
   func addNewEntryInModel(#title: String) {
 
-    let newObj = Publisher(title: title)
-    DataSource.container.append(newObj)
+    let newObj = Publisher(title: title, imagePath: randomImagePathForNewObj)
+    container.append(newObj)
 
     postNotification(userInfo: nil)
-    //send to ContentTableViewController and ContentCollectionViewController in ViewDidLoad
+    //send message to ContentTableViewController and ContentCollectionViewController in ViewDidLoad
 
     saveDataToPlist()
   }
+
+
+  func removeObjectAtIndex(index: Int) {
+    container.removeAtIndex(index)
+    saveDataToPlist()
+  }
+
 
   //edit exist object in container.
   func editExistEntryInModel(#object:Publisher, changeTitle:String) {
@@ -124,11 +176,17 @@ class PublishersData {
 
 
 //Publisher Entry Object. This is object what we see in Cell
+/*
+...................
+.    PUBLISHER    .
+...................
+*/
 class Publisher: NSObject, NSCoding {
 
   let image: UIImage
   var title: String
   let section: String
+
 
   init(image: UIImage, title: String, section: String) {
 
@@ -137,14 +195,15 @@ class Publisher: NSObject, NSCoding {
     self.section = section
 
     super.init()
+
   }
 
   //This is initializer for instance of object with some of data by default.
-  convenience init(title: String) {
-    self.init(image: UIImage(named: "TIME")!, title: title, section: "New Added")
+  convenience init(title: String, imagePath: String) {
+
+    self.init(image: UIImage(named: imagePath)!, title: title, section: "New Added")
+
   }
-
-
 
 
   //decode object
@@ -165,102 +224,6 @@ class Publisher: NSObject, NSCoding {
 
 
 }
-
-
-
-
-//STRUCTRURE For Sections
-
-private struct MyFavorites {
-  static let section = "My Favorites"
-  //array with 5 objects Publisher
-  static func dataKit() -> [Publisher] {
-    var publisher = [Publisher]()
-    publisher.append(Publisher(image:  UIImage(named: "TIME")!, title: "TIME", section: "My Favorites"))
-    publisher.append(Publisher(image:  UIImage(named: "The New York Times")!, title: "The New York Times",
-      section: "My Favorites"))
-    publisher.append(Publisher(image:  UIImage(named: "TED")!, title: "TED", section: "My Favorites"))
-    publisher.append(Publisher(image:  UIImage(named: "Recode")!, title: "Re/code", section: "My Favorites"))
-    publisher.append(Publisher(image:   UIImage(named: "WIRED")!, title: "WIRED", section: "My Favorites"))
-    return publisher
-  }
-
-}
-
-private struct Politics {
-  static let section = "Politics"
-  //array with 6 objects Publisher
-  static func dataKit() -> [Publisher] {
-    var publisher = [Publisher]()
-    publisher.append(Publisher(image: UIImage(named: "The Atlantic")!, title: "The Atlantic", section: "Politics"))
-    publisher.append(Publisher(image: UIImage(named: "The Hill")!, title: "The Hill", section: "Politics"))
-    publisher.append(Publisher(image: UIImage(named: "Daily Intelligencer")!, title: "Daily Intelligencer",
-      section: "Politics"))
-    publisher.append(Publisher(image: UIImage(named: "Vanity Fair")!, title: "Vanity Fair", section: "Politics"))
-    publisher.append(Publisher(image: UIImage(named: "TIME")!, title: "TIME", section: "Politics"))
-    publisher.append(Publisher(image: UIImage(named: "The Huffington Post")!, title: "The Huffington Post",
-      section: "Politics"))
-    return publisher
-  }
-
-}
-
-private struct Travel {
-  static let section = "Travel"
-  //array with 7 objects Publisher
-  private static func dataKit() -> [Publisher] {
-    var publisher = [Publisher]()
-    publisher.append(Publisher(image: UIImage(named: "AFAR")!, title: "AFAR", section: "Travel"))
-    publisher.append(Publisher(image:  UIImage(named: "The New York Times")!, title: "The New York Times",
-      section: "Travel"))
-    publisher.append(Publisher(image: UIImage(named: "AFAR")!, title: "AFAR", section: "Travel"))
-    publisher.append(Publisher(image: UIImage(named: "Men’s Journal")!, title: "Men’s Journal", section: "Travel"))
-    publisher.append(Publisher(image: UIImage(named: "Smithsonian")!, title:"Smithsonian", section: "Travel"))
-    publisher.append(Publisher(image: UIImage(named: "Wallpaper")!, title: "Wallpaper", section: "Travel"))
-    publisher.append(Publisher(image: UIImage(named: "Sunset")!, title: "Sunset", section: "Travel"))
-    return publisher
-  }
-
-}
-
-
-private struct Tehnology {
-  static let section = "Tehnology"
-  //array with 5 objects Publisher
-  private static func dataKit() -> [Publisher] {
-    var publisher = [Publisher]()
-    publisher.append(Publisher(image: UIImage(named: "WIRED")!, title: "WIRED", section: "Technology"))
-    publisher.append(Publisher(image: UIImage(named: "Recode")!, title: "Re/code", section: "Technology"))
-    publisher.append(Publisher(image: UIImage(named: "Quartz")!, title: "Quartz", section: "Technology"))
-    publisher.append(Publisher(image: UIImage(named: "Daring Fireball")!, title: "Daring Fireball",
-      section: "Technology"))
-    publisher.append(Publisher(image: UIImage(named: "MIT Technology Review")!, title: "MIT Technology Review",
-      section: "Technology"))
-    return publisher
-  }
-  
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

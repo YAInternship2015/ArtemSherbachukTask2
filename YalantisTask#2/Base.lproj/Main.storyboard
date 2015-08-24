@@ -13,13 +13,13 @@
                         <viewControllerLayoutGuide type="bottom" id="JES-lj-3MS"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="MaV-LM-23D">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="280"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f53-wF-PyW">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="280"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="G0q-xq-qrZ">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="280"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 </view>
                                 <blurEffect style="dark"/>
@@ -52,8 +52,6 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="320" height="280"/>
                     <connections>
                         <outlet property="doneButton" destination="jqb-WC-cxN" id="94s-Lt-ic0"/>
                         <outlet property="textField" destination="Q8x-cU-blX" id="lcV-n7-Agk"/>
@@ -258,8 +256,6 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fSi-ej-rfJ" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="320" height="280"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="5Ow-ds-5OG">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -283,6 +279,6 @@
         <image name="MIT Technology Review" width="1004" height="1296"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="kpG-el-lnO"/>
+        <segue reference="G5a-sW-oXh"/>
     </inferredMetricsTieBreakers>
 </document>

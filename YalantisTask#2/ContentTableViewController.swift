@@ -81,7 +81,7 @@ class ContentTableViewController: UITableViewController {
   //delete entry from list
   override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
 
-    DataSource.container.removeAtIndex(indexPath.row)
+    DataSource.removeObjectAtIndex(indexPath.row)
 
     tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
   }
