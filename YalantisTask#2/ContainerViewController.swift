@@ -10,8 +10,10 @@ import UIKit
 
 class ContainerViewController: UIViewController {
 
-  @IBOutlet weak var containerView: UIView!
 
+  @IBOutlet weak var navigationBar: UINavigationBar!
+  
+  
   var firstViewCtrl: UIViewController?
   var secondViewCtrl: UIViewController?
   var activeViewCtrl: UIViewController? {
@@ -85,11 +87,9 @@ class ContainerViewController: UIViewController {
   private func updateActiveViewCtrl() {
     if let activeVC = activeViewCtrl {
 
-//      let barHeight = navigationController!.navigationBar.frame.height
-//      let viewHeight = self.view.bounds.height
-
+      let barHeight = CGRectGetHeight(navigationBar.frame)
       self.addChildViewController(activeVC)
-      activeVC.view.frame = self.containerView.frame
+      activeVC.view.frame = CGRectMake(0, barHeight, view.bounds.width, view.bounds.height - barHeight)
       self.view.addSubview(activeVC.view)
       activeVC.didMoveToParentViewController(self)
 
