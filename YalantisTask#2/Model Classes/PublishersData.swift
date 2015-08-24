@@ -9,36 +9,21 @@
 import Foundation
 import UIKit
 
-//one golabl object it is model with all func.
-let DataSource = PublishersData()
+//golabl let for convenience. Для удобства
+let DataSource = PublishersData.sharedInstance
 
 
 class PublishersData {
 
 
   //INITIALIZER
-  init() {
+  private init() {
     container = [Publisher]()
     loadDataFromPlist()
   }
 
 
   //PRIVATE API
-  private static func getAllPublisherObject() -> [Publisher] {
-    let myFavorites = MyFavorites.dataKit()
-    let politics = Politics.dataKit()
-    let travel = Travel.dataKit()
-    let tehnology = Tehnology.dataKit()
-
-    var container = [Publisher]()
-    container += myFavorites
-    container += politics
-    container += travel
-    container += tehnology
-
-    return container
-  }
-
 
   //Construct file path
   private func dataFilePath() -> String {
@@ -92,6 +77,10 @@ class PublishersData {
 
 
   //MARK: PUBLIC API
+
+  //singletone pattern in one line in swift :) http://krakendev.io/blog/the-right-way-to-write-a-singleton
+  static let sharedInstance = PublishersData()
+
   var container: [Publisher] //container where I persist all data
 
   //get image data
@@ -158,7 +147,7 @@ class Publisher: NSObject, NSCoding {
 
 
 
-  //loading decode
+  //decode object
   required init(coder aDecoder: NSCoder) {
     let imageData = aDecoder.decodeObjectForKey("image") as! NSData
     image = UIImage(data: imageData)!
@@ -167,7 +156,7 @@ class Publisher: NSObject, NSCoding {
     super.init()
   }
 
-  //encode saving
+  //encode object
   func encodeWithCoder(aCoder: NSCoder) {
     aCoder.encodeObject(UIImagePNGRepresentation(image), forKey: "image")
     aCoder.encodeObject(title, forKey: "title")
