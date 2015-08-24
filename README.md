@@ -5,7 +5,9 @@ Task2
 Хранить данные моделей в plist-файле
 Добавить возможность добавлять новые элементы - пользователь может ввести текст для новой модели, этот текст не может быть короче трех символов. Картинку пока не выбыраем. Модель сохраняется в plist. После сохранения модели она должна добавиться в plist и отобразиться в таблице и collection view. 
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/hTcwhxhfwmc" frameborder="0" allowfullscreen></iframe>
+[![Alt yalantis task2](https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQNshbZ6U1POND3Vy-ROGbcife1NwDgB6OTrAOMKsUUDAu_1iy7)](https://www.youtube.com/watch?v=hTcwhxhfwmc&feature=youtu.be)
+
+
 
 Controllers
 ContainerViewController - контроллер переключения вида tableView/collectionView
