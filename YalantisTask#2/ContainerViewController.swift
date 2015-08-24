@@ -15,7 +15,7 @@ class ContainerViewController: UIViewController {
   var firstViewCtrl: UIViewController?
   var secondViewCtrl: UIViewController?
   var activeViewCtrl: UIViewController? {
-    //setter react on any change varieble
+    //setter react on any change
     didSet {
       //1 delete old VC
       removeInactiveViewCtrl(oldValue)
@@ -26,6 +26,12 @@ class ContainerViewController: UIViewController {
   }
 
   private var isFirstViewCtrl: Bool = true
+
+
+
+
+
+
 
   //MARK: LOADING
 
@@ -41,6 +47,10 @@ class ContainerViewController: UIViewController {
     isFirstViewCtrl = true
   }
 
+  
+
+
+
 
 
   //MARK: TARGET ACTION
@@ -53,6 +63,9 @@ class ContainerViewController: UIViewController {
   @IBAction func addNewEntryButtonDidTouch(sender: UIBarButtonItem) {
     performSegueWithIdentifier("AddNewEntrySegue", sender: self)
   }
+
+
+
 
 
 

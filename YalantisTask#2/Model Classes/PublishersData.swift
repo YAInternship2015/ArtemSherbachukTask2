@@ -15,16 +15,13 @@ let DataSource = PublishersData()
 
 class PublishersData {
 
+
   //INITIALIZER
   init() {
-    container = PublishersData.getAllPublisherObject()
-
-    sections = [String]()
-    sections.append(MyFavorites.section)
-    sections.append(Politics.section)
-    sections.append(Travel.section)
-    sections.append(Tehnology.section)
+    container = [Publisher]()
+    loadDataFromPlist()
   }
+
 
   //PRIVATE API
   private static func getAllPublisherObject() -> [Publisher] {
@@ -42,6 +39,47 @@ class PublishersData {
     return container
   }
 
+
+  //Construct file path
+  private func dataFilePath() -> String {
+
+    //get the Documents Directory in App Sandbox
+    func documentDirectory() -> String {
+      let documentsDirectory = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory,  NSSearchPathDomainMask.UserDomainMask, true) as! [String]
+      return documentsDirectory[0]
+    }
+
+    return documentDirectory().stringByAppendingPathComponent("dataBase.plist")
+  }
+
+  //loading data
+  private func loadDataFromPlist() {
+
+    let path = dataFilePath()
+
+    //if file dataBase is exist
+    if NSFileManager.defaultManager().fileExistsAtPath(path) {
+      //if that file not empty
+      if let data = NSData(contentsOfFile: path) {
+        let unarhiver = NSKeyedUnarchiver(forReadingWithData: data)
+        container = unarhiver.decodeObjectForKey("Publisher") as! [Publisher]
+        unarhiver.finishDecoding()
+      }
+    }
+    
+  }
+
+
+  //save data
+  private func saveDataToPlist() {
+    let data = NSMutableData()
+    let archiver = NSKeyedArchiver(forWritingWithMutableData: data)
+    archiver.encodeObject(container, forKey: "Publisher")
+    archiver.finishEncoding()
+    data.writeToFile(dataFilePath(), atomically: true)
+  }
+
+
   //Notification in func -> becouse we use it in 2 func. When add new obj and edit exist obj
   private func postNotification(#userInfo: [String: Publisher]?) {
     NSNotificationCenter.defaultCenter().postNotificationName("AddNewEntry", object: self,
@@ -52,9 +90,9 @@ class PublishersData {
 
 
 
+
   //MARK: PUBLIC API
   var container: [Publisher] //container where I persist all data
-  var sections: [String]
 
   //get image data
   func imageForCellAtIndex(index:Int) -> UIImage {
@@ -76,12 +114,17 @@ class PublishersData {
 
     postNotification(userInfo: nil)
     //send to ContentTableViewController and ContentCollectionViewController in ViewDidLoad
+
+    saveDataToPlist()
   }
 
   //edit exist object in container.
   func editExistEntryInModel(#object:Publisher, changeTitle:String) {
+
     object.title = changeTitle
     postNotification(userInfo: nil)
+
+    saveDataToPlist()
   }
 
 }
@@ -92,22 +135,45 @@ class PublishersData {
 
 
 //Publisher Entry Object. This is object what we see in Cell
-class Publisher {
+class Publisher: NSObject, NSCoding {
 
   let image: UIImage
   var title: String
   let section: String
 
   init(image: UIImage, title: String, section: String) {
+
     self.image = image
     self.title = title
     self.section = section
+
+    super.init()
   }
 
   //This is initializer for instance of object with some of data by default.
   convenience init(title: String) {
     self.init(image: UIImage(named: "TIME")!, title: title, section: "New Added")
   }
+
+
+
+
+  //loading decode
+  required init(coder aDecoder: NSCoder) {
+    let imageData = aDecoder.decodeObjectForKey("image") as! NSData
+    image = UIImage(data: imageData)!
+    title = aDecoder.decodeObjectForKey("title") as! String
+    section = aDecoder.decodeObjectForKey("section") as! String
+    super.init()
+  }
+
+  //encode saving
+  func encodeWithCoder(aCoder: NSCoder) {
+    aCoder.encodeObject(UIImagePNGRepresentation(image), forKey: "image")
+    aCoder.encodeObject(title, forKey: "title")
+    aCoder.encodeObject(section, forKey: "section")
+  }
+
 
 }
 
