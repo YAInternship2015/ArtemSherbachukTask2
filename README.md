@@ -21,7 +21,9 @@
 ##### Controllers
 
 ContainerViewController - контроллер переключения вида tableView/collectionView
+
 ContentTableViewController - контроллер table
+
 ContentCollectionViewController -  контроллер collection
 AddNewEntryViewController - добавление новой записи и редактирование
 
