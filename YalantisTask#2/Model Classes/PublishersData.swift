@@ -71,7 +71,7 @@ class PublishersData {
   }
 
 
-  //Notification in func -> becouse we use it in 2 func. When add new obj and edit exist obj
+
   private func postNotification(#userInfo: [String: Publisher]?) {
     NSNotificationCenter.defaultCenter().postNotificationName("AddNewEntry", object: self,
       userInfo: userInfo)

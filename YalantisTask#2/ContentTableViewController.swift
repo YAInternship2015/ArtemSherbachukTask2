@@ -83,7 +83,7 @@ class ContentTableViewController: UITableViewController, AddNewEntryViewControll
   override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
 
     DataSource.removeObjectAtIndex(indexPath.row)
-
+d
     tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
   }
 

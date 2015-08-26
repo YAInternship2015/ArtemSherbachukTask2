@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FC009D0F1B8E243100AD5091 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC009D0E1B8E243100AD5091 /* Assets.xcassets */; };
 		FC1551121B851E54009F6C01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1551111B851E54009F6C01 /* AppDelegate.swift */; };
 		FC1551171B851E54009F6C01 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC1551151B851E54009F6C01 /* Main.storyboard */; };
 		FC15511C1B851E54009F6C01 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC15511A1B851E54009F6C01 /* LaunchScreen.xib */; };
@@ -15,7 +16,6 @@
 		FC1551341B851F12009F6C01 /* AddNewEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1551331B851F12009F6C01 /* AddNewEntryViewController.swift */; };
 		FC1551361B8542CC009F6C01 /* ContentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1551351B8542CC009F6C01 /* ContentTableViewController.swift */; };
 		FC6888101B869EA900003DFE /* PublishersData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC68880F1B869EA900003DFE /* PublishersData.swift */; };
-		FCDB619B1B8668CE001FCA46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCDB619A1B8668CE001FCA46 /* Assets.xcassets */; };
 		FCDF92921B85493200C12CA3 /* ContentCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDF92911B85493200C12CA3 /* ContentCollectionViewController.swift */; };
 		FCDF92951B854EB600C12CA3 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDF92941B854EB600C12CA3 /* CustomTableViewCell.swift */; };
 		FCDF92981B854EE700C12CA3 /* PublisherCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDF92971B854EE700C12CA3 /* PublisherCollectionViewCell.swift */; };
@@ -32,6 +32,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FC009D0E1B8E243100AD5091 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FC15510C1B851E53009F6C01 /* YalantisTask#2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "YalantisTask#2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC1551101B851E53009F6C01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FC1551111B851E54009F6C01 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -44,7 +45,6 @@
 		FC1551331B851F12009F6C01 /* AddNewEntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNewEntryViewController.swift; sourceTree = "<group>"; };
 		FC1551351B8542CC009F6C01 /* ContentTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentTableViewController.swift; sourceTree = "<group>"; };
 		FC68880F1B869EA900003DFE /* PublishersData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublishersData.swift; sourceTree = "<group>"; };
-		FCDB619A1B8668CE001FCA46 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FCDF92911B85493200C12CA3 /* ContentCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentCollectionViewController.swift; sourceTree = "<group>"; };
 		FCDF92941B854EB600C12CA3 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		FCDF92971B854EE700C12CA3 /* PublisherCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublisherCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -72,6 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				FC15510E1B851E53009F6C01 /* YalantisTask#2 */,
+				FC009D0E1B8E243100AD5091 /* Assets.xcassets */,
 				FC1551241B851E54009F6C01 /* YalantisTask#2Tests */,
 				FC15510D1B851E53009F6C01 /* Products */,
 			);
@@ -94,7 +95,6 @@
 				FCDF92961B854EC300C12CA3 /* Views */,
 				FCDB619C1B866C0F001FCA46 /* Model Classes */,
 				FCDB61991B8668A2001FCA46 /* XIB FIles */,
-				FCDB619A1B8668CE001FCA46 /* Assets.xcassets */,
 				FC15510F1B851E53009F6C01 /* Supporting Files */,
 			);
 			path = "YalantisTask#2";
@@ -243,7 +243,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC1551171B851E54009F6C01 /* Main.storyboard in Resources */,
-				FCDB619B1B8668CE001FCA46 /* Assets.xcassets in Resources */,
+				FC009D0F1B8E243100AD5091 /* Assets.xcassets in Resources */,
 				FC15511C1B851E54009F6C01 /* LaunchScreen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
