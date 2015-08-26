@@ -21,21 +21,27 @@
 ##### Controllers
 
 ContainerViewController - контроллер переключения вида tableView/collectionView
+
 ContentTableViewController - контроллер table
+
 ContentCollectionViewController -  контроллер collection
+
 AddNewEntryViewController - добавление новой записи и редактирование
 
 ***
 
 ##### Views
 CustomTableViewCell
+
 PublisherCollectionViewCell
 
 ***
 ##### Model
 PublishersData - объект управления данными ячейки
+
 Publisher - объект данных ячейки
 ***
 
 Реалезованы патерны - Singletone, NotificationCenter, Delegate
+
 p.s. Анимация изменeна после добавления видео
