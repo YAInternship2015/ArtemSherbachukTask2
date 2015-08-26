@@ -1,0 +1,495 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FC009D0D1B8E23F600AD5091 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC009D0C1B8E23F600AD5091 /* Assets.xcassets */; };
+		FC009D121B8E24BB00AD5091 /* PublisherCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FC009D111B8E24BB00AD5091 /* PublisherCollectionViewCell.m */; };
+		FC009D151B8E2CE300AD5091 /* AddEditEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC009D141B8E2CE300AD5091 /* AddEditEntryViewController.m */; };
+		FC009D171B8E4A9500AD5091 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FC009D161B8E4A9500AD5091 /* Localizable.strings */; };
+		FC8E2CD61B8DBA4B00F45FBA /* PublisherData.m in Sources */ = {isa = PBXBuildFile; fileRef = FC8E2CD51B8DBA4B00F45FBA /* PublisherData.m */; };
+		FC8E2CDA1B8DBAB700F45FBA /* Publisher.m in Sources */ = {isa = PBXBuildFile; fileRef = FC8E2CD91B8DBAB700F45FBA /* Publisher.m */; };
+		FC8E2CDD1B8E10B200F45FBA /* PublisherTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FC8E2CDC1B8E10B200F45FBA /* PublisherTableViewCell.m */; };
+		FCB07C771B8CD1AC0012EAE2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB07C761B8CD1AC0012EAE2 /* main.m */; };
+		FCB07C7A1B8CD1AC0012EAE2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB07C791B8CD1AC0012EAE2 /* AppDelegate.m */; };
+		FCB07C7D1B8CD1AC0012EAE2 /* ContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB07C7C1B8CD1AC0012EAE2 /* ContainerViewController.m */; };
+		FCB07C851B8CD1AD0012EAE2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCB07C831B8CD1AD0012EAE2 /* LaunchScreen.xib */; };
+		FCB07C911B8CD1AD0012EAE2 /* YalantisTask2ObjCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB07C901B8CD1AD0012EAE2 /* YalantisTask2ObjCTests.m */; };
+		FCB07C9B1B8CD21C0012EAE2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCB07C9A1B8CD21C0012EAE2 /* Main.storyboard */; };
+		FCB07C9F1B8CD9AA0012EAE2 /* ContainerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB07C9E1B8CD9AA0012EAE2 /* ContainerTableViewController.m */; };
+		FCB07CA21B8CD9CB0012EAE2 /* ContainerCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB07CA11B8CD9CB0012EAE2 /* ContainerCollectionViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FCB07C8B1B8CD1AD0012EAE2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FCB07C691B8CD1AC0012EAE2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FCB07C701B8CD1AC0012EAE2;
+			remoteInfo = YalantisTask2ObjC;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		FC009D0C1B8E23F600AD5091 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FC009D101B8E24BB00AD5091 /* PublisherCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublisherCollectionViewCell.h; sourceTree = "<group>"; };
+		FC009D111B8E24BB00AD5091 /* PublisherCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublisherCollectionViewCell.m; sourceTree = "<group>"; };
+		FC009D131B8E2CE300AD5091 /* AddEditEntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddEditEntryViewController.h; sourceTree = "<group>"; };
+		FC009D141B8E2CE300AD5091 /* AddEditEntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddEditEntryViewController.m; sourceTree = "<group>"; };
+		FC009D161B8E4A9500AD5091 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		FC8E2CD41B8DBA4B00F45FBA /* PublisherData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublisherData.h; sourceTree = "<group>"; };
+		FC8E2CD51B8DBA4B00F45FBA /* PublisherData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublisherData.m; sourceTree = "<group>"; };
+		FC8E2CD81B8DBAB700F45FBA /* Publisher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Publisher.h; sourceTree = "<group>"; };
+		FC8E2CD91B8DBAB700F45FBA /* Publisher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Publisher.m; sourceTree = "<group>"; };
+		FC8E2CDB1B8E10B200F45FBA /* PublisherTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublisherTableViewCell.h; sourceTree = "<group>"; };
+		FC8E2CDC1B8E10B200F45FBA /* PublisherTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublisherTableViewCell.m; sourceTree = "<group>"; };
+		FCB07C711B8CD1AC0012EAE2 /* YalantisTask2ObjC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YalantisTask2ObjC.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FCB07C751B8CD1AC0012EAE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FCB07C761B8CD1AC0012EAE2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		FCB07C781B8CD1AC0012EAE2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		FCB07C791B8CD1AC0012EAE2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		FCB07C7B1B8CD1AC0012EAE2 /* ContainerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContainerViewController.h; sourceTree = "<group>"; };
+		FCB07C7C1B8CD1AC0012EAE2 /* ContainerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContainerViewController.m; sourceTree = "<group>"; };
+		FCB07C841B8CD1AD0012EAE2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		FCB07C8A1B8CD1AD0012EAE2 /* YalantisTask2ObjCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YalantisTask2ObjCTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FCB07C8F1B8CD1AD0012EAE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FCB07C901B8CD1AD0012EAE2 /* YalantisTask2ObjCTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YalantisTask2ObjCTests.m; sourceTree = "<group>"; };
+		FCB07C9A1B8CD21C0012EAE2 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		FCB07C9D1B8CD9AA0012EAE2 /* ContainerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContainerTableViewController.h; sourceTree = "<group>"; };
+		FCB07C9E1B8CD9AA0012EAE2 /* ContainerTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContainerTableViewController.m; sourceTree = "<group>"; };
+		FCB07CA01B8CD9CB0012EAE2 /* ContainerCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContainerCollectionViewController.h; sourceTree = "<group>"; };
+		FCB07CA11B8CD9CB0012EAE2 /* ContainerCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContainerCollectionViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FCB07C6E1B8CD1AC0012EAE2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FCB07C871B8CD1AD0012EAE2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FC8E2CD71B8DBA6A00F45FBA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FC8E2CD41B8DBA4B00F45FBA /* PublisherData.h */,
+				FC8E2CD51B8DBA4B00F45FBA /* PublisherData.m */,
+				FC8E2CD81B8DBAB700F45FBA /* Publisher.h */,
+				FC8E2CD91B8DBAB700F45FBA /* Publisher.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		FC8E2CDE1B8E10BA00F45FBA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FC8E2CDB1B8E10B200F45FBA /* PublisherTableViewCell.h */,
+				FC8E2CDC1B8E10B200F45FBA /* PublisherTableViewCell.m */,
+				FC009D101B8E24BB00AD5091 /* PublisherCollectionViewCell.h */,
+				FC009D111B8E24BB00AD5091 /* PublisherCollectionViewCell.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		FCB07C681B8CD1AC0012EAE2 = {
+			isa = PBXGroup;
+			children = (
+				FCB07C731B8CD1AC0012EAE2 /* YalantisTask2ObjC */,
+				FCB07C8D1B8CD1AD0012EAE2 /* YalantisTask2ObjCTests */,
+				FCB07C721B8CD1AC0012EAE2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FCB07C721B8CD1AC0012EAE2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FCB07C711B8CD1AC0012EAE2 /* YalantisTask2ObjC.app */,
+				FCB07C8A1B8CD1AD0012EAE2 /* YalantisTask2ObjCTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FCB07C731B8CD1AC0012EAE2 /* YalantisTask2ObjC */ = {
+			isa = PBXGroup;
+			children = (
+				FCB07C781B8CD1AC0012EAE2 /* AppDelegate.h */,
+				FCB07C791B8CD1AC0012EAE2 /* AppDelegate.m */,
+				FCB07C9C1B8CD93C0012EAE2 /* Controllers */,
+				FC8E2CD71B8DBA6A00F45FBA /* Model */,
+				FC8E2CDE1B8E10BA00F45FBA /* Views */,
+				FCB07C831B8CD1AD0012EAE2 /* LaunchScreen.xib */,
+				FCB07C9A1B8CD21C0012EAE2 /* Main.storyboard */,
+				FC009D0C1B8E23F600AD5091 /* Assets.xcassets */,
+				FCB07C741B8CD1AC0012EAE2 /* Supporting Files */,
+			);
+			path = YalantisTask2ObjC;
+			sourceTree = "<group>";
+		};
+		FCB07C741B8CD1AC0012EAE2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FCB07C751B8CD1AC0012EAE2 /* Info.plist */,
+				FC009D161B8E4A9500AD5091 /* Localizable.strings */,
+				FCB07C761B8CD1AC0012EAE2 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FCB07C8D1B8CD1AD0012EAE2 /* YalantisTask2ObjCTests */ = {
+			isa = PBXGroup;
+			children = (
+				FCB07C901B8CD1AD0012EAE2 /* YalantisTask2ObjCTests.m */,
+				FCB07C8E1B8CD1AD0012EAE2 /* Supporting Files */,
+			);
+			path = YalantisTask2ObjCTests;
+			sourceTree = "<group>";
+		};
+		FCB07C8E1B8CD1AD0012EAE2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FCB07C8F1B8CD1AD0012EAE2 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FCB07C9C1B8CD93C0012EAE2 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FCB07C7B1B8CD1AC0012EAE2 /* ContainerViewController.h */,
+				FCB07C7C1B8CD1AC0012EAE2 /* ContainerViewController.m */,
+				FCB07C9D1B8CD9AA0012EAE2 /* ContainerTableViewController.h */,
+				FCB07C9E1B8CD9AA0012EAE2 /* ContainerTableViewController.m */,
+				FCB07CA01B8CD9CB0012EAE2 /* ContainerCollectionViewController.h */,
+				FCB07CA11B8CD9CB0012EAE2 /* ContainerCollectionViewController.m */,
+				FC009D131B8E2CE300AD5091 /* AddEditEntryViewController.h */,
+				FC009D141B8E2CE300AD5091 /* AddEditEntryViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FCB07C701B8CD1AC0012EAE2 /* YalantisTask2ObjC */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FCB07C941B8CD1AD0012EAE2 /* Build configuration list for PBXNativeTarget "YalantisTask2ObjC" */;
+			buildPhases = (
+				FCB07C6D1B8CD1AC0012EAE2 /* Sources */,
+				FCB07C6E1B8CD1AC0012EAE2 /* Frameworks */,
+				FCB07C6F1B8CD1AC0012EAE2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = YalantisTask2ObjC;
+			productName = YalantisTask2ObjC;
+			productReference = FCB07C711B8CD1AC0012EAE2 /* YalantisTask2ObjC.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FCB07C891B8CD1AD0012EAE2 /* YalantisTask2ObjCTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FCB07C971B8CD1AD0012EAE2 /* Build configuration list for PBXNativeTarget "YalantisTask2ObjCTests" */;
+			buildPhases = (
+				FCB07C861B8CD1AD0012EAE2 /* Sources */,
+				FCB07C871B8CD1AD0012EAE2 /* Frameworks */,
+				FCB07C881B8CD1AD0012EAE2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FCB07C8C1B8CD1AD0012EAE2 /* PBXTargetDependency */,
+			);
+			name = YalantisTask2ObjCTests;
+			productName = YalantisTask2ObjCTests;
+			productReference = FCB07C8A1B8CD1AD0012EAE2 /* YalantisTask2ObjCTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FCB07C691B8CD1AC0012EAE2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0640;
+				ORGANIZATIONNAME = "Artem Sherbachuk";
+				TargetAttributes = {
+					FCB07C701B8CD1AC0012EAE2 = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					FCB07C891B8CD1AD0012EAE2 = {
+						CreatedOnToolsVersion = 6.4;
+						TestTargetID = FCB07C701B8CD1AC0012EAE2;
+					};
+				};
+			};
+			buildConfigurationList = FCB07C6C1B8CD1AC0012EAE2 /* Build configuration list for PBXProject "YalantisTask2ObjC" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FCB07C681B8CD1AC0012EAE2;
+			productRefGroup = FCB07C721B8CD1AC0012EAE2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FCB07C701B8CD1AC0012EAE2 /* YalantisTask2ObjC */,
+				FCB07C891B8CD1AD0012EAE2 /* YalantisTask2ObjCTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FCB07C6F1B8CD1AC0012EAE2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FCB07C9B1B8CD21C0012EAE2 /* Main.storyboard in Resources */,
+				FC009D171B8E4A9500AD5091 /* Localizable.strings in Resources */,
+				FC009D0D1B8E23F600AD5091 /* Assets.xcassets in Resources */,
+				FCB07C851B8CD1AD0012EAE2 /* LaunchScreen.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FCB07C881B8CD1AD0012EAE2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FCB07C6D1B8CD1AC0012EAE2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FC8E2CD61B8DBA4B00F45FBA /* PublisherData.m in Sources */,
+				FCB07C7D1B8CD1AC0012EAE2 /* ContainerViewController.m in Sources */,
+				FCB07C7A1B8CD1AC0012EAE2 /* AppDelegate.m in Sources */,
+				FCB07C771B8CD1AC0012EAE2 /* main.m in Sources */,
+				FC8E2CDD1B8E10B200F45FBA /* PublisherTableViewCell.m in Sources */,
+				FCB07C9F1B8CD9AA0012EAE2 /* ContainerTableViewController.m in Sources */,
+				FCB07CA21B8CD9CB0012EAE2 /* ContainerCollectionViewController.m in Sources */,
+				FC8E2CDA1B8DBAB700F45FBA /* Publisher.m in Sources */,
+				FC009D121B8E24BB00AD5091 /* PublisherCollectionViewCell.m in Sources */,
+				FC009D151B8E2CE300AD5091 /* AddEditEntryViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FCB07C861B8CD1AD0012EAE2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FCB07C911B8CD1AD0012EAE2 /* YalantisTask2ObjCTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FCB07C8C1B8CD1AD0012EAE2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FCB07C701B8CD1AC0012EAE2 /* YalantisTask2ObjC */;
+			targetProxy = FCB07C8B1B8CD1AD0012EAE2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FCB07C831B8CD1AD0012EAE2 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FCB07C841B8CD1AD0012EAE2 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FCB07C921B8CD1AD0012EAE2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		FCB07C931B8CD1AD0012EAE2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FCB07C951B8CD1AD0012EAE2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = YalantisTask2ObjC/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		FCB07C961B8CD1AD0012EAE2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = YalantisTask2ObjC/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		FCB07C981B8CD1AD0012EAE2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = YalantisTask2ObjCTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/YalantisTask2ObjC.app/YalantisTask2ObjC";
+			};
+			name = Debug;
+		};
+		FCB07C991B8CD1AD0012EAE2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = YalantisTask2ObjCTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/YalantisTask2ObjC.app/YalantisTask2ObjC";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FCB07C6C1B8CD1AC0012EAE2 /* Build configuration list for PBXProject "YalantisTask2ObjC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FCB07C921B8CD1AD0012EAE2 /* Debug */,
+				FCB07C931B8CD1AD0012EAE2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FCB07C941B8CD1AD0012EAE2 /* Build configuration list for PBXNativeTarget "YalantisTask2ObjC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FCB07C951B8CD1AD0012EAE2 /* Debug */,
+				FCB07C961B8CD1AD0012EAE2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FCB07C971B8CD1AD0012EAE2 /* Build configuration list for PBXNativeTarget "YalantisTask2ObjCTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FCB07C981B8CD1AD0012EAE2 /* Debug */,
+				FCB07C991B8CD1AD0012EAE2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FCB07C691B8CD1AC0012EAE2 /* Project object */;
+}
