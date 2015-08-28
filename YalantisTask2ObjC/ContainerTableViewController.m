@@ -51,7 +51,7 @@ const NSTimeInterval kCellActionAnimationTime = 0.4;
 
   self.tableView.alpha = 0;
   self.tableView.transform = CGAffineTransformMakeScale(0.1, 0.1);
-  __block ContainerTableViewController* blocSelf = self;
+  __block __weak ContainerTableViewController* blocSelf = self;
   [UIView animateWithDuration:0.5 animations:^{
     blocSelf.tableView.alpha = 1;
     blocSelf.tableView.transform = CGAffineTransformMakeScale(1, 0.1);

@@ -54,7 +54,7 @@ const NSTimeInterval cellActionAnimation = 0.4;
   [super viewWillAppear:animated];
 
   self.collectionView.alpha = 0;
-  __block ContainerCollectionViewController* blockSelf = self;
+  __block __weak ContainerCollectionViewController* blockSelf = self;
   [UIView animateWithDuration:0.5 animations:^{
     blockSelf.collectionView.alpha = 1;
   }];
