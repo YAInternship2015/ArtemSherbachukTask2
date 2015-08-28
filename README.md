@@ -1,6 +1,6 @@
 ### ArtemSherbachukTask2
 
-# Yalantis Task2.  Swift  
+# Yalantis Task2.  Objective-c  
 
 ### Описание
 > К Вашему выполненному заданию 1 необходимо добавить следующий функционал:
