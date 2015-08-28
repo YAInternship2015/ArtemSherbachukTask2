@@ -14,8 +14,8 @@
 @interface ASPublisherCollectionViewCell : UICollectionViewCell
 
 
-@property (weak, nonatomic) IBOutlet UIImageView *publisherImage;
-@property (weak, nonatomic) IBOutlet UILabel *publisherTitle;
+@property (nonatomic, weak) IBOutlet UIImageView *publisherImage;
+@property (nonatomic, weak) IBOutlet UILabel *publisherTitle;
 
 
 @end

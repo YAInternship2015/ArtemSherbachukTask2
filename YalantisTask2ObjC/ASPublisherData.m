@@ -11,9 +11,7 @@
 
 
 
-@interface ASPublisherData() {
-
-}
+@interface ASPublisherData()
 
 @property(nonatomic, strong, getter=randomImagePath) NSString* path;
 @property(nonatomic, strong) ASPublisher* publisher;
@@ -84,11 +82,10 @@
 }
 
 -(void)postNotification:(NSDictionary* )userInfo {
-  [[NSNotificationCenter defaultCenter] postNotificationName:@"DataChange" object:self userInfo:userInfo];
+  [[NSNotificationCenter defaultCenter] postNotificationName:ASDataWasChangedNotification object:self userInfo:userInfo];
 }
 
-- (NSString *)randomImagePath
-{
+- (NSString *)randomImagePath {
   switch (arc4random_uniform(7)) {
     case 1:
       return _path = @"TIME";

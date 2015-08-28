@@ -10,19 +10,18 @@
 #import <UIKit/UIKit.h>
 @class ASPublisher;
 
+static NSString  *ASDataWasChangedNotification = @"DataChange";
+
 
 @interface ASPublisherData : NSObject
 
-
-
 @property(nonatomic, strong) NSMutableArray* container;
 
-+(instancetype)sharedInstance;
--(UIImage*)imageForCellAtIndex:(int)index;
--(NSString*)titleForCellAtIndex:(int)index;
--(void)addNewEntryInModel:(NSString*)title;
--(void)removeObjectAtIndex:(int)index;
--(void)editExistEntryInModel:(ASPublisher*)object changeTitle:(NSString*)title;
-
++ (instancetype)sharedInstance;
+- (UIImage *)imageForCellAtIndex:(int)index;
+- (NSString *)titleForCellAtIndex:(int)index;
+- (void)addNewEntryInModel:(NSString *)title;
+- (void)removeObjectAtIndex:(int)index;
+- (void)editExistEntryInModel:(ASPublisher *)object changeTitle:(NSString *)title;
 
 @end

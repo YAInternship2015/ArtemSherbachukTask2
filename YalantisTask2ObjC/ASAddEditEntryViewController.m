@@ -41,7 +41,7 @@
   if (self.editEntry != nil) {
     self.title = @"Edit Entry";
     self.textField.text = self.editEntry.title;
-    self.doneButton.enabled = true; // только понял что можно писать true как и в swift
+    self.doneButton.enabled = true;
   } else {
     self.title = @"Add New Entry";
     self.doneButton.enabled = false;
@@ -68,9 +68,9 @@
 - (IBAction)doneButtonDidTouch:(UIBarButtonItem *)sender {
 
   if (self.editEntry) {
-    [[ASPublisherData sharedInstance]editExistEntryInModel:self.editEntry changeTitle:self.textField.text];
+    [[ASPublisherData sharedInstance] editExistEntryInModel:self.editEntry changeTitle:self.textField.text];
   } else {
-    [[ASPublisherData sharedInstance]addNewEntryInModel:self.textField.text];
+    [[ASPublisherData sharedInstance] addNewEntryInModel:self.textField.text];
   }
 
   [self dismissViewControllerAnimated:YES completion:nil];

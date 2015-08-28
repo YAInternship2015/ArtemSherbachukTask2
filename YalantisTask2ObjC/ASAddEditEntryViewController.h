@@ -23,10 +23,10 @@
 @interface ASAddEditEntryViewController : UIViewController
 
 
-@property (weak, nonatomic) IBOutlet UITextField *textField;
-@property (nonatomic) ASPublisher* editEntry;
+@property (nonatomic, weak) IBOutlet UITextField *textField;
+@property (nonatomic, strong) ASPublisher* editEntry;
 @property (nonatomic, weak)  id <ASAddEditEntryViewControllerDelegate> delegate;
-@property (nonatomic) NSIndexPath* indexPathForCellAnimation;
+@property (nonatomic, strong) NSIndexPath* indexPathForCellAnimation;
 
 
 @end

@@ -14,8 +14,7 @@
 #pragma mark initialization
 
   //designated init
-- (instancetype)initWithImage:(UIImage *)image title:(NSString *)title section:(NSString *)section
-{
+- (instancetype)initWithImage:(UIImage *)image title:(NSString *)title section:(NSString *)section {
   self.image = image;
   self.title = title;
   self.section = section;
@@ -23,8 +22,7 @@
 }
 
   //convenience init
-- (instancetype)initWithImage:(NSString*)imagePath title:(NSString*)title
-{
+- (instancetype)initWithImage:(NSString*)imagePath title:(NSString*)title {
   self = [self initWithImage:[UIImage imageNamed:imagePath] title:title section:@"New Added"];
   return self;
 }
@@ -34,8 +32,7 @@
 
 #pragma mark ARCHIVING NSCoding
 
-- (id)initWithCoder:(NSCoder *)aDecoder
-{
+- (id)initWithCoder:(NSCoder *)aDecoder {
   NSData* imageData = [aDecoder decodeObjectForKey:@"image"];
   UIImage* image = [UIImage imageWithData:imageData];
   NSString* title = [aDecoder decodeObjectForKey:@"title"];
@@ -44,8 +41,7 @@
 }
 
 
-- (void)encodeWithCoder:(NSCoder *)aCoder
-{
+- (void)encodeWithCoder:(NSCoder *)aCoder {
   [aCoder encodeObject:UIImagePNGRepresentation(self.image) forKey:@"image"];
   [aCoder encodeObject:self.title forKey:@"title"];
   [aCoder encodeObject:self.section forKey:@"section"];
