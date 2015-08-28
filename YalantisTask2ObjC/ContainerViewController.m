@@ -10,12 +10,13 @@
 #import "AddEditEntryViewController.h"
 
 
-
+#warning не знаю, зачем Вы расставляете столько пустых строк, но как по мне - в них нет никакой необходимости. Если хотите группировать методы, то пользуйтесь директивой #pragma mark -
 
 @interface ContainerViewController () <AddEditEntryViewControllerDelegate>
 
-
+#warning (nonatomic, weak)
 @property (weak, nonatomic) IBOutlet UINavigationBar *navigationBar;
+#warning (nonatomic, strong) - не забывайте писать strong, также опечатка в слове first. Также по форматированию правильно писать UIViewController *firstVC (звездочка прижимается к имени переменной)
 @property (nonatomic) UIViewController* firsVC;
 @property (nonatomic) UIViewController* secondVC;
 @property (nonatomic, assign, setter=setActtiveViewCtrl:) BOOL isFirstVC;
@@ -70,9 +71,11 @@
 #pragma mark CONTAINER LOGIC
 
   //toggle layout mode
+#warning опечатка в имени. Также, открывающаяся фигурная скобка ставится на той же строке, что и имя метода
 - (void)setActtiveViewCtrl:(BOOL)isFirstVC
 {
   if (isFirstVC) {
+#warning какой-то странный размер табуляции, он должен быть больше
     [self removeVC:self.firsVC];
     [self displayVC:self.secondVC];
   } else {

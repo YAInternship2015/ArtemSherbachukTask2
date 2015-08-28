@@ -17,9 +17,13 @@
 
 @property(nonatomic, strong) NSMutableArray* container;
 
+#warning однотипные ошибки в форматировании
+// + (instancetype)sharedInstance;
 +(instancetype)sharedInstance;
+// - (UIImage *)imageForCellAtIndex:(int)index;
 -(UIImage*)imageForCellAtIndex:(int)index;
 -(NSString*)titleForCellAtIndex:(int)index;
+// - (void)addNewEntryInModel:(NSString *)title;
 -(void)addNewEntryInModel:(NSString*)title;
 -(void)removeObjectAtIndex:(int)index;
 -(void)editExistEntryInModel:(Publisher*)object changeTitle:(NSString*)title;

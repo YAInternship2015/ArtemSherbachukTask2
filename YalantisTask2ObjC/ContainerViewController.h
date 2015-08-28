@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+#warning В obj-c у всех классов должен быть префикс приложения, желательно трехбуквенный, типа YTO
 @interface ContainerViewController : UIViewController
 
 

@@ -37,11 +37,15 @@ const NSTimeInterval kCellActionAnimationTime = 0.4;
 
 - (void)viewDidLoad {
   [super viewDidLoad];
+#warning это лучше задать в сториборде
   self.tableView.rowHeight = 80;
+#warning имена нотификейшнов не стоит локализировать, их же не видно в интерфейсе. Их обычно выносят в отдельный файл либо структуру, где объявляют имена всех нотификейшнов, что есть в приложении. Например,
+    // static NSString *const YMODataWasChangedNotification = @"YMODataWasChangedNotification";
   [[NSNotificationCenter defaultCenter] addObserver:self
                                            selector:@selector(dataChange:)
                                                name:NSLocalizedString(@"DataChange", "this is name of notification message no more magic string")
                                              object:nil];
+
   self.tableView.delaysContentTouches = YES;
 }
 
@@ -51,6 +55,9 @@ const NSTimeInterval kCellActionAnimationTime = 0.4;
 
   self.tableView.alpha = 0;
   self.tableView.transform = CGAffineTransformMakeScale(0.1, 0.1);
+#warning опечатка в имени переменной, неправильно отформатированное объявление переменной, и опять этот странный сдвиг на два символа - он должен быть на четыре символа
+    
+#warning все эти плюшки с анимациями выглядят неплохо, но по коду их нужно выносить в отдельные методы, с "говорящими" именами
   __block __weak ContainerTableViewController* blocSelf = self;
   [UIView animateWithDuration:0.5 animations:^{
     blocSelf.tableView.alpha = 1;
