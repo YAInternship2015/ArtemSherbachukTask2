@@ -7,19 +7,19 @@
   //
 
   //controller
-#import "ContainerCollectionViewController.h"
-#import "AddEditEntryViewController.h"
+#import "ASContainerCollectionViewController.h"
+#import "ASAddEditEntryViewController.h"
 
   //view
-#import "PublisherCollectionViewCell.h"
+#import "ASPublisherCollectionViewCell.h"
 
   //data model classes
-#import "PublisherData.h"
+#import "ASPublisherData.h"
 
 
 const NSTimeInterval cellActionAnimation = 0.4;
 
-@interface ContainerCollectionViewController () <AddEditEntryViewControllerDelegate>
+@interface ASContainerCollectionViewController () <ASAddEditEntryViewControllerDelegate>
 
 
 @end
@@ -27,7 +27,7 @@ const NSTimeInterval cellActionAnimation = 0.4;
 
 
 
-@implementation ContainerCollectionViewController
+@implementation ASContainerCollectionViewController
 
 
 
@@ -54,7 +54,7 @@ const NSTimeInterval cellActionAnimation = 0.4;
   [super viewWillAppear:animated];
 
   self.collectionView.alpha = 0;
-  __block __weak ContainerCollectionViewController* blockSelf = self;
+  __block __weak ASContainerCollectionViewController* blockSelf = self;
   [UIView animateWithDuration:0.5 animations:^{
     blockSelf.collectionView.alpha = 1;
   }];
@@ -88,15 +88,15 @@ const NSTimeInterval cellActionAnimation = 0.4;
  .........................
  */
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-  return [PublisherData sharedInstance].container.count;
+  return [ASPublisherData sharedInstance].container.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
 
-  PublisherCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CellCollection"
+  ASPublisherCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CellCollection"
                                                                                 forIndexPath:indexPath];
-  cell.publisherImage.image = [[PublisherData sharedInstance] imageForCellAtIndex:indexPath.row];
-  cell.publisherTitle.text = [[PublisherData sharedInstance] titleForCellAtIndex:indexPath.row];
+  cell.publisherImage.image = [[ASPublisherData sharedInstance] imageForCellAtIndex:indexPath.row];
+  cell.publisherTitle.text = [[ASPublisherData sharedInstance] titleForCellAtIndex:indexPath.row];
 
   return cell;
 }
@@ -133,7 +133,7 @@ const NSTimeInterval cellActionAnimation = 0.4;
   cell.transform = CGAffineTransformMakeScale(0.1, 0.1);
 
   double eachRow = indexPath.row;
-  double sizeOfContainerWithData = [PublisherData sharedInstance].container.count;
+  double sizeOfContainerWithData = [ASPublisherData sharedInstance].container.count;
   NSTimeInterval time = eachRow / sizeOfContainerWithData;
 
   [UIView animateWithDuration:time animations:^{
@@ -177,12 +177,12 @@ const NSTimeInterval cellActionAnimation = 0.4;
                                            "invoke segue to action for edit exist entry");
   if ([segue.identifier isEqualToString:segueIdent]) {
 
-    AddEditEntryViewController* controller = [segue destinationViewController];
+    ASAddEditEntryViewController* controller = [segue destinationViewController];
 
     NSIndexPath* indexPath = [self.collectionView indexPathForCell:sender];
 
     controller.delegate = self;
-    controller.editEntry = [PublisherData sharedInstance].container[indexPath.row];
+    controller.editEntry = [ASPublisherData sharedInstance].container[indexPath.row];
     controller.indexPathForCellAnimation = indexPath;
   }
 }
@@ -192,7 +192,7 @@ const NSTimeInterval cellActionAnimation = 0.4;
 
 #pragma makr Delegate methods
 
-- (void)cancelAddNewEntryViewControllerWithAnimationCell:(AddEditEntryViewController *)ctrl
+- (void)cancelAddNewEntryViewControllerWithAnimationCell:(ASAddEditEntryViewController *)ctrl
                                            cellIndexPath:(NSIndexPath *)path {
 
   UICollectionViewCell* cell = [self.collectionView cellForItemAtIndexPath:path];

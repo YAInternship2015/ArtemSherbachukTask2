@@ -8,10 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-@class Publisher;
+@class ASPublisher;
 
 
-@interface PublisherData : NSObject
+@interface ASPublisherData : NSObject
 
 
 
@@ -22,7 +22,7 @@
 -(NSString*)titleForCellAtIndex:(int)index;
 -(void)addNewEntryInModel:(NSString*)title;
 -(void)removeObjectAtIndex:(int)index;
--(void)editExistEntryInModel:(Publisher*)object changeTitle:(NSString*)title;
+-(void)editExistEntryInModel:(ASPublisher*)object changeTitle:(NSString*)title;
 
 
 @end

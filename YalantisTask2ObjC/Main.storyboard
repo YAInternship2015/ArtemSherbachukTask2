@@ -7,7 +7,7 @@
         <!--Add New Entry-->
         <scene sceneID="Jka-xf-09c">
             <objects>
-                <viewController id="nlG-6W-0RE" customClass="AddEditEntryViewController" sceneMemberID="viewController">
+                <viewController id="nlG-6W-0RE" customClass="ASAddEditEntryViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="z3k-Sd-fdv"/>
                         <viewControllerLayoutGuide type="bottom" id="JES-lj-3MS"/>
@@ -94,7 +94,7 @@
         <!--Container View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ContainerViewController" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ASContainerViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -144,13 +144,13 @@
         <!--Container Table View Controller-->
         <scene sceneID="vLo-c6-0n8">
             <objects>
-                <tableViewController storyboardIdentifier="TableView" id="hNN-A9-RfB" customClass="ContainerTableViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="TableView" id="hNN-A9-RfB" customClass="ASContainerTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="2RU-BQ-dje">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellTable" rowHeight="80" id="TB7-ea-ckT" customClass="PublisherTableViewCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellTable" rowHeight="80" id="TB7-ea-ckT" customClass="ASPublisherTableViewCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TB7-ea-ckT" id="HXP-kI-80e">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -200,7 +200,7 @@
         <!--Container Collection View Controller-->
         <scene sceneID="H8J-XJ-5ir">
             <objects>
-                <collectionViewController storyboardIdentifier="CollectionView" id="sjb-Pb-iai" customClass="ContainerCollectionViewController" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="CollectionView" id="sjb-Pb-iai" customClass="ASContainerCollectionViewController" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="ShU-EN-KQn">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -212,7 +212,7 @@
                             <inset key="sectionInset" minX="8" minY="8" maxX="8" maxY="8"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CellCollection" id="alx-XA-VFQ" customClass="PublisherCollectionViewCell">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CellCollection" id="alx-XA-VFQ" customClass="ASPublisherCollectionViewCell">
                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">

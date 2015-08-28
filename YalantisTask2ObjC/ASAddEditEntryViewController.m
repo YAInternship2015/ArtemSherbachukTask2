@@ -6,15 +6,15 @@
   //  Copyright (c) 2015 Artem Sherbachuk. All rights reserved.
   //
 
-#import "AddEditEntryViewController.h"
+#import "ASAddEditEntryViewController.h"
 
   //data model classes
-#import "PublisherData.h"
-#import "Publisher.h"
+#import "ASPublisherData.h"
+#import "ASPublisher.h"
 
 
 
-@interface AddEditEntryViewController () <UITextFieldDelegate>
+@interface ASAddEditEntryViewController () <UITextFieldDelegate>
 
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
@@ -25,7 +25,7 @@
 
 
 
-@implementation AddEditEntryViewController
+@implementation ASAddEditEntryViewController
 
 
 
@@ -68,9 +68,9 @@
 - (IBAction)doneButtonDidTouch:(UIBarButtonItem *)sender {
 
   if (self.editEntry) {
-    [[PublisherData sharedInstance]editExistEntryInModel:self.editEntry changeTitle:self.textField.text];
+    [[ASPublisherData sharedInstance]editExistEntryInModel:self.editEntry changeTitle:self.textField.text];
   } else {
-    [[PublisherData sharedInstance]addNewEntryInModel:self.textField.text];
+    [[ASPublisherData sharedInstance]addNewEntryInModel:self.textField.text];
   }
 
   [self dismissViewControllerAnimated:YES completion:nil];

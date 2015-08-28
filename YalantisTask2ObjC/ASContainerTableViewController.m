@@ -7,18 +7,18 @@
   //
 
   //controller clases
-#import "ContainerTableViewController.h"
-#import "PublisherTableViewCell.h"
-#import "AddEditEntryViewController.h"
+#import "ASContainerTableViewController.h"
+#import "ASPublisherTableViewCell.h"
+#import "ASAddEditEntryViewController.h"
 
   //data model clases
-#import "PublisherData.h"
+#import "ASPublisherData.h"
 
 
 
 const NSTimeInterval kCellActionAnimationTime = 0.4;
 
-@interface ContainerTableViewController ()  <AddEditEntryViewControllerDelegate>
+@interface ASContainerTableViewController ()  <ASAddEditEntryViewControllerDelegate>
 
 
 @end
@@ -26,7 +26,7 @@ const NSTimeInterval kCellActionAnimationTime = 0.4;
 
 
 
-@implementation ContainerTableViewController
+@implementation ASContainerTableViewController
 
 
 
@@ -51,7 +51,7 @@ const NSTimeInterval kCellActionAnimationTime = 0.4;
 
   self.tableView.alpha = 0;
   self.tableView.transform = CGAffineTransformMakeScale(0.1, 0.1);
-  __block __weak ContainerTableViewController* blocSelf = self;
+  __block __weak ASContainerTableViewController* blocSelf = self;
   [UIView animateWithDuration:0.5 animations:^{
     blocSelf.tableView.alpha = 1;
     blocSelf.tableView.transform = CGAffineTransformMakeScale(1, 0.1);
@@ -74,18 +74,18 @@ const NSTimeInterval kCellActionAnimationTime = 0.4;
  */
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-  return [PublisherData sharedInstance].container.count;
+  return [ASPublisherData sharedInstance].container.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-  PublisherTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellTable" forIndexPath:indexPath];
+  ASPublisherTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellTable" forIndexPath:indexPath];
 
   cell.backgroundColor = indexPath.row % 2 ? [UIColor whiteColor] : [[UIColor lightGrayColor]
                                                                      colorWithAlphaComponent:0.2];//zebra style:)
 
-  cell.publisherImage.image = [[PublisherData sharedInstance] imageForCellAtIndex:indexPath.row];
-  cell.publisherTitle.text = [[PublisherData sharedInstance] titleForCellAtIndex:indexPath.row];
+  cell.publisherImage.image = [[ASPublisherData sharedInstance] imageForCellAtIndex:indexPath.row];
+  cell.publisherTitle.text = [[ASPublisherData sharedInstance] titleForCellAtIndex:indexPath.row];
 
   return cell;
 }
@@ -93,7 +93,7 @@ const NSTimeInterval kCellActionAnimationTime = 0.4;
   //delete action
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyl forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  [[PublisherData sharedInstance]removeObjectAtIndex:indexPath.row];
+  [[ASPublisherData sharedInstance]removeObjectAtIndex:indexPath.row];
   [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationRight];
 }
 
@@ -132,7 +132,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
   cell.transform = CGAffineTransformMakeScale(0, 0);
 
   double eachRow = indexPath.row;
-  double sizeOfContainerWithData = [PublisherData sharedInstance].container.count;
+  double sizeOfContainerWithData = [ASPublisherData sharedInstance].container.count;
   NSTimeInterval time = eachRow / sizeOfContainerWithData;
 
   [UIView animateWithDuration:time animations:^{
@@ -178,9 +178,9 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
                                            "invoke segue to action for edit exist entry");
   if ([segue.identifier isEqualToString:segueIdent]) {
 
-    AddEditEntryViewController* ctrl = [segue destinationViewController];
+    ASAddEditEntryViewController* ctrl = [segue destinationViewController];
     NSIndexPath* indexPath = [self.tableView indexPathForCell:sender];
-    ctrl.editEntry = [PublisherData sharedInstance].container[indexPath.row];
+    ctrl.editEntry = [ASPublisherData sharedInstance].container[indexPath.row];
     ctrl.delegate = self;
     ctrl.indexPathForCellAnimation = indexPath;
   }
@@ -194,7 +194,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
 
 #pragma mark Delegate Methods
 
-- (void)cancelAddNewEntryViewControllerWithAnimationCell:(AddEditEntryViewController *)ctrl
+- (void)cancelAddNewEntryViewControllerWithAnimationCell:(ASAddEditEntryViewController *)ctrl
                                            cellIndexPath:(NSIndexPath *)path {
   UITableViewCell* cell = [self.tableView cellForRowAtIndexPath:path];
 

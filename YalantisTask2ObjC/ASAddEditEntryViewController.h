@@ -7,25 +7,25 @@
 //
 
 #import <UIKit/UIKit.h>
-@class Publisher;
-@class AddEditEntryViewController;
+@class ASPublisher;
+@class ASAddEditEntryViewController;
 
 
 
-@protocol AddEditEntryViewControllerDelegate <NSObject>
+@protocol ASAddEditEntryViewControllerDelegate <NSObject>
 
--(void)cancelAddNewEntryViewControllerWithAnimationCell:(AddEditEntryViewController *)ctrl
+-(void)cancelAddNewEntryViewControllerWithAnimationCell:(ASAddEditEntryViewController *)ctrl
                                           cellIndexPath:(NSIndexPath*)path;
 
 @end
 
 
-@interface AddEditEntryViewController : UIViewController
+@interface ASAddEditEntryViewController : UIViewController
 
 
 @property (weak, nonatomic) IBOutlet UITextField *textField;
-@property (nonatomic) Publisher* editEntry;
-@property (nonatomic, weak)  id <AddEditEntryViewControllerDelegate> delegate;
+@property (nonatomic) ASPublisher* editEntry;
+@property (nonatomic, weak)  id <ASAddEditEntryViewControllerDelegate> delegate;
 @property (nonatomic) NSIndexPath* indexPathForCellAnimation;
 
 

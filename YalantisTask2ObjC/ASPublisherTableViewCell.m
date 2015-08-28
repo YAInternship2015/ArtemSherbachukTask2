@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 Artem Sherbachuk. All rights reserved.
 //
 
-#import "PublisherTableViewCell.h"
+#import "ASPublisherTableViewCell.h"
 
-@implementation PublisherTableViewCell
+@implementation ASPublisherTableViewCell
 
 
 - (void)awakeFromNib {

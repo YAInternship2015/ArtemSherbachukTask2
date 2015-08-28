@@ -6,9 +6,9 @@
   //  Copyright (c) 2015 Artem Sherbachuk. All rights reserved.
   //
 
-#import "Publisher.h"
+#import "ASPublisher.h"
 
-@implementation Publisher
+@implementation ASPublisher
 
 
 #pragma mark initialization

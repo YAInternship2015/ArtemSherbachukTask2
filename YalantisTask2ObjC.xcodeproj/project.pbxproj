@@ -8,20 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		FC009D0D1B8E23F600AD5091 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC009D0C1B8E23F600AD5091 /* Assets.xcassets */; };
-		FC009D121B8E24BB00AD5091 /* PublisherCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FC009D111B8E24BB00AD5091 /* PublisherCollectionViewCell.m */; };
-		FC009D151B8E2CE300AD5091 /* AddEditEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC009D141B8E2CE300AD5091 /* AddEditEntryViewController.m */; };
+		FC009D121B8E24BB00AD5091 /* ASPublisherCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FC009D111B8E24BB00AD5091 /* ASPublisherCollectionViewCell.m */; };
+		FC009D151B8E2CE300AD5091 /* ASAddEditEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC009D141B8E2CE300AD5091 /* ASAddEditEntryViewController.m */; };
 		FC009D171B8E4A9500AD5091 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FC009D161B8E4A9500AD5091 /* Localizable.strings */; };
-		FC8E2CD61B8DBA4B00F45FBA /* PublisherData.m in Sources */ = {isa = PBXBuildFile; fileRef = FC8E2CD51B8DBA4B00F45FBA /* PublisherData.m */; };
-		FC8E2CDA1B8DBAB700F45FBA /* Publisher.m in Sources */ = {isa = PBXBuildFile; fileRef = FC8E2CD91B8DBAB700F45FBA /* Publisher.m */; };
-		FC8E2CDD1B8E10B200F45FBA /* PublisherTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FC8E2CDC1B8E10B200F45FBA /* PublisherTableViewCell.m */; };
+		FC8E2CD61B8DBA4B00F45FBA /* ASPublisherData.m in Sources */ = {isa = PBXBuildFile; fileRef = FC8E2CD51B8DBA4B00F45FBA /* ASPublisherData.m */; };
+		FC8E2CDA1B8DBAB700F45FBA /* ASPublisher.m in Sources */ = {isa = PBXBuildFile; fileRef = FC8E2CD91B8DBAB700F45FBA /* ASPublisher.m */; };
+		FC8E2CDD1B8E10B200F45FBA /* ASPublisherTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FC8E2CDC1B8E10B200F45FBA /* ASPublisherTableViewCell.m */; };
 		FCB07C771B8CD1AC0012EAE2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB07C761B8CD1AC0012EAE2 /* main.m */; };
 		FCB07C7A1B8CD1AC0012EAE2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB07C791B8CD1AC0012EAE2 /* AppDelegate.m */; };
-		FCB07C7D1B8CD1AC0012EAE2 /* ContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB07C7C1B8CD1AC0012EAE2 /* ContainerViewController.m */; };
+		FCB07C7D1B8CD1AC0012EAE2 /* ASContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB07C7C1B8CD1AC0012EAE2 /* ASContainerViewController.m */; };
 		FCB07C851B8CD1AD0012EAE2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCB07C831B8CD1AD0012EAE2 /* LaunchScreen.xib */; };
 		FCB07C911B8CD1AD0012EAE2 /* YalantisTask2ObjCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB07C901B8CD1AD0012EAE2 /* YalantisTask2ObjCTests.m */; };
 		FCB07C9B1B8CD21C0012EAE2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCB07C9A1B8CD21C0012EAE2 /* Main.storyboard */; };
-		FCB07C9F1B8CD9AA0012EAE2 /* ContainerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB07C9E1B8CD9AA0012EAE2 /* ContainerTableViewController.m */; };
-		FCB07CA21B8CD9CB0012EAE2 /* ContainerCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB07CA11B8CD9CB0012EAE2 /* ContainerCollectionViewController.m */; };
+		FCB07C9F1B8CD9AA0012EAE2 /* ASContainerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB07C9E1B8CD9AA0012EAE2 /* ASContainerTableViewController.m */; };
+		FCB07CA21B8CD9CB0012EAE2 /* ASContainerCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB07CA11B8CD9CB0012EAE2 /* ASContainerCollectionViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,33 +36,33 @@
 
 /* Begin PBXFileReference section */
 		FC009D0C1B8E23F600AD5091 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		FC009D101B8E24BB00AD5091 /* PublisherCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublisherCollectionViewCell.h; sourceTree = "<group>"; };
-		FC009D111B8E24BB00AD5091 /* PublisherCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublisherCollectionViewCell.m; sourceTree = "<group>"; };
-		FC009D131B8E2CE300AD5091 /* AddEditEntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddEditEntryViewController.h; sourceTree = "<group>"; };
-		FC009D141B8E2CE300AD5091 /* AddEditEntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddEditEntryViewController.m; sourceTree = "<group>"; };
+		FC009D101B8E24BB00AD5091 /* ASPublisherCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASPublisherCollectionViewCell.h; sourceTree = "<group>"; };
+		FC009D111B8E24BB00AD5091 /* ASPublisherCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASPublisherCollectionViewCell.m; sourceTree = "<group>"; };
+		FC009D131B8E2CE300AD5091 /* ASAddEditEntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASAddEditEntryViewController.h; sourceTree = "<group>"; };
+		FC009D141B8E2CE300AD5091 /* ASAddEditEntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASAddEditEntryViewController.m; sourceTree = "<group>"; };
 		FC009D161B8E4A9500AD5091 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
-		FC8E2CD41B8DBA4B00F45FBA /* PublisherData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublisherData.h; sourceTree = "<group>"; };
-		FC8E2CD51B8DBA4B00F45FBA /* PublisherData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublisherData.m; sourceTree = "<group>"; };
-		FC8E2CD81B8DBAB700F45FBA /* Publisher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Publisher.h; sourceTree = "<group>"; };
-		FC8E2CD91B8DBAB700F45FBA /* Publisher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Publisher.m; sourceTree = "<group>"; };
-		FC8E2CDB1B8E10B200F45FBA /* PublisherTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublisherTableViewCell.h; sourceTree = "<group>"; };
-		FC8E2CDC1B8E10B200F45FBA /* PublisherTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublisherTableViewCell.m; sourceTree = "<group>"; };
+		FC8E2CD41B8DBA4B00F45FBA /* ASPublisherData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASPublisherData.h; sourceTree = "<group>"; };
+		FC8E2CD51B8DBA4B00F45FBA /* ASPublisherData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASPublisherData.m; sourceTree = "<group>"; };
+		FC8E2CD81B8DBAB700F45FBA /* ASPublisher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASPublisher.h; sourceTree = "<group>"; };
+		FC8E2CD91B8DBAB700F45FBA /* ASPublisher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASPublisher.m; sourceTree = "<group>"; };
+		FC8E2CDB1B8E10B200F45FBA /* ASPublisherTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASPublisherTableViewCell.h; sourceTree = "<group>"; };
+		FC8E2CDC1B8E10B200F45FBA /* ASPublisherTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASPublisherTableViewCell.m; sourceTree = "<group>"; };
 		FCB07C711B8CD1AC0012EAE2 /* YalantisTask2ObjC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YalantisTask2ObjC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCB07C751B8CD1AC0012EAE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FCB07C761B8CD1AC0012EAE2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FCB07C781B8CD1AC0012EAE2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		FCB07C791B8CD1AC0012EAE2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		FCB07C7B1B8CD1AC0012EAE2 /* ContainerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContainerViewController.h; sourceTree = "<group>"; };
-		FCB07C7C1B8CD1AC0012EAE2 /* ContainerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContainerViewController.m; sourceTree = "<group>"; };
+		FCB07C7B1B8CD1AC0012EAE2 /* ASContainerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASContainerViewController.h; sourceTree = "<group>"; };
+		FCB07C7C1B8CD1AC0012EAE2 /* ASContainerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASContainerViewController.m; sourceTree = "<group>"; };
 		FCB07C841B8CD1AD0012EAE2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		FCB07C8A1B8CD1AD0012EAE2 /* YalantisTask2ObjCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YalantisTask2ObjCTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCB07C8F1B8CD1AD0012EAE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FCB07C901B8CD1AD0012EAE2 /* YalantisTask2ObjCTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YalantisTask2ObjCTests.m; sourceTree = "<group>"; };
 		FCB07C9A1B8CD21C0012EAE2 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		FCB07C9D1B8CD9AA0012EAE2 /* ContainerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContainerTableViewController.h; sourceTree = "<group>"; };
-		FCB07C9E1B8CD9AA0012EAE2 /* ContainerTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContainerTableViewController.m; sourceTree = "<group>"; };
-		FCB07CA01B8CD9CB0012EAE2 /* ContainerCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContainerCollectionViewController.h; sourceTree = "<group>"; };
-		FCB07CA11B8CD9CB0012EAE2 /* ContainerCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContainerCollectionViewController.m; sourceTree = "<group>"; };
+		FCB07C9D1B8CD9AA0012EAE2 /* ASContainerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASContainerTableViewController.h; sourceTree = "<group>"; };
+		FCB07C9E1B8CD9AA0012EAE2 /* ASContainerTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASContainerTableViewController.m; sourceTree = "<group>"; };
+		FCB07CA01B8CD9CB0012EAE2 /* ASContainerCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASContainerCollectionViewController.h; sourceTree = "<group>"; };
+		FCB07CA11B8CD9CB0012EAE2 /* ASContainerCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASContainerCollectionViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,10 +86,10 @@
 		FC8E2CD71B8DBA6A00F45FBA /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				FC8E2CD41B8DBA4B00F45FBA /* PublisherData.h */,
-				FC8E2CD51B8DBA4B00F45FBA /* PublisherData.m */,
-				FC8E2CD81B8DBAB700F45FBA /* Publisher.h */,
-				FC8E2CD91B8DBAB700F45FBA /* Publisher.m */,
+				FC8E2CD41B8DBA4B00F45FBA /* ASPublisherData.h */,
+				FC8E2CD51B8DBA4B00F45FBA /* ASPublisherData.m */,
+				FC8E2CD81B8DBAB700F45FBA /* ASPublisher.h */,
+				FC8E2CD91B8DBAB700F45FBA /* ASPublisher.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -97,10 +97,10 @@
 		FC8E2CDE1B8E10BA00F45FBA /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				FC8E2CDB1B8E10B200F45FBA /* PublisherTableViewCell.h */,
-				FC8E2CDC1B8E10B200F45FBA /* PublisherTableViewCell.m */,
-				FC009D101B8E24BB00AD5091 /* PublisherCollectionViewCell.h */,
-				FC009D111B8E24BB00AD5091 /* PublisherCollectionViewCell.m */,
+				FC8E2CDB1B8E10B200F45FBA /* ASPublisherTableViewCell.h */,
+				FC8E2CDC1B8E10B200F45FBA /* ASPublisherTableViewCell.m */,
+				FC009D101B8E24BB00AD5091 /* ASPublisherCollectionViewCell.h */,
+				FC009D111B8E24BB00AD5091 /* ASPublisherCollectionViewCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -169,14 +169,14 @@
 		FCB07C9C1B8CD93C0012EAE2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				FCB07C7B1B8CD1AC0012EAE2 /* ContainerViewController.h */,
-				FCB07C7C1B8CD1AC0012EAE2 /* ContainerViewController.m */,
-				FCB07C9D1B8CD9AA0012EAE2 /* ContainerTableViewController.h */,
-				FCB07C9E1B8CD9AA0012EAE2 /* ContainerTableViewController.m */,
-				FCB07CA01B8CD9CB0012EAE2 /* ContainerCollectionViewController.h */,
-				FCB07CA11B8CD9CB0012EAE2 /* ContainerCollectionViewController.m */,
-				FC009D131B8E2CE300AD5091 /* AddEditEntryViewController.h */,
-				FC009D141B8E2CE300AD5091 /* AddEditEntryViewController.m */,
+				FCB07C7B1B8CD1AC0012EAE2 /* ASContainerViewController.h */,
+				FCB07C7C1B8CD1AC0012EAE2 /* ASContainerViewController.m */,
+				FCB07C9D1B8CD9AA0012EAE2 /* ASContainerTableViewController.h */,
+				FCB07C9E1B8CD9AA0012EAE2 /* ASContainerTableViewController.m */,
+				FCB07CA01B8CD9CB0012EAE2 /* ASContainerCollectionViewController.h */,
+				FCB07CA11B8CD9CB0012EAE2 /* ASContainerCollectionViewController.m */,
+				FC009D131B8E2CE300AD5091 /* ASAddEditEntryViewController.h */,
+				FC009D141B8E2CE300AD5091 /* ASAddEditEntryViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -282,16 +282,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FC8E2CD61B8DBA4B00F45FBA /* PublisherData.m in Sources */,
-				FCB07C7D1B8CD1AC0012EAE2 /* ContainerViewController.m in Sources */,
+				FC8E2CD61B8DBA4B00F45FBA /* ASPublisherData.m in Sources */,
+				FCB07C7D1B8CD1AC0012EAE2 /* ASContainerViewController.m in Sources */,
 				FCB07C7A1B8CD1AC0012EAE2 /* AppDelegate.m in Sources */,
 				FCB07C771B8CD1AC0012EAE2 /* main.m in Sources */,
-				FC8E2CDD1B8E10B200F45FBA /* PublisherTableViewCell.m in Sources */,
-				FCB07C9F1B8CD9AA0012EAE2 /* ContainerTableViewController.m in Sources */,
-				FCB07CA21B8CD9CB0012EAE2 /* ContainerCollectionViewController.m in Sources */,
-				FC8E2CDA1B8DBAB700F45FBA /* Publisher.m in Sources */,
-				FC009D121B8E24BB00AD5091 /* PublisherCollectionViewCell.m in Sources */,
-				FC009D151B8E2CE300AD5091 /* AddEditEntryViewController.m in Sources */,
+				FC8E2CDD1B8E10B200F45FBA /* ASPublisherTableViewCell.m in Sources */,
+				FCB07C9F1B8CD9AA0012EAE2 /* ASContainerTableViewController.m in Sources */,
+				FCB07CA21B8CD9CB0012EAE2 /* ASContainerCollectionViewController.m in Sources */,
+				FC8E2CDA1B8DBAB700F45FBA /* ASPublisher.m in Sources */,
+				FC009D121B8E24BB00AD5091 /* ASPublisherCollectionViewCell.m in Sources */,
+				FC009D151B8E2CE300AD5091 /* ASAddEditEntryViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

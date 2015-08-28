@@ -6,24 +6,24 @@
 //  Copyright (c) 2015 Artem Sherbachuk. All rights reserved.
 //
 
-#import "PublisherData.h"
-#import "Publisher.h"
+#import "ASPublisherData.h"
+#import "ASPublisher.h"
 
 
 
-@interface PublisherData() {
+@interface ASPublisherData() {
 
 }
 
 @property(nonatomic, strong, getter=randomImagePath) NSString* path;
-@property(nonatomic, strong) Publisher* publisher;
+@property(nonatomic, strong) ASPublisher* publisher;
 
 @end
 
 
 
 
-@implementation PublisherData
+@implementation ASPublisherData
 
 
 
@@ -40,9 +40,9 @@
 
 + (instancetype)sharedInstance {
   static dispatch_once_t onceToken;
-  static PublisherData* instance;
+  static ASPublisherData* instance;
   dispatch_once(&onceToken, ^{
-    instance = [[PublisherData alloc] init];
+    instance = [[ASPublisherData alloc] init];
   });
   return instance;
 }
@@ -132,13 +132,13 @@
   //get data
 
 -(UIImage*)imageForCellAtIndex:(int)index {
-  Publisher* publisher = self.container[index];
+  ASPublisher* publisher = self.container[index];
   return publisher.image;
 }
 
 
 -(NSString*)titleForCellAtIndex:(int)index {
-  Publisher* publisher = self.container[index];
+  ASPublisher* publisher = self.container[index];
   return publisher.title;
 }
 
@@ -146,7 +146,7 @@
   //change data
 
 -(void)addNewEntryInModel:(NSString*)title {
-  Publisher* newObj = [[Publisher alloc] initWithImage:self.randomImagePath title:title];
+  ASPublisher* newObj = [[ASPublisher alloc] initWithImage:self.randomImagePath title:title];
   [self.container addObject:newObj];
   [self postNotification:nil];
   [self saveDataToPlist];
@@ -159,7 +159,7 @@
 }
 
 
--(void)editExistEntryInModel:(Publisher*)object changeTitle:(NSString*)title {
+-(void)editExistEntryInModel:(ASPublisher*)object changeTitle:(NSString*)title {
   object.title = title;
   [self postNotification:nil];
   [self saveDataToPlist];

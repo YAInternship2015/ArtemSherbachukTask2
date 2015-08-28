@@ -1,5 +1,5 @@
 //
-//  ContainerTableViewController.h
+//  ContainerCollectionViewController.h
 //  YalantisTask2ObjC
 //
 //  Created by typan on 8/25/15.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ContainerTableViewController : UITableViewController
+@interface ASContainerCollectionViewController : UICollectionViewController
 
 @end

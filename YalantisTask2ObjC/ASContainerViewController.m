@@ -6,13 +6,13 @@
 //  Copyright (c) 2015 Artem Sherbachuk. All rights reserved.
 //
 
-#import "ContainerViewController.h"
-#import "AddEditEntryViewController.h"
+#import "ASContainerViewController.h"
+#import "ASAddEditEntryViewController.h"
 
 
 
 
-@interface ContainerViewController () <AddEditEntryViewControllerDelegate>
+@interface ASContainerViewController () <ASAddEditEntryViewControllerDelegate>
 
 
 @property (weak, nonatomic) IBOutlet UINavigationBar *navigationBar;
@@ -27,7 +27,7 @@
 
 
 
-@implementation ContainerViewController
+@implementation ASContainerViewController
 
 
 
@@ -113,7 +113,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
   if ([segue.identifier isEqualToString:@"AddEditEntrySegue"]) {
-    AddEditEntryViewController* ctrl = segue.destinationViewController;
+    ASAddEditEntryViewController* ctrl = segue.destinationViewController;
     ctrl.delegate = self;
   }
 }
@@ -125,7 +125,7 @@
 
 #pragma mark delegate
 
-- (void)cancelAddNewEntryViewControllerWithAnimationCell:(AddEditEntryViewController *)ctrl
+- (void)cancelAddNewEntryViewControllerWithAnimationCell:(ASAddEditEntryViewController *)ctrl
                                            cellIndexPath:(NSIndexPath *)path
 {
   [ctrl dismissViewControllerAnimated:YES completion:nil];

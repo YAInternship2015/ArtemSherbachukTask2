@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@interface Publisher : NSObject <NSCoding>
+@interface ASPublisher : NSObject <NSCoding>
 
 @property(nonatomic, strong) UIImage* image;
 @property(nonatomic, strong) NSString* title;

@@ -1,5 +1,5 @@
 //
-//  PublisherCollectionViewCell.h
+//  PublisherTableViewCell.h
 //  YalantisTask2ObjC
 //
 //  Created by typan on 8/26/15.
@@ -8,14 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@interface ASPublisherTableViewCell : UITableViewCell
 
-
-
-@interface PublisherCollectionViewCell : UICollectionViewCell
 
 
 @property (weak, nonatomic) IBOutlet UIImageView *publisherImage;
 @property (weak, nonatomic) IBOutlet UILabel *publisherTitle;
+
+
 
 
 @end

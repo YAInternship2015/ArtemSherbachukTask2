@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 Artem Sherbachuk. All rights reserved.
 //
 
-#import "PublisherCollectionViewCell.h"
+#import "ASPublisherCollectionViewCell.h"
 
-@implementation PublisherCollectionViewCell
+@implementation ASPublisherCollectionViewCell
 
 
 - (void)awakeFromNib {

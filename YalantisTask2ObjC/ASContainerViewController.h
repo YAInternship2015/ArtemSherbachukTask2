@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ContainerViewController : UIViewController
+@interface ASContainerViewController : UIViewController
 
 
 @end
