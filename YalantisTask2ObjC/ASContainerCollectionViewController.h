@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreData/CoreData.h>
 
 @interface ASContainerCollectionViewController : UICollectionViewController
+
+@property(nonatomic,strong) NSManagedObjectContext *managedObjectContext;
 
 @end

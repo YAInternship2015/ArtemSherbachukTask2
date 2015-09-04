@@ -27,12 +27,14 @@
 const NSTimeInterval kCellActionAnimationTime = 0.4;
 
 
-@interface ASContainerTableViewController ()  <ASAddEditEntryViewControllerDelegate>
 
+
+
+@interface ASContainerTableViewController ()  <NSFetchedResultsControllerDelegate, ASAddEditEntryViewControllerDelegate>
+
+@property(nonatomic, strong) NSFetchedResultsController *fettchedResultController;
 
 @end
-
-
 
 
 @implementation ASContainerTableViewController

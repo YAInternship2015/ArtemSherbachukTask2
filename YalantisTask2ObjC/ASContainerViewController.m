@@ -8,7 +8,8 @@
 
 #import "ASContainerViewController.h"
 #import "ASAddEditEntryViewController.h"
-
+#import "ASContainerTableViewController.h"
+#import "ASContainerCollectionViewController.h"
 
 
 
@@ -16,8 +17,8 @@
 
 
 @property (nonatomic, weak) IBOutlet UINavigationBar *navigationBar;
-@property (nonatomic, strong) UIViewController* firstVC;
-@property (nonatomic, strong) UIViewController* secondVC;
+@property (nonatomic, strong) ASContainerTableViewController* firstVC;
+@property (nonatomic, strong) ASContainerCollectionViewController* secondVC;
 @property (nonatomic, assign, setter=setActiveViewCtrl:) BOOL isFirstVC;
 
 
@@ -39,9 +40,14 @@
     [super viewDidLoad];
 
     UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    self.firstVC  = [sb instantiateViewControllerWithIdentifier:@"TableView"];
-    self.secondVC = [sb instantiateViewControllerWithIdentifier:@"CollectionView"];
+    self.firstVC  = (ASContainerTableViewController *)[sb instantiateViewControllerWithIdentifier:@"TableView"];
+    self.secondVC = (ASContainerCollectionViewController *)[sb instantiateViewControllerWithIdentifier:@"CollectionView"];
     [self displayVC:self.firstVC];
+
+    if (self.managedObjectContext)
+        self.firstVC.managedObjectContext = self.managedObjectContext,
+        self.secondVC.managedObjectContext = self.managedObjectContext;
+
 }
 
 

@@ -1,14 +1,15 @@
+
+    //
+//  ASCoreDataManager.m
+//  YalantisTask2ObjC
 //
-//  CoreDataManager.m
-//  Done
-//
-//  Created by typan on 9/1/15.
-//  Copyright (c) 2015 Tuts+. All rights reserved.
+//  Created by typan on 9/4/15.
+//  Copyright (c) 2015 Artem Sherbachuk. All rights reserved.
 //
 
-#import "CoreDataManager.h"
+#import "ASCoreDataManager.h"
 
-@implementation CoreDataManager
+@implementation ASCoreDataManager
 
 
 @synthesize managedObjectContext = _managedObjectContext;
@@ -44,7 +45,7 @@ NSString *fileStore = @"Database.sqlite";
 - (NSManagedObjectModel *)managedObjectModel {
     if (_managedObjectModel) return _managedObjectModel;
 
-    NSURL *modelURLPath = [[NSBundle mainBundle] URLForResource:@"Done" withExtension:@"momd"];
+    NSURL *modelURLPath = [[NSBundle mainBundle] URLForResource:@"PublisherModel" withExtension:@"momd"];
     _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURLPath];
 
     return _managedObjectModel;
@@ -57,7 +58,7 @@ NSString *fileStore = @"Database.sqlite";
         ///create url to file store
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSURL *applicationsDocumentsDirectory = [[fileManager URLsForDirectory:NSDocumentDirectory
-                                                                inDomains:NSUserDomainMask] lastObject];
+                                                                 inDomains:NSUserDomainMask] lastObject];
     NSURL *applicationsStoreDirectory = [applicationsDocumentsDirectory URLByAppendingPathComponent:@"Store"];
     [fileManager createDirectoryAtURL:applicationsStoreDirectory withIntermediateDirectories:YES
                            attributes:nil error:nil];
@@ -67,12 +68,12 @@ NSString *fileStore = @"Database.sqlite";
         ///init pesistenStoreCoordinator and persistentStore
     NSError *Error = nil;
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc]
-                                  initWithManagedObjectModel:[self managedObjectModel]];
+                                   initWithManagedObjectModel:[self managedObjectModel]];
     _persistentStore = [_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType
-                                                                configuration:nil
-                                                                          URL:applicationsStoreFile
-                                                                      options:nil
-                                                                        error:&Error];
+                                                                 configuration:nil
+                                                                           URL:applicationsStoreFile
+                                                                       options:nil
+                                                                         error:&Error];
     if (!_persistentStore) NSLog(@"error %@, %@", Error, [Error userInfo]), abort();
 
 
@@ -91,8 +92,9 @@ NSString *fileStore = @"Database.sqlite";
 
         if (error) NSLog(@"Unable to save changes."),
             NSLog(@"%@, %@", error, error.localizedDescription), abort();
-
+        
     }
 }
+
 
 @end
