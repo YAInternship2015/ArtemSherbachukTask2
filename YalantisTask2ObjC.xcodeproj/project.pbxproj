@@ -11,6 +11,7 @@
 		FC009D121B8E24BB00AD5091 /* ASPublisherCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FC009D111B8E24BB00AD5091 /* ASPublisherCollectionViewCell.m */; };
 		FC009D151B8E2CE300AD5091 /* ASAddEditEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC009D141B8E2CE300AD5091 /* ASAddEditEntryViewController.m */; };
 		FC009D171B8E4A9500AD5091 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FC009D161B8E4A9500AD5091 /* Localizable.strings */; };
+		FC5F4A291B9A27780050C135 /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FC5F4A281B9A27780050C135 /* CoreDataManager.m */; };
 		FC8E2CD61B8DBA4B00F45FBA /* ASPublisherData.m in Sources */ = {isa = PBXBuildFile; fileRef = FC8E2CD51B8DBA4B00F45FBA /* ASPublisherData.m */; };
 		FC8E2CDA1B8DBAB700F45FBA /* ASPublisher.m in Sources */ = {isa = PBXBuildFile; fileRef = FC8E2CD91B8DBAB700F45FBA /* ASPublisher.m */; };
 		FC8E2CDD1B8E10B200F45FBA /* ASPublisherTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FC8E2CDC1B8E10B200F45FBA /* ASPublisherTableViewCell.m */; };
@@ -22,7 +23,6 @@
 		FCB07C9B1B8CD21C0012EAE2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCB07C9A1B8CD21C0012EAE2 /* Main.storyboard */; };
 		FCB07C9F1B8CD9AA0012EAE2 /* ASContainerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB07C9E1B8CD9AA0012EAE2 /* ASContainerTableViewController.m */; };
 		FCB07CA21B8CD9CB0012EAE2 /* ASContainerCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB07CA11B8CD9CB0012EAE2 /* ASContainerCollectionViewController.m */; };
-		FCB66F6F1B90FCAB00F000A6 /* ASSegueIdentifier.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB66F6E1B90FCAB00F000A6 /* ASSegueIdentifier.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +42,8 @@
 		FC009D131B8E2CE300AD5091 /* ASAddEditEntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASAddEditEntryViewController.h; sourceTree = "<group>"; };
 		FC009D141B8E2CE300AD5091 /* ASAddEditEntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASAddEditEntryViewController.m; sourceTree = "<group>"; };
 		FC009D161B8E4A9500AD5091 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		FC5F4A271B9A27780050C135 /* CoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataManager.h; sourceTree = "<group>"; };
+		FC5F4A281B9A27780050C135 /* CoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataManager.m; sourceTree = "<group>"; };
 		FC8E2CD41B8DBA4B00F45FBA /* ASPublisherData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASPublisherData.h; sourceTree = "<group>"; };
 		FC8E2CD51B8DBA4B00F45FBA /* ASPublisherData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASPublisherData.m; sourceTree = "<group>"; };
 		FC8E2CD81B8DBAB700F45FBA /* ASPublisher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASPublisher.h; sourceTree = "<group>"; };
@@ -64,8 +66,6 @@
 		FCB07C9E1B8CD9AA0012EAE2 /* ASContainerTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASContainerTableViewController.m; sourceTree = "<group>"; };
 		FCB07CA01B8CD9CB0012EAE2 /* ASContainerCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASContainerCollectionViewController.h; sourceTree = "<group>"; };
 		FCB07CA11B8CD9CB0012EAE2 /* ASContainerCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASContainerCollectionViewController.m; sourceTree = "<group>"; };
-		FCB66F6D1B90FCAB00F000A6 /* ASSegueIdentifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASSegueIdentifier.h; sourceTree = "<group>"; };
-		FCB66F6E1B90FCAB00F000A6 /* ASSegueIdentifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASSegueIdentifier.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +86,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FC5F4A2A1B9A277D0050C135 /* CoreData Helper Class */ = {
+			isa = PBXGroup;
+			children = (
+				FC5F4A271B9A27780050C135 /* CoreDataManager.h */,
+				FC5F4A281B9A27780050C135 /* CoreDataManager.m */,
+			);
+			name = "CoreData Helper Class";
+			sourceTree = "<group>";
+		};
 		FC8E2CD71B8DBA6A00F45FBA /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -129,10 +138,9 @@
 		FCB07C731B8CD1AC0012EAE2 /* YalantisTask2ObjC */ = {
 			isa = PBXGroup;
 			children = (
-				FCB66F6D1B90FCAB00F000A6 /* ASSegueIdentifier.h */,
-				FCB66F6E1B90FCAB00F000A6 /* ASSegueIdentifier.m */,
 				FCB07C781B8CD1AC0012EAE2 /* AppDelegate.h */,
 				FCB07C791B8CD1AC0012EAE2 /* AppDelegate.m */,
+				FC5F4A2A1B9A277D0050C135 /* CoreData Helper Class */,
 				FCB07C9C1B8CD93C0012EAE2 /* Controllers */,
 				FC8E2CD71B8DBA6A00F45FBA /* Model */,
 				FC8E2CDE1B8E10BA00F45FBA /* Views */,
@@ -292,7 +300,7 @@
 				FCB07C7A1B8CD1AC0012EAE2 /* AppDelegate.m in Sources */,
 				FCB07C771B8CD1AC0012EAE2 /* main.m in Sources */,
 				FC8E2CDD1B8E10B200F45FBA /* ASPublisherTableViewCell.m in Sources */,
-				FCB66F6F1B90FCAB00F000A6 /* ASSegueIdentifier.m in Sources */,
+				FC5F4A291B9A27780050C135 /* CoreDataManager.m in Sources */,
 				FCB07C9F1B8CD9AA0012EAE2 /* ASContainerTableViewController.m in Sources */,
 				FCB07CA21B8CD9CB0012EAE2 /* ASContainerCollectionViewController.m in Sources */,
 				FC8E2CDA1B8DBAB700F45FBA /* ASPublisher.m in Sources */,

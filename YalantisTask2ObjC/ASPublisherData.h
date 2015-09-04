@@ -18,10 +18,10 @@ static NSString  *ASDataWasChangedNotification = @"DataChange";
 @property(nonatomic, strong) NSMutableArray* container;
 
 + (instancetype)sharedInstance;
-- (UIImage *)imageForCellAtIndex:(int)index;
-- (NSString *)titleForCellAtIndex:(int)index;
+- (UIImage *)imageForCellAtIndex:(NSInteger)index;
+- (NSString *)titleForCellAtIndex:(NSInteger)index;
 - (void)addNewEntryInModel:(NSString *)title;
-- (void)removeObjectAtIndex:(int)index;
+- (void)removeObjectAtIndex:(NSInteger)index;
 - (void)editExistEntryInModel:(ASPublisher *)object changeTitle:(NSString *)title;
 
 @end

@@ -128,13 +128,13 @@
  */
   //get data
 
--(UIImage*)imageForCellAtIndex:(int)index {
+-(UIImage*)imageForCellAtIndex:(NSInteger)index {
   ASPublisher* publisher = self.container[index];
   return publisher.image;
 }
 
 
--(NSString*)titleForCellAtIndex:(int)index {
+-(NSString*)titleForCellAtIndex:(NSInteger)index {
   ASPublisher* publisher = self.container[index];
   return publisher.title;
 }
@@ -150,7 +150,7 @@
 }
 
 
--(void)removeObjectAtIndex:(int)index {
+-(void)removeObjectAtIndex:(NSInteger)index {
   [self.container removeObjectAtIndex:index];
   [self saveDataToPlist];
 }

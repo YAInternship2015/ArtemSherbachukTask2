@@ -57,13 +57,15 @@ const NSTimeInterval cellActionAnimation = 0.4;
 
     //setup grid for collection views
 - (void)gridForCollectionView3xItem {
-    CGFloat leftAndRightPadding = 32.0;
+    CGFloat leftAndRightPadding = 36.0;
     CGFloat numberOfItemPerRow = 3.0;
     CGFloat heightAdjustment = 40.0;
-    CGFloat widthOneItemForGrid3x = (CGRectGetWidth(self.collectionView.frame)-leftAndRightPadding)/numberOfItemPerRow;
+    CGFloat widthOneItem =
+    (CGRectGetWidth(self.collectionView.frame) - leftAndRightPadding) / numberOfItemPerRow;
 
     UICollectionViewFlowLayout* layout = [[UICollectionViewFlowLayout alloc] init];
-    layout.itemSize = CGSizeMake(widthOneItemForGrid3x, widthOneItemForGrid3x + heightAdjustment);
+    layout.itemSize = CGSizeMake(widthOneItem, widthOneItem + heightAdjustment);
+    layout.sectionInset = UIEdgeInsetsMake(8, 8, 8, 8);
     [self.collectionView setCollectionViewLayout:layout];
 }
 
