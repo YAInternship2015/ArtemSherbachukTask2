@@ -26,13 +26,13 @@
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     ASContainerViewController *controller = (ASContainerViewController *)[sb instantiateViewControllerWithIdentifier:@"contrinerVC"];
 
-    if ([controller isKindOfClass:[ASContainerViewController class]])
-        [controller setManagedObjectContext:self.coreDataManager.managedObjectContext];
+    if ([controller isKindOfClass:[ASContainerViewController class]]) {
+        controller.coreDataManager = self.coreDataManager;
+    }
 
     self.window.rootViewController = controller;
 
     [[UIApplication sharedApplication]setStatusBarHidden:YES];
-
 
     return YES;
 }

@@ -12,13 +12,13 @@
 #import "ASAddEditEntryViewController.h"
 
     //data model clases
-#import "ASPublisherData.h"
+#import "ASPublisherEntity.h"
 
 
 
 @implementation UIColor (Extentions)
 
-+ (UIColor *)lightGreenColorCell {
++ (UIColor *)lightGreenCellCollorOnSelect {
     return [UIColor colorWithRed:0.204 green:0.737 blue:0.6 alpha:1];
 }
 
@@ -32,140 +32,186 @@ const NSTimeInterval kCellActionAnimationTime = 0.4;
 
 @interface ASContainerTableViewController ()  <NSFetchedResultsControllerDelegate, ASAddEditEntryViewControllerDelegate>
 
-@property(nonatomic, strong) NSFetchedResultsController *fettchedResultController;
 
 @end
 
 
 @implementation ASContainerTableViewController
 
-
-#pragma mark - LOADING
+#pragma mark -
+#pragma mark LOADING
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(dataChangedNotifiaction:)
-                                                 name:ASDataWasChangedNotification
-                                               object:nil];
+
     self.tableView.delaysContentTouches = YES;
 }
 
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+
+        //toggle delegate when vc is change each time
+    self.fetchedResultController.delegate = self;
     [self animationTableViewFadeIn];
 }
 
 
 
-
-
-
-#pragma mark DATASOURCE
+#pragma mark -
+#pragma mark TableView DataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [ASPublisherData sharedInstance].container.count;
+    NSArray *sections = [self.fetchedResultController sections];
+    id<NSFetchedResultsSectionInfo> sectionInfo = [sections objectAtIndex:section];
+    return [sectionInfo numberOfObjects];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ASPublisherTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellTable" forIndexPath:indexPath];
-
-    cell.backgroundColor = indexPath.row % 2 ? [UIColor whiteColor] : [[UIColor lightGrayColor]
-                                                                       colorWithAlphaComponent:0.2];
-
-    cell.publisherImage.image = [[ASPublisherData sharedInstance] imageForCellAtIndex:indexPath.row];
-    cell.publisherTitle.text = [[ASPublisherData sharedInstance] titleForCellAtIndex:indexPath.row];
-
+    [self configureCell:cell atIndexPath:indexPath];
     return cell;
 }
 
+- (void)configureCell:(ASPublisherTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
 
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyl forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    [[ASPublisherData sharedInstance]removeObjectAtIndex:indexPath.row];
-    [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationRight];
+    ASPublisherEntity *recordInDB = [self.fetchedResultController objectAtIndexPath:indexPath];
+
+        //    cell.publisherImage.image = [[ASPublisherData sharedInstance] imageForCellAtIndex:indexPath.row];
+    cell.publisherTitle.text = recordInDB.publisherName;
+
+    cell.backgroundColor = indexPath.row % 2 ? [UIColor whiteColor] : [[UIColor lightGrayColor]
+                                                                       colorWithAlphaComponent:0.2];
 }
 
 
 
+#pragma mark -
+#pragma mark TableView Action
 
-
-
-
-#pragma mark CELL STYLE
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyl forRowAtIndexPath:(NSIndexPath *)indexPath {
+    ASPublisherEntity *recordInDB = [self.fetchedResultController objectAtIndexPath:indexPath];
+    if (recordInDB) {
+        [self.fetchedResultController.managedObjectContext deleteObject:recordInDB];
+    }
+}
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
     UITableViewCell* cell = [self.tableView cellForRowAtIndexPath:indexPath];
 
-    cell.contentView.backgroundColor = [UIColor lightGreenColorCell];
+    cell.contentView.backgroundColor = [UIColor lightGreenCellCollorOnSelect];
 
-    [self animationSelectedCell:cell withZoomX:0.4 zoomY:0.4];
+    [self animateSelectedCell:cell withZoomX:0.4 zoomY:0.4];
 
     [self performSegueWithIdentifier:@"EditEntrySegue" sender:cell];
 }
 
 
+
+
+
+#pragma mark -
+#pragma mark Cell Display
+
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell
 forRowAtIndexPath:(NSIndexPath *)indexPath {
-
-    [self animationDisplayCell:cell atIndexPath:indexPath];
+    [self animateCellThatWillDisplay:cell atIndexPath:indexPath];
 
 }
 
 
 
 
-#pragma mark NOTIFIACTION
-
--(void)dataChangedNotifiaction:(NSNotification*)message {
-    [self.tableView reloadData];
-}
-
-
-
-#pragma mark NAVIGATION
+#pragma mark -
+#pragma mark Segue Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
 
     if ([segue.identifier isEqualToString:@"EditEntrySegue"]) {
-
-        ASAddEditEntryViewController* ctrl = [segue destinationViewController];
         NSIndexPath* indexPath = [self.tableView indexPathForCell:sender];
-        ctrl.editEntry = [ASPublisherData sharedInstance].container[indexPath.row];
-        ctrl.delegate = self;
+        ASAddEditEntryViewController* ctrl = [segue destinationViewController];
+        ctrl.coreDataManager = self.coreDataManager;
+        ctrl.editASPublisherEntity = [self.fetchedResultController objectAtIndexPath:indexPath];
         ctrl.indexPathForCellAnimation = indexPath;
+        ctrl.delegate = self;
     }
 }
 
 
 
 
-#pragma mark Delegate Methods
+#pragma mark -
+#pragma mark NSFetchedResultsControllerDelegate
 
-- (void)cancelAddNewEntryViewControllerWithAnimationCell:(ASAddEditEntryViewController *)ctrl
-                                           cellIndexPath:(NSIndexPath *)path {
-    UITableViewCell* cell = [self.tableView cellForRowAtIndexPath:path];
-
-    [ctrl dismissViewControllerAnimated:YES completion:^{
-
-        [self animationSelectedCell:cell withZoomX:1 zoomY:1];
-        
-    }];
-    
-    [self.tableView deselectRowAtIndexPath:path animated:YES];
-    
+- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)
+indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath  {
+    switch (type) {
+        case NSFetchedResultsChangeInsert:
+            [self.tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+        case NSFetchedResultsChangeDelete:
+            [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+        case NSFetchedResultsChangeUpdate:
+           [self configureCell:(ASPublisherTableViewCell *)[self.tableView cellForRowAtIndexPath:indexPath]
+                    atIndexPath:indexPath];
+            break;
+        case NSFetchedResultsChangeMove:
+            [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            [self.tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+    }
 }
 
 
 
 
 
-#pragma mark - Animation
+#pragma mark -
+#pragma mark ASAddEditEntryViewControllerDelegate
+
+- (void)cancelButtonDidTouchForEditingPublisherIn:(ASAddEditEntryViewController *)ctrl withIndexPathCell:(NSIndexPath *)indexPath {
+
+        //dismiss with animation cell
+    UITableViewCell* cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    __block __weak ASContainerTableViewController *BlockSelf = self;
+    [ctrl dismissViewControllerAnimated:YES completion:^{
+
+        [BlockSelf animateSelectedCell:cell withZoomX:1 zoomY:1];
+
+    }];
+
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+
+}
+
+- (void)editASPublisherEntityDoneIn:(ASAddEditEntryViewController *)controller endWithChanged:(NSManagedObject *)record
+                   withAnimatedCell:(NSIndexPath *)indexPathCell {
+        //save context
+    [self.coreDataManager saveManagedObjectContext];
+
+        //dismiss with animation cell
+        //dismiss with animation cell
+    UITableViewCell* cell = [self.tableView cellForRowAtIndexPath:indexPathCell];
+    __block __weak ASContainerTableViewController *BlockSelf = self;
+    [controller dismissViewControllerAnimated:YES completion:^{
+
+        [BlockSelf animateSelectedCell:cell withZoomX:1 zoomY:1];
+
+    }];
+
+    [self.tableView deselectRowAtIndexPath:indexPathCell animated:YES];
+
+}
+
+
+
+
+#pragma mark -
+#pragma mark Animation
 
 - (void)animationTableViewFadeIn {
     self.tableView.alpha = 0;
@@ -180,18 +226,13 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
     } completion:nil];
 }
 
-- (void)animationSelectedCell:(UITableViewCell *)cell withZoomX:(CGFloat)x zoomY:(CGFloat)y {
-    [UIView animateWithDuration:kCellActionAnimationTime delay:0 usingSpringWithDamping:0.3 initialSpringVelocity:0.6 options:UIViewAnimationOptionCurveEaseOut animations:^{
-        cell.transform = CGAffineTransformMakeScale(x, y);
-    } completion:nil];
-}
-
-- (void)animationDisplayCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+- (void)animateCellThatWillDisplay:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     cell.alpha = 0;
     cell.transform = CGAffineTransformMakeScale(0, 0);
 
+
+    double sizeOfContainerWithData = self.fetchedResultController.fetchedObjects.count;
     double eachRow = indexPath.row;
-    double sizeOfContainerWithData = [ASPublisherData sharedInstance].container.count;
     NSTimeInterval time = eachRow / sizeOfContainerWithData;
 
     [UIView animateWithDuration:time animations:^{
@@ -199,5 +240,12 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
         cell.transform = CGAffineTransformMakeScale(1, 1);
     }];
 }
+
+- (void)animateSelectedCell:(UITableViewCell *)cell withZoomX:(CGFloat)x zoomY:(CGFloat)y {
+    [UIView animateWithDuration:kCellActionAnimationTime delay:0 usingSpringWithDamping:0.3 initialSpringVelocity:0.6 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        cell.transform = CGAffineTransformMakeScale(x, y);
+    } completion:nil];
+}
+
 
 @end

@@ -7,15 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
-@class ASPublisher;
+#import "ASCoreDataManager.h"
+
+#import "ASPublisherEntity.h"
 @class ASAddEditEntryViewController;
 
 
 
 @protocol ASAddEditEntryViewControllerDelegate <NSObject>
 
--(void)cancelAddNewEntryViewControllerWithAnimationCell:(ASAddEditEntryViewController *)ctrl
-                                          cellIndexPath:(NSIndexPath*)path;
+@optional
+- (void)cancelButtonDidTouchForAddingNewPublisherIn:(ASAddEditEntryViewController *)ctrl;
+- (void)cancelButtonDidTouchForEditingPublisherIn:(ASAddEditEntryViewController *)ctrl withIndexPathCell:(NSIndexPath*)indexPath;
+//- (void)addNewASPublisherEntityIn:(ASAddEditEntryViewController *)controller  publisherEntity:(NSManagedObject *)object;
+- (void)editASPublisherEntityDoneIn:(ASAddEditEntryViewController *)controller endWithChanged:(NSManagedObject *)record  withAnimatedCell:(NSIndexPath *)indePathCell;
 
 @end
 
@@ -24,7 +29,9 @@
 
 
 @property (nonatomic, weak) IBOutlet UITextField *textField;
-@property (nonatomic, strong) ASPublisher* editEntry;
+
+@property (nonatomic, strong) ASCoreDataManager *coreDataManager;
+@property (nonatomic, strong) ASPublisherEntity *editASPublisherEntity;
 @property (nonatomic, weak)  id <ASAddEditEntryViewControllerDelegate> delegate;
 @property (nonatomic, strong) NSIndexPath* indexPathForCellAnimation;
 

@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <CoreData/CoreData.h>
+
+#import "ASCoreDataManager.h"
 
 @interface ASContainerCollectionViewController : UICollectionViewController
 
-@property(nonatomic,strong) NSManagedObjectContext *managedObjectContext;
+@property(nonatomic, strong) ASCoreDataManager *coreDataManager;
+@property(nonatomic, strong) NSFetchedResultsController *fetchedResultController;
 
 @end

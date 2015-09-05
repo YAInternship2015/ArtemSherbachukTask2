@@ -13,6 +13,7 @@
 
 - (void)awakeFromNib {
     //visual style for userImage
+
   self.publisherImage.layer.cornerRadius = 3;
   self.publisherImage.layer.borderWidth = 1;
   self.publisherImage.layer.borderColor = [UIColor grayColor].CGColor;
@@ -21,7 +22,7 @@
   CALayer* flatShadowLine = [CALayer layer];
   flatShadowLine.backgroundColor = [UIColor grayColor].CGColor;
   flatShadowLine.frame = CGRectMake(0, 0, self.publisherImage.bounds.size.width, 2);
-  [self.publisherImage.layer addSublayer:flatShadowLine];
+    [self.publisherImage.layer addSublayer:flatShadowLine];
 }
 
 

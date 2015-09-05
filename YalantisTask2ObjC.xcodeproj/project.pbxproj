@@ -11,11 +11,9 @@
 		FC009D121B8E24BB00AD5091 /* ASPublisherCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FC009D111B8E24BB00AD5091 /* ASPublisherCollectionViewCell.m */; };
 		FC009D151B8E2CE300AD5091 /* ASAddEditEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC009D141B8E2CE300AD5091 /* ASAddEditEntryViewController.m */; };
 		FC009D171B8E4A9500AD5091 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FC009D161B8E4A9500AD5091 /* Localizable.strings */; };
+		FC26C6011B9AFF6A005B95D4 /* ASPublisherEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = FC26C6001B9AFF6A005B95D4 /* ASPublisherEntity.m */; };
 		FC5F4A2D1B9A28330050C135 /* PublisherModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FC5F4A2B1B9A28330050C135 /* PublisherModel.xcdatamodeld */; };
-		FC5F4A301B9A299E0050C135 /* Publisher.m in Sources */ = {isa = PBXBuildFile; fileRef = FC5F4A2F1B9A299E0050C135 /* Publisher.m */; };
 		FC5F4A331B9A2F750050C135 /* ASCoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FC5F4A321B9A2F750050C135 /* ASCoreDataManager.m */; };
-		FC8E2CD61B8DBA4B00F45FBA /* ASPublisherData.m in Sources */ = {isa = PBXBuildFile; fileRef = FC8E2CD51B8DBA4B00F45FBA /* ASPublisherData.m */; };
-		FC8E2CDA1B8DBAB700F45FBA /* ASPublisher.m in Sources */ = {isa = PBXBuildFile; fileRef = FC8E2CD91B8DBAB700F45FBA /* ASPublisher.m */; };
 		FC8E2CDD1B8E10B200F45FBA /* ASPublisherTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FC8E2CDC1B8E10B200F45FBA /* ASPublisherTableViewCell.m */; };
 		FCB07C771B8CD1AC0012EAE2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB07C761B8CD1AC0012EAE2 /* main.m */; };
 		FCB07C7A1B8CD1AC0012EAE2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB07C791B8CD1AC0012EAE2 /* AppDelegate.m */; };
@@ -44,15 +42,11 @@
 		FC009D131B8E2CE300AD5091 /* ASAddEditEntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASAddEditEntryViewController.h; sourceTree = "<group>"; };
 		FC009D141B8E2CE300AD5091 /* ASAddEditEntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASAddEditEntryViewController.m; sourceTree = "<group>"; };
 		FC009D161B8E4A9500AD5091 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		FC26C5FF1B9AFF6A005B95D4 /* ASPublisherEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASPublisherEntity.h; path = ../ASPublisherEntity.h; sourceTree = "<group>"; };
+		FC26C6001B9AFF6A005B95D4 /* ASPublisherEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASPublisherEntity.m; path = ../ASPublisherEntity.m; sourceTree = "<group>"; };
 		FC5F4A2C1B9A28330050C135 /* PublisherModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PublisherModel.xcdatamodel; sourceTree = "<group>"; };
-		FC5F4A2E1B9A299E0050C135 /* Publisher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Publisher.h; path = ../Publisher.h; sourceTree = "<group>"; };
-		FC5F4A2F1B9A299E0050C135 /* Publisher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Publisher.m; path = ../Publisher.m; sourceTree = "<group>"; };
 		FC5F4A311B9A2F750050C135 /* ASCoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASCoreDataManager.h; sourceTree = "<group>"; };
 		FC5F4A321B9A2F750050C135 /* ASCoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASCoreDataManager.m; sourceTree = "<group>"; };
-		FC8E2CD41B8DBA4B00F45FBA /* ASPublisherData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASPublisherData.h; sourceTree = "<group>"; };
-		FC8E2CD51B8DBA4B00F45FBA /* ASPublisherData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASPublisherData.m; sourceTree = "<group>"; };
-		FC8E2CD81B8DBAB700F45FBA /* ASPublisher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASPublisher.h; sourceTree = "<group>"; };
-		FC8E2CD91B8DBAB700F45FBA /* ASPublisher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASPublisher.m; sourceTree = "<group>"; };
 		FC8E2CDB1B8E10B200F45FBA /* ASPublisherTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASPublisherTableViewCell.h; sourceTree = "<group>"; };
 		FC8E2CDC1B8E10B200F45FBA /* ASPublisherTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASPublisherTableViewCell.m; sourceTree = "<group>"; };
 		FCB07C711B8CD1AC0012EAE2 /* YalantisTask2ObjC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YalantisTask2ObjC.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -104,12 +98,8 @@
 			isa = PBXGroup;
 			children = (
 				FC5F4A2B1B9A28330050C135 /* PublisherModel.xcdatamodeld */,
-				FC5F4A2E1B9A299E0050C135 /* Publisher.h */,
-				FC5F4A2F1B9A299E0050C135 /* Publisher.m */,
-				FC8E2CD41B8DBA4B00F45FBA /* ASPublisherData.h */,
-				FC8E2CD51B8DBA4B00F45FBA /* ASPublisherData.m */,
-				FC8E2CD81B8DBAB700F45FBA /* ASPublisher.h */,
-				FC8E2CD91B8DBAB700F45FBA /* ASPublisher.m */,
+				FC26C5FF1B9AFF6A005B95D4 /* ASPublisherEntity.h */,
+				FC26C6001B9AFF6A005B95D4 /* ASPublisherEntity.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -303,7 +293,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FC8E2CD61B8DBA4B00F45FBA /* ASPublisherData.m in Sources */,
 				FCB07C7D1B8CD1AC0012EAE2 /* ASContainerViewController.m in Sources */,
 				FC5F4A2D1B9A28330050C135 /* PublisherModel.xcdatamodeld in Sources */,
 				FCB07C7A1B8CD1AC0012EAE2 /* AppDelegate.m in Sources */,
@@ -311,11 +300,10 @@
 				FC8E2CDD1B8E10B200F45FBA /* ASPublisherTableViewCell.m in Sources */,
 				FCB07C9F1B8CD9AA0012EAE2 /* ASContainerTableViewController.m in Sources */,
 				FCB07CA21B8CD9CB0012EAE2 /* ASContainerCollectionViewController.m in Sources */,
-				FC8E2CDA1B8DBAB700F45FBA /* ASPublisher.m in Sources */,
 				FC5F4A331B9A2F750050C135 /* ASCoreDataManager.m in Sources */,
 				FC009D121B8E24BB00AD5091 /* ASPublisherCollectionViewCell.m in Sources */,
 				FC009D151B8E2CE300AD5091 /* ASAddEditEntryViewController.m in Sources */,
-				FC5F4A301B9A299E0050C135 /* Publisher.m in Sources */,
+				FC26C6011B9AFF6A005B95D4 /* ASPublisherEntity.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

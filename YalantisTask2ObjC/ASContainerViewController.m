@@ -33,29 +33,51 @@
 
 
 
-
+#pragma mark -
 #pragma mark LOADING
 
 - (void)viewDidLoad {
     [super viewDidLoad];
 
     UIStoryboard* sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    self.firstVC  = (ASContainerTableViewController *)[sb instantiateViewControllerWithIdentifier:@"TableView"];
-    self.secondVC = (ASContainerCollectionViewController *)[sb instantiateViewControllerWithIdentifier:@"CollectionView"];
+    self.firstVC  = [sb instantiateViewControllerWithIdentifier:@"TableView"];
+    self.secondVC = [sb instantiateViewControllerWithIdentifier:@"CollectionView"];
     [self displayVC:self.firstVC];
 
-    if (self.managedObjectContext)
-        self.firstVC.managedObjectContext = self.managedObjectContext,
-        self.secondVC.managedObjectContext = self.managedObjectContext;
+    if (self.coreDataManager) {
+            //I decide to create one NSFetchedResultsController object and pass it to parameters first and second vc. And CoreDataManager obj to;
+        NSFetchedResultsController *frc = [self setupFetchResultController];
+        self.firstVC.fetchedResultController = frc;
+        self.secondVC.fetchedResultController = frc;
+        self.firstVC.coreDataManager = self.coreDataManager;
+        self.secondVC.coreDataManager = self.coreDataManager;
 
+    }
+}
+
+
+- (NSFetchedResultsController *)setupFetchResultController {
+
+    NSFetchRequest *fr = [[NSFetchRequest alloc] initWithEntityName:@"ASPublisherEntity"];
+    [fr setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"created" ascending:YES]]];
+
+    NSFetchedResultsController *frc = [[NSFetchedResultsController alloc]
+                                       initWithFetchRequest:fr
+                                       managedObjectContext:self.coreDataManager.managedObjectContext
+                                       sectionNameKeyPath:nil
+                                       cacheName:nil];
+        //perform fetch 
+    NSError *error = nil;
+    [frc performFetch:&error];
+    if (error) NSLog(@"Unable to perform fetch."), NSLog(@"%@, %@", error, error.localizedDescription);
+
+    return frc;
 }
 
 
 
 
-
-
-
+#pragma mark -
 #pragma mark TARGET ACTION
 
 - (IBAction)layoutButtonDidTouch:(UIBarButtonItem *)sender {
@@ -72,7 +94,7 @@
 
 
 
-
+#pragma mark -
 #pragma mark CONTAINER LOGIC
 
     //toggle layout mode
@@ -111,12 +133,13 @@
 
 
 
-
-#pragma mark  NAVIGATION
+#pragma mark -
+#pragma mark SEGUE NAVIGATION
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"AddEditEntrySegue"]) {
         ASAddEditEntryViewController* ctrl = segue.destinationViewController;
+        ctrl.coreDataManager = self.coreDataManager;
         ctrl.delegate = self;
     }
 }
@@ -125,12 +148,10 @@
 
 
 
+#pragma mark -
+#pragma mark ASAddEditEntryViewControllerDelegate
 
-#pragma mark delegate
-
-- (void)cancelAddNewEntryViewControllerWithAnimationCell:(ASAddEditEntryViewController *)ctrl
-                                           cellIndexPath:(NSIndexPath *)path
-{
+- (void)cancelButtonDidTouchForAddingNewPublisherIn:(ASAddEditEntryViewController *)ctrl {
     [ctrl dismissViewControllerAnimated:YES completion:nil];
 }
 

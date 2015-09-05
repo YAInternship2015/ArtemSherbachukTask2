@@ -22,13 +22,11 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add New Entry" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q8x-cU-blX">
-                                            <rect key="frame" x="25" y="103" width="551" height="30"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
-                                        </textField>
                                         <navigationBar contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="Vev-ig-hee">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="44" id="kzb-uu-SkK"/>
+                                            </constraints>
                                             <color key="barTintColor" red="0.1819814891" green="0.69426733259999995" blue="0.53024792669999998" alpha="1" colorSpace="calibratedRGB"/>
                                             <items>
                                                 <navigationItem title="Add Screen" id="Bm0-pb-B9l">
@@ -47,14 +45,20 @@
                                                 </navigationItem>
                                             </items>
                                         </navigationBar>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add New Entry" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q8x-cU-blX">
+                                            <rect key="frame" x="25" y="285" width="551" height="30"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                        </textField>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="Q8x-cU-blX" firstAttribute="leading" secondItem="G0q-xq-qrZ" secondAttribute="leading" constant="25" id="dZ3-fg-mPO"/>
-                                        <constraint firstAttribute="trailing" secondItem="Q8x-cU-blX" secondAttribute="trailing" constant="24" id="eBO-e7-4eS"/>
-                                        <constraint firstAttribute="trailing" secondItem="Vev-ig-hee" secondAttribute="trailing" id="jCc-p4-3Gu"/>
-                                        <constraint firstItem="Q8x-cU-blX" firstAttribute="top" secondItem="G0q-xq-qrZ" secondAttribute="top" constant="103" id="mPi-CQ-2Bl"/>
-                                        <constraint firstItem="Vev-ig-hee" firstAttribute="leading" secondItem="G0q-xq-qrZ" secondAttribute="leading" id="q7K-LY-D4s"/>
-                                        <constraint firstItem="Vev-ig-hee" firstAttribute="top" secondItem="G0q-xq-qrZ" secondAttribute="top" id="yXU-GJ-GgY"/>
+                                        <constraint firstItem="Vev-ig-hee" firstAttribute="leading" secondItem="G0q-xq-qrZ" secondAttribute="leading" id="65Y-bn-Ul4"/>
+                                        <constraint firstAttribute="centerY" secondItem="Q8x-cU-blX" secondAttribute="centerY" id="HUW-aZ-Dbz"/>
+                                        <constraint firstItem="Vev-ig-hee" firstAttribute="top" secondItem="G0q-xq-qrZ" secondAttribute="top" id="TLa-jF-2x4"/>
+                                        <constraint firstAttribute="trailing" secondItem="Vev-ig-hee" secondAttribute="trailing" id="TTP-Ag-irs"/>
+                                        <constraint firstAttribute="centerX" secondItem="Q8x-cU-blX" secondAttribute="centerX" constant="-0.5" id="cfH-Sy-2Io"/>
+                                        <constraint firstAttribute="trailing" secondItem="Q8x-cU-blX" secondAttribute="trailing" constant="24" id="kWM-Jj-ajP"/>
+                                        <constraint firstItem="Q8x-cU-blX" firstAttribute="leading" secondItem="G0q-xq-qrZ" secondAttribute="leading" constant="25" id="qS5-fg-s1W"/>
                                     </constraints>
                                 </view>
                                 <blurEffect style="dark"/>
@@ -62,10 +66,10 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="JES-lj-3MS" firstAttribute="top" secondItem="f53-wF-PyW" secondAttribute="bottom" id="3he-Wv-MRD"/>
-                            <constraint firstItem="f53-wF-PyW" firstAttribute="leading" secondItem="MaV-LM-23D" secondAttribute="leading" id="bjx-16-Viw"/>
-                            <constraint firstItem="f53-wF-PyW" firstAttribute="top" secondItem="MaV-LM-23D" secondAttribute="top" id="fvV-Ao-KVN"/>
-                            <constraint firstAttribute="trailing" secondItem="f53-wF-PyW" secondAttribute="trailing" id="vxf-kE-bPP"/>
+                            <constraint firstAttribute="trailing" secondItem="f53-wF-PyW" secondAttribute="trailing" id="JYh-nq-uTr"/>
+                            <constraint firstItem="f53-wF-PyW" firstAttribute="leading" secondItem="MaV-LM-23D" secondAttribute="leading" id="Qid-Z8-eas"/>
+                            <constraint firstItem="JES-lj-3MS" firstAttribute="top" secondItem="f53-wF-PyW" secondAttribute="bottom" id="bna-El-r5i"/>
+                            <constraint firstItem="f53-wF-PyW" firstAttribute="top" secondItem="MaV-LM-23D" secondAttribute="top" id="ieQ-zP-aMx"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add New Entry" id="tSc-RB-Wbf">
@@ -84,6 +88,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="doneButton" destination="7CX-R7-Afp" id="75g-Sy-85n"/>
+                        <outlet property="navigationItemBar" destination="Bm0-pb-B9l" id="NTJ-mD-rRy"/>
                         <outlet property="textField" destination="Q8x-cU-blX" id="s7x-Qo-0Jk"/>
                     </connections>
                 </viewController>
@@ -158,8 +163,8 @@
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MIT Technology Review" translatesAutoresizingMaskIntoConstraints="NO" id="t4f-Ln-k4y">
                                             <rect key="frame" x="8" y="15" width="50" height="50"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="50" id="JWQ-vP-Tcx"/>
-                                                <constraint firstAttribute="height" constant="50" id="hv5-oe-qy2"/>
+                                                <constraint firstAttribute="height" constant="50" id="U0M-O4-Ext"/>
+                                                <constraint firstAttribute="width" constant="50" id="lLZ-JE-ghm"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="vMD-f9-SaL">
@@ -170,12 +175,13 @@
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="vMD-f9-SaL" firstAttribute="leading" secondItem="t4f-Ln-k4y" secondAttribute="trailing" constant="8" id="DDj-fb-9Di"/>
-                                        <constraint firstItem="t4f-Ln-k4y" firstAttribute="top" secondItem="HXP-kI-80e" secondAttribute="top" constant="15" id="GGf-DY-pMk"/>
+                                        <constraint firstItem="vMD-f9-SaL" firstAttribute="leading" secondItem="t4f-Ln-k4y" secondAttribute="trailing" constant="8" id="Afy-IH-Gov"/>
+                                        <constraint firstItem="t4f-Ln-k4y" firstAttribute="top" secondItem="HXP-kI-80e" secondAttribute="top" constant="15" id="FCn-Xb-a2H"/>
                                         <constraint firstAttribute="trailing" secondItem="vMD-f9-SaL" secondAttribute="trailing" constant="8" id="Npe-Zt-s4a"/>
+                                        <constraint firstAttribute="trailing" secondItem="vMD-f9-SaL" secondAttribute="trailing" constant="8" id="OVL-H9-9dc"/>
                                         <constraint firstAttribute="bottom" secondItem="vMD-f9-SaL" secondAttribute="bottom" constant="14" id="Utl-jM-g3W"/>
                                         <constraint firstItem="vMD-f9-SaL" firstAttribute="top" secondItem="HXP-kI-80e" secondAttribute="top" constant="15" id="gU6-z3-zd1"/>
-                                        <constraint firstItem="t4f-Ln-k4y" firstAttribute="leading" secondItem="HXP-kI-80e" secondAttribute="leading" constant="8" id="wGf-nF-G8A"/>
+                                        <constraint firstItem="t4f-Ln-k4y" firstAttribute="leading" secondItem="HXP-kI-80e" secondAttribute="leading" constant="8" id="uJ7-y7-Edy"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -277,6 +283,6 @@
         <image name="MIT Technology Review" width="1004" height="1296"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Sun-Cb-E37"/>
+        <segue reference="LGt-4C-Z0f"/>
     </inferredMetricsTieBreakers>
 </document>

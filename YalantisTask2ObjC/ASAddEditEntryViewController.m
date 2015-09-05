@@ -8,16 +8,13 @@
 
 #import "ASAddEditEntryViewController.h"
 
-  //data model classes
-#import "ASPublisherData.h"
-#import "ASPublisher.h"
-
-
 
 @interface ASAddEditEntryViewController () <UITextFieldDelegate>
 
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
+@property (weak, nonatomic) IBOutlet UINavigationItem *navigationItemBar;
+
 
 @end
 
@@ -30,7 +27,7 @@
 
 
 
-
+#pragma mark -
 #pragma mark LOADING
 
 - (void)viewDidLoad {
@@ -38,51 +35,90 @@
 
   self.textField.delegate = self;
 
-  if (self.editEntry != nil) {
-    self.title = @"Edit Entry";
-    self.textField.text = self.editEntry.title;
-    self.doneButton.enabled = true;
+  if (self.editASPublisherEntity != nil) {
+      [self configEditEntryScreen];
   } else {
-    self.title = @"Add New Entry";
-    self.doneButton.enabled = false;
+      [self configAddNewEntryScreen];
   }
 
 }
 
+- (void)configEditEntryScreen {
+    self.navigationItemBar.title = @"Edit Entry";
+    self.textField.text = self.editASPublisherEntity.publisherName;
+    self.doneButton.enabled = true;
+}
+
+- (void)configAddNewEntryScreen {
+    self.navigationItemBar.title = @"Add New Entry";
+    self.doneButton.enabled = false;
+}
+
+
 - (void)viewWillAppear:(BOOL)animated {
   [super viewWillAppear:animated];
-  [self.textField becomeFirstResponder];
+//  [self.textField becomeFirstResponder];
 }
 
 
 
 
-
+#pragma mark -
 #pragma mark TARGET ACTION
 
 - (IBAction)cancelButtonDidTouch:(UIBarButtonItem *)sender {
-  [self.delegate cancelAddNewEntryViewControllerWithAnimationCell:self cellIndexPath:self.indexPathForCellAnimation];
+    
+    if (self.editASPublisherEntity) {
+        [self.delegate cancelButtonDidTouchForEditingPublisherIn:self withIndexPathCell:self.indexPathForCellAnimation];
+    } else {
+        [self.delegate cancelButtonDidTouchForAddingNewPublisherIn:self];
+    }
+
 }
 
 
 - (IBAction)doneButtonDidTouch:(UIBarButtonItem *)sender {
-
-  if (self.editEntry) {
-    [[ASPublisherData sharedInstance] editExistEntryInModel:self.editEntry changeTitle:self.textField.text];
+    NSString *name = self.textField.text;
+  if (self.editASPublisherEntity) {
+      [self doneEditASPublisherEntityWithChangedName:name];
   } else {
-    [[ASPublisherData sharedInstance] addNewEntryInModel:self.textField.text];
+      [self doneAddNewASPublisherEntityWithName:name];
   }
 
-  [self dismissViewControllerAnimated:YES completion:nil];
+}
 
+- (void)doneEditASPublisherEntityWithChangedName:(NSString *)name {
+    self.editASPublisherEntity.publisherName = name;
+    [self.delegate editASPublisherEntityDoneIn:self
+                                endWithChanged:self.editASPublisherEntity
+                              withAnimatedCell:self.indexPathForCellAnimation];
+}
+
+- (void)doneAddNewASPublisherEntityWithName:(NSString *)name {
+        /// Create Entity
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"ASPublisherEntity"
+                                                         inManagedObjectContext:self.coreDataManager.managedObjectContext];
+        /// Initialize Record
+    ASPublisherEntity *newRecord = [[ASPublisherEntity alloc]
+                                    initWithEntity:entityDescription
+                                    insertIntoManagedObjectContext:self.coreDataManager.managedObjectContext];
+
+        /// Populate Record
+    newRecord.publisherName = name;
+    newRecord.created = [NSDate date];
+
+    [self.coreDataManager saveManagedObjectContext];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 
 
+#pragma mark -
+#pragma mark UITextFieldDelegate
 
-
-
-#pragma mark Delegate mehtod
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    return YES;
+}
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range
 replacementString:(NSString *)string {
