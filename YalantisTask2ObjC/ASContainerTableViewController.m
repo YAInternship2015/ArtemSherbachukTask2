@@ -79,7 +79,7 @@ const NSTimeInterval kCellActionAnimationTime = 0.4;
 
     ASPublisherEntity *recordInDB = [self.fetchedResultController objectAtIndexPath:indexPath];
 
-        //    cell.publisherImage.image = [[ASPublisherData sharedInstance] imageForCellAtIndex:indexPath.row];
+    cell.publisherImage.image = [UIImage imageWithData:recordInDB.publisherImage];
     cell.publisherTitle.text = recordInDB.publisherName;
 
     cell.backgroundColor = indexPath.row % 2 ? [UIColor whiteColor] : [[UIColor lightGrayColor]

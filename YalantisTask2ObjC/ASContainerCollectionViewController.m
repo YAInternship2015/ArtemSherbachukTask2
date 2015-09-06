@@ -65,9 +65,9 @@ UICollectionViewDelegate, ASAddEditEntryViewControllerDelegate>
 
 - (void)setupGridForCollectionView {
     CGFloat numberOfItemPerRow = 3.0;
-    CGFloat heightAdjustment = 42.0;
+    CGFloat heightAdjustment = 32.0;
     CGFloat widthOneItem =
-    (CGRectGetWidth(self.collectionView.frame) / 2) / numberOfItemPerRow;
+    (CGRectGetWidth(self.collectionView.frame) - 350) / numberOfItemPerRow;
 
 
     UICollectionViewFlowLayout* layout = [[UICollectionViewFlowLayout alloc] init];
@@ -104,7 +104,7 @@ UICollectionViewDelegate, ASAddEditEntryViewControllerDelegate>
 
     ASPublisherEntity *recordInDB = [self.fetchedResultController objectAtIndexPath:indexPath];
 
-//    cell.publisherImage.image = [[ASPublisherData sharedInstance] imageForCellAtIndex:indexPath.row];
+    cell.publisherImage.image = [UIImage imageWithData:recordInDB.publisherImage];
     cell.publisherTitle.text = recordInDB.publisherName;
 }
 
@@ -112,7 +112,7 @@ UICollectionViewDelegate, ASAddEditEntryViewControllerDelegate>
 
 
 #pragma mark -
-#pragma Cell Target Action
+#pragma mark Target Action
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     UICollectionViewCell* cell = [self.collectionView cellForItemAtIndexPath:indexPath];
@@ -133,9 +133,9 @@ UICollectionViewDelegate, ASAddEditEntryViewControllerDelegate>
         [self.fetchedResultController.managedObjectContext deleteObject:object];
 
             //tell button how match item cell was deleted
-        NSSet *countOfDeletingObjects = [self.fetchedResultController.managedObjectContext deletedObjects];
-        [self.deleteItemsButton setTitle:[NSString stringWithFormat:@"Deleted %ld Items", countOfDeletingObjects.count]
-                                forState: UIControlStateNormal];
+        NSSet *objects = [self.fetchedResultController.managedObjectContext deletedObjects];
+        NSString *buttonTitle = [NSString stringWithFormat:@"Deleted %lu Items", (unsigned long)objects.count];
+        [self.deleteItemsButton setTitle:buttonTitle forState:UIControlStateNormal];
 
             //show deleting menu view for confirmation
         [self showDeletingViewMenuWithAnimatedHeight:44];
@@ -145,14 +145,14 @@ UICollectionViewDelegate, ASAddEditEntryViewControllerDelegate>
 
 - (IBAction)cancelDeletingItems:(id)sender {
     [self.fetchedResultController.managedObjectContext rollback];
-    [self showDeletingViewMenuWithAnimatedHeight:0];
+    [self hideDeletingViewMenuWithAnimation];
 }
 
 
 - (IBAction)saveDeletingItems:(id)sender {
         //save deleted items cell
     [self.coreDataManager saveManagedObjectContext];
-    [self showDeletingViewMenuWithAnimatedHeight:0];
+    [self hideDeletingViewMenuWithAnimation];
     [self showDeletingSucceedImageWithAnimation];
 }
 
@@ -196,7 +196,7 @@ UICollectionViewDelegate, ASAddEditEntryViewControllerDelegate>
     switch (type) {
         case NSFetchedResultsChangeInsert:
             [self.collectionView reloadData];
-//            [self.collectionView insertItemsAtIndexPaths:@[newIndexPath, indexPath]];
+            //[self.collectionView insertItemsAtIndexPaths:@[newIndexPath]];
             break;
         case NSFetchedResultsChangeDelete:
             [self.collectionView deleteItemsAtIndexPaths:@[indexPath]];
@@ -285,35 +285,47 @@ UICollectionViewDelegate, ASAddEditEntryViewControllerDelegate>
 
 - (void)showDeletingViewMenuWithAnimatedHeight:(CGFloat)height {
     self.deleteViewHeightConstraint.constant = height;
-    [UIView animateWithDuration:0.8
+    __block __weak ASContainerCollectionViewController* BlockSelf = self;
+    [UIView animateWithDuration:0.5
                           delay:0
          usingSpringWithDamping:0.3
-          initialSpringVelocity:5
+          initialSpringVelocity:0.5
                         options:UIViewAnimationOptionCurveEaseOut
                      animations:^{
-                         [self.view layoutIfNeeded];
+                         [BlockSelf.view layoutIfNeeded];
                      } completion:nil];
 }
+
+
+- (void)hideDeletingViewMenuWithAnimation {
+    self.deleteViewHeightConstraint.constant = 0;
+    __block __weak ASContainerCollectionViewController* BlockSelf = self;
+    [UIView animateWithDuration:0.3 animations:^{
+        [BlockSelf.view layoutIfNeeded];
+    }];
+}
+
 
 - (void)showDeletingSucceedImageWithAnimation {
     self.deleteSuccedImage.alpha = 0;
     self.showDeleteSuccedImageConstraint.constant = self.view.bounds.size.height/2;
+    __block __weak ASContainerCollectionViewController* BlockSelf = self;
     [UIView animateWithDuration:0.8
                           delay:0
          usingSpringWithDamping:0.3
           initialSpringVelocity:1
                         options:UIViewAnimationOptionCurveEaseIn
                      animations:^{
-                         self.deleteSuccedImage.alpha = 1;
-                         [self.view layoutIfNeeded];
+                         BlockSelf.deleteSuccedImage.alpha = 1;
+                         [BlockSelf.view layoutIfNeeded];
                      } completion:^(BOOL finished) {
 
-                         self.showDeleteSuccedImageConstraint.constant = -100;
+                         BlockSelf.showDeleteSuccedImageConstraint.constant = -100;
                          [UIView animateWithDuration:0.3 delay:0.3
                                              options:UIViewAnimationOptionCurveEaseIn
                                           animations:^{
-                                              self.deleteSuccedImage.alpha = 0;
-                                              [self.view layoutIfNeeded];
+                                              BlockSelf.deleteSuccedImage.alpha = 0;
+                                              [BlockSelf.view layoutIfNeeded];
                                           } completion:nil];
                      }];
 }

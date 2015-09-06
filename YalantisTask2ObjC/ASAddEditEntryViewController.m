@@ -11,10 +11,9 @@
 
 @interface ASAddEditEntryViewController () <UITextFieldDelegate>
 
-
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
 @property (weak, nonatomic) IBOutlet UINavigationItem *navigationItemBar;
-
+@property (nonatomic, strong) NSString *randomImagePath;
 
 @end
 
@@ -105,6 +104,7 @@
 
         /// Populate Record
     newRecord.publisherName = name;
+    newRecord.publisherImage = UIImagePNGRepresentation([UIImage imageNamed:[self randomImagePath]]);
     newRecord.created = [NSDate date];
 
     [self.coreDataManager saveManagedObjectContext];
@@ -117,6 +117,7 @@
 #pragma mark UITextFieldDelegate
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
     return YES;
 }
 
@@ -136,5 +137,37 @@ replacementString:(NSString *)string {
 
 
 
+#pragma mark -
+#pragma mark Test method
+
+- (NSString *)randomImagePath {
+    switch (arc4random_uniform(7)) {
+        case 1:
+            return _randomImagePath = @"TIME";
+            break;
+        case 2:
+            return _randomImagePath = @"The New York Times";
+            break;
+        case 3:
+            return _randomImagePath = @"TED";
+            break;
+        case 4:
+            return _randomImagePath = @"MIT Technology Review";
+            break;
+        case 5:
+            return _randomImagePath = @"The Atlantic";
+            break;
+        case 6:
+            return _randomImagePath = @"Daily Intelligencer";
+            break;
+        case 7:
+            return _randomImagePath = @"Quartz";
+            break;
+        default:
+            return _randomImagePath = @"Recode";
+            break;
+    }
+    
+}
 
 @end
