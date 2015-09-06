@@ -10,7 +10,7 @@
 
 #import "ASCoreDataManager.h"
 
-@interface ASContainerCollectionViewController : UICollectionViewController
+@interface ASContainerCollectionViewController : UIViewController
 
 @property(nonatomic, strong) ASCoreDataManager *coreDataManager;
 @property(nonatomic, strong) NSFetchedResultsController *fetchedResultController;

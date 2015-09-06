@@ -16,13 +16,17 @@
 
 const NSTimeInterval cellActionAnimation = 0.4;
 
-@interface ASContainerCollectionViewController () <NSFetchedResultsControllerDelegate, ASAddEditEntryViewControllerDelegate>
+@interface ASContainerCollectionViewController () <NSFetchedResultsControllerDelegate, UICollectionViewDataSource,
+UICollectionViewDelegate, ASAddEditEntryViewControllerDelegate>
 
-
+    // I decide to put CollectionView in ViewController for many resons. Animate height constrain... etc.
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *deleteViewHeightConstraint; //view that attempt when we delete cell item
+@property (weak, nonatomic) IBOutlet UIButton *deleteItemsButton;//confirmation deleting items cell
+@property (weak, nonatomic) IBOutlet UIImageView *deleteSuccedImage;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *showDeleteSuccedImageConstraint;
 
 @end
-
-
 
 
 @implementation ASContainerCollectionViewController
@@ -36,8 +40,9 @@ const NSTimeInterval cellActionAnimation = 0.4;
     [super viewDidLoad];
 
     [self setupGridForCollectionView];
-    self.collectionView.delaysContentTouches = true;
-    [self setupLongPressGestureToDeleteCell];
+    [self setupLongPressGestureForDeletingCell];
+    self.deleteViewHeightConstraint.constant = 0; //when deleteing cell is perform view at buttom popup
+    self.showDeleteSuccedImageConstraint.constant = -100;
 }
 
 
@@ -50,7 +55,7 @@ const NSTimeInterval cellActionAnimation = 0.4;
 }
 
 
-- (void)setupLongPressGestureToDeleteCell {
+- (void)setupLongPressGestureForDeletingCell {
     UILongPressGestureRecognizer *lpgr = [[UILongPressGestureRecognizer alloc]
                                           initWithTarget:self action:@selector(didLongPressCellToDelete:)];
     lpgr.minimumPressDuration = 0.5;
@@ -59,11 +64,11 @@ const NSTimeInterval cellActionAnimation = 0.4;
 
 
 - (void)setupGridForCollectionView {
-    CGFloat leftAndRightPadding = 36.0;
     CGFloat numberOfItemPerRow = 3.0;
-    CGFloat heightAdjustment = 40.0;
+    CGFloat heightAdjustment = 42.0;
     CGFloat widthOneItem =
-    (CGRectGetWidth(self.collectionView.frame) - leftAndRightPadding) / numberOfItemPerRow;
+    (CGRectGetWidth(self.collectionView.frame) / 2) / numberOfItemPerRow;
+
 
     UICollectionViewFlowLayout* layout = [[UICollectionViewFlowLayout alloc] init];
     layout.itemSize = CGSizeMake(widthOneItem, widthOneItem + heightAdjustment);
@@ -84,13 +89,16 @@ const NSTimeInterval cellActionAnimation = 0.4;
     return [sectionInfo numberOfObjects];
 }
 
+
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
 
     ASPublisherCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CellCollection"
                                                                                     forIndexPath:indexPath];
     [self configureCell:cell atIndexPath:indexPath];
+
     return cell;
 }
+
 
 - (void)configureCell:(ASPublisherCollectionViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
 
@@ -113,62 +121,40 @@ const NSTimeInterval cellActionAnimation = 0.4;
 }
 
 
-
 - (void)didLongPressCellToDelete:(UILongPressGestureRecognizer*)gesture {
+        //get location cell
     CGPoint tapLocation = [gesture locationInView:self.collectionView];
     NSIndexPath *indexPath = [self.collectionView indexPathForItemAtPoint:tapLocation];
 
     if (indexPath && gesture.state == UIGestureRecognizerStateBegan) {
-        NSLog(@"Long press");
 
-        
+            //delete item cell
+        ASPublisherEntity *object = [self.fetchedResultController objectAtIndexPath:indexPath];
+        [self.fetchedResultController.managedObjectContext deleteObject:object];
+
+            //tell button how match item cell was deleted
+        NSSet *countOfDeletingObjects = [self.fetchedResultController.managedObjectContext deletedObjects];
+        [self.deleteItemsButton setTitle:[NSString stringWithFormat:@"Deleted %ld Items", countOfDeletingObjects.count]
+                                forState: UIControlStateNormal];
+
+            //show deleting menu view for confirmation
+        [self showDeletingViewMenuWithAnimatedHeight:44];
     }
 }
 
 
-
-/*
-- (BOOL)canPerformAction:(SEL)action withSender:(id)sender {
-    return (action == @selector(deletePublisher:));
+- (IBAction)cancelDeletingItems:(id)sender {
+    [self.fetchedResultController.managedObjectContext rollback];
+    [self showDeletingViewMenuWithAnimatedHeight:0];
 }
 
 
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldShowMenuForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return YES;
+- (IBAction)saveDeletingItems:(id)sender {
+        //save deleted items cell
+    [self.coreDataManager saveManagedObjectContext];
+    [self showDeletingViewMenuWithAnimatedHeight:0];
+    [self showDeletingSucceedImageWithAnimation];
 }
-
-
-- (void)deletePublisher:(UIMenuController *)menuController {
-    NSLog(@"Menu");
-}
-
-
-- (BOOL)collectionView:(UICollectionView *)collectionView
-      canPerformAction:(SEL)action
-    forItemAtIndexPath:(NSIndexPath *)indexPath
-            withSender:(id)sender {
-
-    if (action == @selector(deletePublisher:)) {
-            UIAlertView *alertview = [[UIAlertView alloc]
-                                      initWithTitle:@"warning.."
-                                      message:@"Do you really want to delete this?"
-                                      delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
-            [alertview show];
-            return YES;
-        }
-
-    return NO;
-}
-
-
-- (void)collectionView:(UICollectionView *)collectionView performAction:(SEL)action
-    forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
-    NSLog(@"Delete");
-}
-*/
-
-
-
 
 
 
@@ -201,6 +187,7 @@ const NSTimeInterval cellActionAnimation = 0.4;
 
 
 
+
 #pragma mark -
 #pragma mark NSFetchedResultsControllerDelegate
 
@@ -208,7 +195,8 @@ const NSTimeInterval cellActionAnimation = 0.4;
      forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath {
     switch (type) {
         case NSFetchedResultsChangeInsert:
-            [self.collectionView insertItemsAtIndexPaths:@[newIndexPath]];
+            [self.collectionView reloadData];
+//            [self.collectionView insertItemsAtIndexPaths:@[newIndexPath, indexPath]];
             break;
         case NSFetchedResultsChangeDelete:
             [self.collectionView deleteItemsAtIndexPaths:@[indexPath]];
@@ -224,6 +212,7 @@ const NSTimeInterval cellActionAnimation = 0.4;
     }
 
 }
+
 
 
 
@@ -244,6 +233,7 @@ const NSTimeInterval cellActionAnimation = 0.4;
 
 }
 
+
 - (void)editASPublisherEntityDoneIn:(ASAddEditEntryViewController *)controller endWithChanged:(NSManagedObject *)record
                    withAnimatedCell:(NSIndexPath *)indePathCell {
         //save context
@@ -261,6 +251,7 @@ const NSTimeInterval cellActionAnimation = 0.4;
 
 #pragma mark - Animation
 
+
 - (void)animationCollectionView {
     self.collectionView.alpha = 0;
     __block __weak ASContainerCollectionViewController* blockSelf = self;
@@ -269,11 +260,13 @@ const NSTimeInterval cellActionAnimation = 0.4;
     }];
 }
 
+
 - (void)animateSelectedCell:(UICollectionViewCell *)cell withZoomX:(CGFloat)x zoomY:(CGFloat)y {
     [UIView animateWithDuration:cellActionAnimation delay:0 usingSpringWithDamping:0.3 initialSpringVelocity:0.5 options:UIViewAnimationOptionCurveEaseOut animations:^{
         cell.transform = CGAffineTransformMakeScale(x, y);
     } completion:nil];
 }
+
 
 - (void)animateDisplayCell:(UICollectionViewCell *)cell atIndex:(NSIndexPath *)indexPath {
     cell.alpha = 0;
@@ -287,6 +280,42 @@ const NSTimeInterval cellActionAnimation = 0.4;
         cell.alpha = 1;
         cell.transform = CGAffineTransformMakeScale(1, 1);
     }];
+}
+
+
+- (void)showDeletingViewMenuWithAnimatedHeight:(CGFloat)height {
+    self.deleteViewHeightConstraint.constant = height;
+    [UIView animateWithDuration:0.8
+                          delay:0
+         usingSpringWithDamping:0.3
+          initialSpringVelocity:5
+                        options:UIViewAnimationOptionCurveEaseOut
+                     animations:^{
+                         [self.view layoutIfNeeded];
+                     } completion:nil];
+}
+
+- (void)showDeletingSucceedImageWithAnimation {
+    self.deleteSuccedImage.alpha = 0;
+    self.showDeleteSuccedImageConstraint.constant = self.view.bounds.size.height/2;
+    [UIView animateWithDuration:0.8
+                          delay:0
+         usingSpringWithDamping:0.3
+          initialSpringVelocity:1
+                        options:UIViewAnimationOptionCurveEaseIn
+                     animations:^{
+                         self.deleteSuccedImage.alpha = 1;
+                         [self.view layoutIfNeeded];
+                     } completion:^(BOOL finished) {
+
+                         self.showDeleteSuccedImageConstraint.constant = -100;
+                         [UIView animateWithDuration:0.3 delay:0.3
+                                             options:UIViewAnimationOptionCurveEaseIn
+                                          animations:^{
+                                              self.deleteSuccedImage.alpha = 0;
+                                              [self.view layoutIfNeeded];
+                                          } completion:nil];
+                     }];
 }
 
 @end
