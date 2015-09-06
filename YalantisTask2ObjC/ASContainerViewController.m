@@ -12,6 +12,19 @@
 #import "ASContainerCollectionViewController.h"
 
 
+@implementation UIColor (Extentions)
+
++ (UIColor *)navigationBarGreenColor {
+    return [UIColor colorWithRed:0.204 green:0.737 blue:0.6 alpha:1];
+}
+
++ (UIColor *)navigationBarRedColor {
+    return [UIColor colorWithRed:0.92 green:0.447 blue:0.474 alpha:1];
+}
+
+@end
+
+
 
 @interface ASContainerViewController () <ASAddEditEntryViewControllerDelegate>
 
@@ -103,9 +116,15 @@
     if (isFirstVC) {
         [self removeVC:self.firstVC];
         [self displayVC:self.secondVC];
+        [UIView animateWithDuration:0.2 animations:^{
+            self.navigationBar.barTintColor = [UIColor navigationBarRedColor];
+        }];
     } else {
         [self removeVC:self.secondVC];
         [self displayVC:self.firstVC];
+        [UIView animateWithDuration:0.2 animations:^{
+            self.navigationBar.barTintColor = [UIColor navigationBarGreenColor];
+        }];
     }
 
 }

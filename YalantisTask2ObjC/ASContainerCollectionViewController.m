@@ -19,6 +19,7 @@ const NSTimeInterval cellActionAnimation = 0.4;
 @interface ASContainerCollectionViewController () <NSFetchedResultsControllerDelegate, ASAddEditEntryViewControllerDelegate>
 
 
+
 @end
 
 
@@ -36,6 +37,7 @@ const NSTimeInterval cellActionAnimation = 0.4;
 
     [self setupGridForCollectionView];
     self.collectionView.delaysContentTouches = true;
+    [self setupLongPressGestureToDeleteCell];
 }
 
 
@@ -43,8 +45,16 @@ const NSTimeInterval cellActionAnimation = 0.4;
     [super viewWillAppear:animated];
 
     self.fetchedResultController.delegate = self;
-
+    [self.collectionView reloadData];
     [self animationCollectionView];
+}
+
+
+- (void)setupLongPressGestureToDeleteCell {
+    UILongPressGestureRecognizer *lpgr = [[UILongPressGestureRecognizer alloc]
+                                          initWithTarget:self action:@selector(didLongPressCellToDelete:)];
+    lpgr.minimumPressDuration = 0.5;
+    [self.collectionView addGestureRecognizer:lpgr];
 }
 
 
@@ -88,7 +98,6 @@ const NSTimeInterval cellActionAnimation = 0.4;
 
 //    cell.publisherImage.image = [[ASPublisherData sharedInstance] imageForCellAtIndex:indexPath.row];
     cell.publisherTitle.text = recordInDB.publisherName;
-
 }
 
 
@@ -98,16 +107,69 @@ const NSTimeInterval cellActionAnimation = 0.4;
 #pragma Cell Target Action
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-
-
-        ///TODO: delete obje if long gesture
-
     UICollectionViewCell* cell = [self.collectionView cellForItemAtIndexPath:indexPath];
-
     [self animateSelectedCell:cell withZoomX:1.2 zoomY:1.2];
-
     [self performSegueWithIdentifier:@"EditEntrySegue" sender:cell];
 }
+
+
+
+- (void)didLongPressCellToDelete:(UILongPressGestureRecognizer*)gesture {
+    CGPoint tapLocation = [gesture locationInView:self.collectionView];
+    NSIndexPath *indexPath = [self.collectionView indexPathForItemAtPoint:tapLocation];
+
+    if (indexPath && gesture.state == UIGestureRecognizerStateBegan) {
+        NSLog(@"Long press");
+
+        
+    }
+}
+
+
+
+/*
+- (BOOL)canPerformAction:(SEL)action withSender:(id)sender {
+    return (action == @selector(deletePublisher:));
+}
+
+
+- (BOOL)collectionView:(UICollectionView *)collectionView shouldShowMenuForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+
+- (void)deletePublisher:(UIMenuController *)menuController {
+    NSLog(@"Menu");
+}
+
+
+- (BOOL)collectionView:(UICollectionView *)collectionView
+      canPerformAction:(SEL)action
+    forItemAtIndexPath:(NSIndexPath *)indexPath
+            withSender:(id)sender {
+
+    if (action == @selector(deletePublisher:)) {
+            UIAlertView *alertview = [[UIAlertView alloc]
+                                      initWithTitle:@"warning.."
+                                      message:@"Do you really want to delete this?"
+                                      delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+            [alertview show];
+            return YES;
+        }
+
+    return NO;
+}
+
+
+- (void)collectionView:(UICollectionView *)collectionView performAction:(SEL)action
+    forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
+    NSLog(@"Delete");
+}
+*/
+
+
+
+
 
 
 

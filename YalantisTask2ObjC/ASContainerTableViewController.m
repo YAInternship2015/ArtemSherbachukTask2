@@ -53,7 +53,8 @@ const NSTimeInterval kCellActionAnimationTime = 0.4;
 
         //toggle delegate when vc is change each time
     self.fetchedResultController.delegate = self;
-    [self animationTableViewFadeIn];
+//    [self animationTableViewFadeIn];
+    [self.tableView reloadData];
 }
 
 
@@ -169,7 +170,6 @@ indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPa
 
 
 
-
 #pragma mark -
 #pragma mark ASAddEditEntryViewControllerDelegate
 
@@ -217,7 +217,7 @@ indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPa
     self.tableView.alpha = 0;
     self.tableView.transform = CGAffineTransformMakeScale(0.1, 0.1);
     __block __weak ASContainerTableViewController* blocSelf = self;
-    [UIView animateWithDuration:0.5 animations:^{
+    [UIView animateWithDuration:0.3 animations:^{
         blocSelf.tableView.alpha = 1;
         blocSelf.tableView.transform = CGAffineTransformMakeScale(1, 0.1);
     }];
