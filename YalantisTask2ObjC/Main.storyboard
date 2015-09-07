@@ -223,7 +223,7 @@
                         </connections>
                     </tableView>
                     <connections>
-                        <segue destination="nlG-6W-0RE" kind="presentation" identifier="EditEntrySegue" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="LGt-4C-Z0f"/>
+                        <segue destination="nlG-6W-0RE" kind="presentation" identifier="EditEntrySegue" modalPresentationStyle="overCurrentContext" modalTransitionStyle="coverVertical" id="LGt-4C-Z0f"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cJc-h6-g95" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -395,6 +395,6 @@
         <image name="trush" width="12" height="12"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="yHH-6H-ted"/>
+        <segue reference="LGt-4C-Z0f"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -18,11 +18,11 @@
 		FCB07C771B8CD1AC0012EAE2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB07C761B8CD1AC0012EAE2 /* main.m */; };
 		FCB07C7A1B8CD1AC0012EAE2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB07C791B8CD1AC0012EAE2 /* AppDelegate.m */; };
 		FCB07C7D1B8CD1AC0012EAE2 /* ASContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB07C7C1B8CD1AC0012EAE2 /* ASContainerViewController.m */; };
-		FCB07C851B8CD1AD0012EAE2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCB07C831B8CD1AD0012EAE2 /* LaunchScreen.xib */; };
 		FCB07C911B8CD1AD0012EAE2 /* YalantisTask2ObjCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB07C901B8CD1AD0012EAE2 /* YalantisTask2ObjCTests.m */; };
 		FCB07C9B1B8CD21C0012EAE2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCB07C9A1B8CD21C0012EAE2 /* Main.storyboard */; };
 		FCB07C9F1B8CD9AA0012EAE2 /* ASContainerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB07C9E1B8CD9AA0012EAE2 /* ASContainerTableViewController.m */; };
 		FCB07CA21B8CD9CB0012EAE2 /* ASContainerCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB07CA11B8CD9CB0012EAE2 /* ASContainerCollectionViewController.m */; };
+		FCCF9F2D1B9D8E3A00592FB0 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCCF9F2C1B9D8E3A00592FB0 /* LaunchScreen.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,7 +56,6 @@
 		FCB07C791B8CD1AC0012EAE2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		FCB07C7B1B8CD1AC0012EAE2 /* ASContainerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASContainerViewController.h; sourceTree = "<group>"; };
 		FCB07C7C1B8CD1AC0012EAE2 /* ASContainerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASContainerViewController.m; sourceTree = "<group>"; };
-		FCB07C841B8CD1AD0012EAE2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		FCB07C8A1B8CD1AD0012EAE2 /* YalantisTask2ObjCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YalantisTask2ObjCTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCB07C8F1B8CD1AD0012EAE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FCB07C901B8CD1AD0012EAE2 /* YalantisTask2ObjCTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YalantisTask2ObjCTests.m; sourceTree = "<group>"; };
@@ -65,6 +64,7 @@
 		FCB07C9E1B8CD9AA0012EAE2 /* ASContainerTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASContainerTableViewController.m; sourceTree = "<group>"; };
 		FCB07CA01B8CD9CB0012EAE2 /* ASContainerCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASContainerCollectionViewController.h; sourceTree = "<group>"; };
 		FCB07CA11B8CD9CB0012EAE2 /* ASContainerCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASContainerCollectionViewController.m; sourceTree = "<group>"; };
+		FCCF9F2C1B9D8E3A00592FB0 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,7 +142,7 @@
 				FCB07C9C1B8CD93C0012EAE2 /* Controllers */,
 				FC8E2CD71B8DBA6A00F45FBA /* Model */,
 				FC8E2CDE1B8E10BA00F45FBA /* Views */,
-				FCB07C831B8CD1AD0012EAE2 /* LaunchScreen.xib */,
+				FCCF9F2C1B9D8E3A00592FB0 /* LaunchScreen.xib */,
 				FCB07C9A1B8CD21C0012EAE2 /* Main.storyboard */,
 				FC009D0C1B8E23F600AD5091 /* Assets.xcassets */,
 				FCB07C741B8CD1AC0012EAE2 /* Supporting Files */,
@@ -272,10 +272,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCCF9F2D1B9D8E3A00592FB0 /* LaunchScreen.xib in Resources */,
 				FCB07C9B1B8CD21C0012EAE2 /* Main.storyboard in Resources */,
 				FC009D171B8E4A9500AD5091 /* Localizable.strings in Resources */,
 				FC009D0D1B8E23F600AD5091 /* Assets.xcassets in Resources */,
-				FCB07C851B8CD1AD0012EAE2 /* LaunchScreen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,17 +324,6 @@
 			targetProxy = FCB07C8B1B8CD1AD0012EAE2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		FCB07C831B8CD1AD0012EAE2 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FCB07C841B8CD1AD0012EAE2 /* Base */,
-			);
-			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		FCB07C921B8CD1AD0012EAE2 /* Debug */ = {
