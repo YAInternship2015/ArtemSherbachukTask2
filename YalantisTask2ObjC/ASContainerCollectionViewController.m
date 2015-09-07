@@ -39,9 +39,8 @@ UICollectionViewDelegate, ASAddEditEntryViewControllerDelegate>
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    [self setupGridForCollectionView];
     [self setupLongPressGestureForDeletingCell];
-    self.deleteViewHeightConstraint.constant = 0; //when deleteing cell is perform view at buttom popup
+    self.deleteViewHeightConstraint.constant = 0;
     self.showDeleteSuccedImageConstraint.constant = -100;
 }
 
@@ -62,19 +61,6 @@ UICollectionViewDelegate, ASAddEditEntryViewControllerDelegate>
     [self.collectionView addGestureRecognizer:lpgr];
 }
 
-
-- (void)setupGridForCollectionView {
-    CGFloat numberOfItemPerRow = 3.0;
-    CGFloat heightAdjustment = 32.0;
-    CGFloat widthOneItem =
-    (CGRectGetWidth(self.collectionView.frame) - 350) / numberOfItemPerRow;
-
-
-    UICollectionViewFlowLayout* layout = [[UICollectionViewFlowLayout alloc] init];
-    layout.itemSize = CGSizeMake(widthOneItem, widthOneItem + heightAdjustment);
-    layout.sectionInset = UIEdgeInsetsMake(8, 8, 8, 8);
-    [self.collectionView setCollectionViewLayout:layout];
-}
 
 
 
@@ -165,6 +151,10 @@ UICollectionViewDelegate, ASAddEditEntryViewControllerDelegate>
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell
     forItemAtIndexPath:(NSIndexPath *)indexPath {
     [self animateDisplayCell:cell atIndex:indexPath];
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return CGSizeMake(self.collectionView.bounds.size.width/4, self.collectionView.bounds.size.height/5);
 }
 
 
@@ -298,9 +288,9 @@ UICollectionViewDelegate, ASAddEditEntryViewControllerDelegate>
 
 
 - (void)hideDeletingViewMenuWithAnimation {
-    self.deleteViewHeightConstraint.constant = 0;
     __block __weak ASContainerCollectionViewController* BlockSelf = self;
-    [UIView animateWithDuration:0.3 animations:^{
+    [UIView animateWithDuration:0.2 animations:^{
+            BlockSelf.deleteViewHeightConstraint.constant = 0;
         [BlockSelf.view layoutIfNeeded];
     }];
 }

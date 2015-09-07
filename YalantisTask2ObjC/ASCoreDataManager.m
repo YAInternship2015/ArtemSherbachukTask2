@@ -59,6 +59,7 @@ NSString *fileStore = @"Database.sqlite";
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSURL *applicationsDocumentsDirectory = [[fileManager URLsForDirectory:NSDocumentDirectory
                                                                  inDomains:NSUserDomainMask] lastObject];
+        ///create folder Store
     NSURL *applicationsStoreDirectory = [applicationsDocumentsDirectory URLByAppendingPathComponent:@"Store"];
     [fileManager createDirectoryAtURL:applicationsStoreDirectory withIntermediateDirectories:YES
                            attributes:nil error:nil];

@@ -68,7 +68,8 @@
     }
 }
 
-
+    //initialize and pass it to vc
+    //the delegate will toggle in firstVC and secodeVC each time when view will apear
 - (NSFetchedResultsController *)setupFetchResultController {
 
     NSFetchRequest *fr = [[NSFetchRequest alloc] initWithEntityName:@"ASPublisherEntity"];
@@ -116,12 +117,14 @@
     if (isFirstVC) {
         [self removeVC:self.firstVC];
         [self displayVC:self.secondVC];
+            //change bar collor
         [UIView animateWithDuration:0.2 animations:^{
             self.navigationBar.barTintColor = [UIColor navigationBarBlueColor];
         }];
     } else {
         [self removeVC:self.secondVC];
         [self displayVC:self.firstVC];
+            //change bar collor
         [UIView animateWithDuration:0.2 animations:^{
             self.navigationBar.barTintColor = [UIColor navigationBarGreenColor];
         }];

@@ -53,7 +53,6 @@ const NSTimeInterval kCellActionAnimationTime = 0.4;
 
         //toggle delegate when vc is change each time
     self.fetchedResultController.delegate = self;
-//    [self animationTableViewFadeIn];
     [self.tableView reloadData];
 }
 
@@ -91,11 +90,13 @@ const NSTimeInterval kCellActionAnimationTime = 0.4;
 #pragma mark -
 #pragma mark TableView Action
 
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyl forRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)tableView:(UITableView *)tableView
+commitEditingStyle:(UITableViewCellEditingStyle)editingStyl
+forRowAtIndexPath:(NSIndexPath *)indexPath {
+
     ASPublisherEntity *recordInDB = [self.fetchedResultController objectAtIndexPath:indexPath];
-    if (recordInDB) {
-        [self.fetchedResultController.managedObjectContext deleteObject:recordInDB];
-    }
+
+    if (recordInDB) [self.fetchedResultController.managedObjectContext deleteObject:recordInDB];
 }
 
 
@@ -119,6 +120,7 @@ const NSTimeInterval kCellActionAnimationTime = 0.4;
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell
 forRowAtIndexPath:(NSIndexPath *)indexPath {
+
     [self animateCellThatWillDisplay:cell atIndexPath:indexPath];
 
 }
