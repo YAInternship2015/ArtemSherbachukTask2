@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>58E48737-6418-4643-8E2F-F8335029CD26</string>
+	<key>IDESourceControlProjectName</key>
+	<string>YalantisTask2ObjC</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>636E3B852CCB5D37918B1147B2268AD5CD67FEDD</key>
+		<string>https://github.com/YAInternship2015/ArtemSherbachukTask3.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>YalantisTask2ObjC.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>636E3B852CCB5D37918B1147B2268AD5CD67FEDD</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/YAInternship2015/ArtemSherbachukTask3.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>636E3B852CCB5D37918B1147B2268AD5CD67FEDD</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>636E3B852CCB5D37918B1147B2268AD5CD67FEDD</string>
+			<key>IDESourceControlWCCName</key>
+			<string>YalantisTask2ObjC</string>
+		</dict>
+	</array>
+</dict>
+</plist>

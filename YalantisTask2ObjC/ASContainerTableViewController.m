@@ -97,6 +97,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
     ASPublisherEntity *recordInDB = [self.fetchedResultController objectAtIndexPath:indexPath];
 
     if (recordInDB) [self.fetchedResultController.managedObjectContext deleteObject:recordInDB];
+    [self.coreDataManager saveManagedObjectContext];
 }
 
 
@@ -153,7 +154,8 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
 indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath  {
     switch (type) {
         case NSFetchedResultsChangeInsert:
-            [self.tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+//            [self.tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+            [self.tableView reloadData];
             break;
         case NSFetchedResultsChangeDelete:
             [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];

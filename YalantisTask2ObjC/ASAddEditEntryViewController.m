@@ -25,6 +25,9 @@
 
 
 
+#define TICK NSDate *startTime = [NSDate date]
+#define TOCK NSLog(@"Elepsed Time %f", -[startTime timeIntervalSinceNow])
+
 
 #pragma mark -
 #pragma mark LOADING
@@ -81,7 +84,9 @@
   if (self.editASPublisherEntity) {
       [self doneEditASPublisherEntityWithChangedName:name];
   } else {
+      TICK;
       [self doneAddNewASPublisherEntityWithName:name];
+      TOCK;
   }
 
 }
@@ -92,6 +97,7 @@
                                 endWithChanged:self.editASPublisherEntity
                               withAnimatedCell:self.indexPathForCellAnimation];
 }
+
 
 - (void)doneAddNewASPublisherEntityWithName:(NSString *)name {
         /// Create Entity
